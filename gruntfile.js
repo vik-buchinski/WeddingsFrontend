@@ -19,12 +19,22 @@ module.exports = function(grunt) {
         watch: {
             files: ['pages/**'],
             tasks: ['devel'],
+        },
+        connect: {
+            server: {
+                options: {
+                    hostname: "localhost",
+                    port: 9000,
+                    debug: true
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jst');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.registerTask('devel', ['jst']);
-    grunt.registerTask('default', ['devel', 'watch']);
+    grunt.registerTask('default', ['devel', 'connect', 'watch']);
 };

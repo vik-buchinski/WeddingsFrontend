@@ -4,6 +4,7 @@ require.config({
         jquery: "../lib/jquery-2.1.1.min",
         lodash: "../lib/lodash.min",
         backbone: "../lib/backbone-min",
+        i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
 
         'home-controller': "./controllers/homeController",
@@ -32,8 +33,19 @@ require.config({
     waitSeconds: 0
 });
 
-require(["app", 'JST'], function (app) {
+require(['app', 'i18n', 'JST'], function (app) {
     $(function () {
+        $.i18n.init({
+            detectFromHeaders: false,
+            lng: 'ru',
+            debug: false,
+            fallbackLng: false,
+            load:'unspecific',
+            ns: 'translation',
+            resGetPath: 'locales/__ns__-__lng__.json',
+            useCookie: false,
+            getAsync: false
+        });
         app.initialize();
     });
 });

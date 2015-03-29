@@ -14,10 +14,8 @@
                 path: ""
             };
             viewLoader(template, function () {
-                $('#pages-container').html(new app.views.Home().render().$el);
-                console.log("loading complete");
+                $('#pages-container').html(new app.views.Home().render().$el.i18n());
             });
-            console.log("home");
         }
 
     });
