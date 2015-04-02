@@ -1,27 +1,27 @@
 ﻿define([], function() {
 
-    var USER_DATA_KEY = "USER_DATA_KEY";
-    var localUserData;
+    var SESSION_KEY = "SESSION_KEY";
+    var localSessionData;
 
     function getLocalStorage() {
         return window.localStorage;
     }
 
     var storageMethods = {
-        saveUserData: function(data) {
-            if (data === null) {
-                getLocalStorage().removeItem(USER_DATA_KEY);
-                localUserData = null;
+        saveSession: function(session) {
+            if (session === null) {
+                getLocalStorage().removeItem(SESSION_KEY);
+                localSessionData = null;
             } else {
-                getLocalStorage().setItem(USER_DATA_KEY, JSON.stringify(data));
-                localUserData = data;
+                getLocalStorage().setItem(SESSION_KEY, JSON.stringify(session));
+                localSessionData = session;
             }
         },
-        getUserData: function() {
-            if (localUserData === null) {
-                localUserData = JSON.parse(getLocalStorage().getItem(USER_DATA_KEY));
+        getSession: function() {
+            if (localSessionData === null) {
+                localSessionData = JSON.parse(getLocalStorage().getItem(SESSION_KEY));
             }
-            return localUserData;
+            return localSessionData;
         }
     };
 

@@ -1,8 +1,10 @@
-﻿define(["home-controller", 'view-loader', 'backbone'], function (homeController, viewLoader) {
+﻿define(['sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (signInView, homeController, viewLoader, constants) {
     var router = Backbone.Router.extend({
 
         routes: {
-            "": "home"
+            "": "home",
+            "admin":"signIn",
+            "admin/signIn":"signIn"
         },
         
         home: function () {
@@ -15,6 +17,12 @@
             };
             viewLoader(template, function () {
                 $('#pages-container').html(new app.views.Home().render().$el.i18n());
+            });
+        },
+        signIn: function () {
+            signInView.init();
+            viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.SIGN_IN, function () {
+                $('#pages-container').html(new app.views.SignIn().render().$el.i18n());
             });
         }
 

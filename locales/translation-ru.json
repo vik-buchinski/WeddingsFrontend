@@ -1,3 +1,12 @@
 ﻿{
-	"test": "это просто тест"	
+	"admin": {
+		"sign-in-page": {
+			"form-header": "Please sign in",
+			"email": "Email address",
+			"password": "Password",
+			"sign-in-btn": "Sign In",
+			"remember-me": "Remember me"
+		}
+
+	}
 }

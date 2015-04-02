@@ -7,7 +7,8 @@ require.config({
         i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
 
-        'home-controller': "./controllers/homeController",
+        'home-controller': "./views/homeController",
+        'sign-in-view': "./views/admin/signInView",
         server: "./utils/server",
         constants: "./utils/constants",
         'local-storage': "./utils/localStorage",

@@ -12,12 +12,12 @@ module.exports = function(grunt) {
                     },
                 },
                 files: {
-                    "compiled-templates.js": ["pages/*.html"]
+                    "compiled-templates.js": ["pages/**/*.html"]
                 }
             }
         },
         watch: {
-            files: ['pages/**'],
+            files: ['pages/**/*'],
             tasks: ['devel'],
         },
         connect: {
