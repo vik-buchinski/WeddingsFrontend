@@ -1,14 +1,13 @@
-﻿define(['sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (signInView, homeController, viewLoader, constants) {
+﻿define(['admin-about', 'local-storage', 'sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (adminAbouView, localStorage, signInView, homeController, viewLoader, constants) {
     var router = Backbone.Router.extend({
 
         routes: {
             "": "home",
-            "admin":"signIn",
-            "admin/signIn":"signIn"
+            "admin": "adminHome",
+            "admin/signIn": "signIn"
         },
-        
+
         home: function () {
-            //app.slider.slidePage(new app.views.Home().render().$el);
             homeController.init();
             var template = {
                 view_name: "Home",
@@ -18,6 +17,16 @@
             viewLoader(template, function () {
                 $('#pages-container').html(new app.views.Home().render().$el.i18n());
             });
+        },
+        adminHome: function () {
+            //if (null != localStorage.getSession()) {
+                adminAbouView.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT, function () {
+                    $('#pages-container').html(new app.views.AdminAbout().render().$el.i18n());
+                });
+            /*} else {
+                window.app.router.navigate("admin/signIn", true);
+            }*/
         },
         signIn: function () {
             signInView.init();

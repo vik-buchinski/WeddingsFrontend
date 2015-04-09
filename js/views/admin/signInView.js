@@ -13,10 +13,9 @@
                     signInSubmit: function () {
                         server.login($("#input-email").val(), $("#input-password").val(), function (data) {
                             localStorage.saveSession(data);
-                            var sessiondata = localStorage.getSession();
-                            debugger;
-                            alert(JSON.stringify(sessiondata));
+                            window.app.router.navigate("admin", true);
                         });
+                        return false;
                     }
                 });
             }

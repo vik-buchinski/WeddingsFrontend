@@ -1,5 +1,12 @@
 ﻿{
+	"server-errore-message": "Server unavailable",
 	"admin": {
+		"header": {
+			"panel-name": "Administration panel"
+		},
+		"left-panel": {
+			"about": "About"
+		},
 		"sign-in-page": {
 			"form-header": "Please sign in",
 			"email": "Email address",
@@ -7,6 +14,5 @@
 			"sign-in-btn": "Sign In",
 			"remember-me": "Remember me"
 		}
-
 	}
 }

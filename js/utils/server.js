@@ -14,6 +14,8 @@
             .fail(function(jqXhr) {
                 if (null != jqXhr.responseText && jqXhr.responseText !== "") {
                     alert(JSON.parse(jqXhr.responseText).Message);
+                } else {
+                    alert($.i18n.t("server-errore-message"));
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);
             });
