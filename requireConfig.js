@@ -6,6 +6,8 @@ require.config({
         backbone: "../lib/backbone-min",
         i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
+        'ckeditor': "../lib/ckeditor/ckeditor",
+        'ckjquery': "../lib/ckeditor/ckjquery",
 
         'admin-about': "./views/admin/aboutView",
         'home-controller': "./views/homeController",
@@ -30,19 +32,22 @@ require.config({
             //Once loaded, use the global 'Backbone' as the
             //module value.
             exports: 'Backbone'
+        },
+        'ckjquery': {
+            deps: ['jquery', 'ckeditor']
         }
     },
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST'], function (app) {
+require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery'], function (app) {
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,
             lng: 'ru',
             debug: false,
             fallbackLng: false,
-            load:'unspecific',
+            load: 'unspecific',
             ns: 'translation',
             resGetPath: 'locales/__ns__-__lng__.json',
             useCookie: false,

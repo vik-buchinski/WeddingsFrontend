@@ -27,7 +27,7 @@
                 'email': email,
                 'password': password
             };
-            commonServerRequest('auth/login', 'POST', params, successCallback);
+            commonServerRequest(constants.API_METHODS.admin.login.url, constants.API_METHODS.admin.login.type, params, successCallback);
         }
     };
 

@@ -1,6 +1,20 @@
 ﻿define({
     BASE_API_URL: "http://localhost:47503/api/",
 
+    API_METHODS: {
+        admin: {
+            login: {
+                url: "auth/login",
+                type: "POST"
+            },
+            about: {
+                url: "admin/about/save"
+            }
+        }
+    },
+
+    CKEDITOR_LANGUAGE: "ru",
+
     LEFT_PANELS: {
         about: "about"
     },

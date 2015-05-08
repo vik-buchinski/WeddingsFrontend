@@ -13,6 +13,12 @@
 			"password": "Password",
 			"sign-in-btn": "Sign In",
 			"remember-me": "Remember me"
+		},
+		"about_page": {
+			"page-title": "About",
+			"choose-photo-title": "Choose photo:",
+			"description-title": "Desciption text:",
+			"save-btn": "Save"
 		}
 	}
 }
