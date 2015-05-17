@@ -1,5 +1,10 @@
 ﻿define({
     BASE_API_URL: "http://localhost:47503/api/",
+    
+    UNAUTHORIZED_REQUEST_CODE: 401,
+
+    MAX_UPLOADS_FILE_SIZE: 10485760,
+    SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
 
     API_METHODS: {
         admin: {
@@ -8,7 +13,14 @@
                 type: "POST"
             },
             about: {
-                url: "admin/about/save"
+                save: {
+                    url: "admin/about/save",
+                    type: "POST"
+                },
+                get: {
+                    url: "admin/about/get",
+                    type: "GET"
+                }
             }
         }
     },

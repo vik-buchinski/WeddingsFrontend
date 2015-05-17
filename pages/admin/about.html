@@ -1,11 +1,11 @@
 <h3 class="page-header"><%=$.i18n.t("admin.about_page.page-title")%></h3>
-<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-<form role="form" method="post" enctype="multipart/form-data" action="<%=save_url%>" target="dummyframe">
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
+<form>
     <div class="form-group">
         <label for="avatar-row"><%=$.i18n.t("admin.about_page.choose-photo-title")%></label>
         <div class="row" id="avatar-row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                <img id="image" src="<% if(data && data.image_url) {%> <%=data.image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label for="description"><%=$.i18n.t("admin.about_page.description-title")%></label>
-        <textarea cols="80" id="description" rows="8"></textarea>
+        <textarea cols="80" id="description" rows="8"><% if(data && data.description) {%> <%=data.description%> <% } %></textarea>
     </div>
-    <button type="submit" class="btn btn-default"><%=$.i18n.t("admin.about_page.save-btn")%></button>
+    <button id="submit-btn" class="btn btn-default"><%=$.i18n.t("admin.about_page.save-btn")%></button>
 </form>

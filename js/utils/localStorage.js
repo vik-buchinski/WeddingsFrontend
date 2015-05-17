@@ -8,8 +8,8 @@
     }
 
     var storageMethods = {
-        saveSession: function(session) {
-            if (session === null) {
+        saveSession: function (session) {
+            if (!session) {
                 getLocalStorage().removeItem(SESSION_KEY);
                 localSessionData = null;
             } else {
@@ -18,7 +18,7 @@
             }
         },
         getSession: function() {
-            if (localSessionData === null) {
+            if (!localSessionData) {
                 localSessionData = JSON.parse(getLocalStorage().getItem(SESSION_KEY));
             }
             return localSessionData;

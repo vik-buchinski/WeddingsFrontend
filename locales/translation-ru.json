@@ -1,5 +1,8 @@
 ﻿{
-	"server-errore-message": "Server unavailable",
+	"server-error-message": "Server unavailable",
+	"supported-format-message": "Supported image formats: ",
+	"max-file-size-message": "Max file size: ",
+	"mb-prefix": "Mb",
 	"admin": {
 		"header": {
 			"panel-name": "Administration panel"
@@ -15,7 +18,7 @@
 			"remember-me": "Remember me"
 		},
 		"about_page": {
-			"page-title": "About",
+			"page-title": "Admin about filling",
 			"choose-photo-title": "Choose photo:",
 			"description-title": "Desciption text:",
 			"save-btn": "Save"

@@ -3,7 +3,8 @@
         init: function() {
             if (!window.app.views.SignIn) {
                 window.app.views.SignIn = Backbone.View.extend({
-                    render: function() {
+                    render: function () {
+                        document.title = $.i18n.t("admin.sign-in-page.form-header");
                         this.$el.html(this.template());
                         return this;
                     },

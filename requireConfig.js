@@ -8,6 +8,7 @@ require.config({
         JST: "../compiled-templates",
         'ckeditor': "../lib/ckeditor/ckeditor",
         'ckjquery': "../lib/ckeditor/ckjquery",
+        'jquery.form': "../lib/jquery.form",
 
         'admin-about': "./views/admin/aboutView",
         'home-controller': "./views/homeController",
@@ -40,7 +41,7 @@ require.config({
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery'], function (app) {
+require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery', 'jquery.form'], function (app) {
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,
