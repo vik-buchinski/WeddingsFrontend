@@ -12,7 +12,7 @@
                             all_pages: constants.LEFT_PANELS,
                             selected_page: constants.LEFT_PANELS.about
                         }));
-                        this.$el.prepend(this.headerTemplate());
+                        //this.$el.prepend(this.headerTemplate());
                         $(this.$el).find(".main").html(this.template({
                             save_url: constants.BASE_API_URL + constants.API_METHODS.admin.about.url,
                             data: this.about_data

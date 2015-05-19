@@ -33,6 +33,11 @@
 
     PAGE_TEMPLATES_DATA: {
         ADMIN: {
+            HEADER: {
+                view_name: "AdminHeader",
+                template_name: "header",
+                path: "admin/common/"
+            },
             SIGN_IN: {
                 view_name: "SignIn",
                 template_name: "sign_in",
@@ -44,7 +49,7 @@
                 path: "admin/",
                 admin_templates: {
                     path: "admin/common/",
-                    header_name: "header",
+                    //header_name: "header",
                     main_container: "main_container"
                 }
             }

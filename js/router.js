@@ -1,4 +1,4 @@
-﻿define(['server', 'admin-about', 'local-storage', 'sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (server, adminAbouView, localStorage, signInView, homeController, viewLoader, constants) {
+﻿define(['admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (adminHeader, server, adminAbouView, localStorage, signInView, homeController, viewLoader, constants) {
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
@@ -25,8 +25,13 @@
             if (null != sessionModel) {
                 server.getAdminAbout(sessionModel.session.token, function(data) {
                     adminAbouView.init();
-                    viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT, function () {
-                        $('#pages-container').html(new app.views.AdminAbout({ about_data: data }).render().$el.i18n());
+                    viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT, function() {
+                        adminHeader.init();
+                        viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
+                            var content = new app.views.AdminAbout({ about_data: data }).render().$el.i18n();
+                            content.prepend(new app.views.AdminHeader().render().$el.i18n());
+                            $('#pages-container').html(content);
+                        });
                     });
                 });
             } else {

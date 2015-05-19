@@ -10,6 +10,7 @@ require.config({
         'ckjquery': "../lib/ckeditor/ckjquery",
         'jquery.form': "../lib/jquery.form",
 
+        'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
         'home-controller': "./views/homeController",
         'sign-in-view': "./views/admin/signInView",
