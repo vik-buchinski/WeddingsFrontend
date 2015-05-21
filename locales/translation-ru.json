@@ -1,27 +1,33 @@
 ﻿{
-	"server-error-message": "Server unavailable",
-	"supported-format-message": "Supported image formats: ",
-	"max-file-size-message": "Max file size: ",
-	"mb-prefix": "Mb",
-	"admin": {
-		"header": {
-			"panel-name": "Administration panel"
-		},
-		"left-panel": {
-			"about": "About"
-		},
-		"sign-in-page": {
-			"form-header": "Please sign in",
-			"email": "Email address",
-			"password": "Password",
-			"sign-in-btn": "Sign In",
-			"remember-me": "Remember me"
-		},
-		"about_page": {
-			"page-title": "Admin about filling",
-			"choose-photo-title": "Choose photo:",
-			"description-title": "Desciption text:",
-			"save-btn": "Save"
-		}
-	}
+    "default-title": "Design for life",
+    "server-error-message": "Server unavailable",
+    "supported-format-message": "Supported image formats: ",
+    "max-file-size-message": "Max file size: ",
+    "mb-prefix": "Mb",
+    "admin": {
+        "header": {
+            "panel-name": "Administration panel"
+        },
+        "left-panel": {
+            "about": "About"
+        },
+        "sign-in-page": {
+            "form-header": "Please sign in",
+            "email": "Email address",
+            "password": "Password",
+            "sign-in-btn": "Sign In",
+            "remember-me": "Remember me"
+        },
+        "about_page": {
+            "page-title": "Admin about filling",
+            "choose-photo-title": "Choose photo:",
+            "description-title": "Desciption text:",
+            "save-btn": "Save"
+        }
+    },
+    "user": {
+        "header": {
+
+        }
+    }
 }

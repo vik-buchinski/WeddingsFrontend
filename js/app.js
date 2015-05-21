@@ -9,6 +9,7 @@ define(['router', 'backbone'], function (router) {
                 utils: {},
                 adapters: {}
             };
+            document.title = $.i18n.t("default-title");
 
             window.app.router = new router();
             Backbone.history.start();

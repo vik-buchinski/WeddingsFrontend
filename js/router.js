@@ -1,21 +1,14 @@
-﻿define(['admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'home-controller', 'view-loader', 'constants', 'backbone'], function (adminHeader, server, adminAbouView, localStorage, signInView, homeController, viewLoader, constants) {
+﻿define(['user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function (userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
+            "about": "userAbout",
             "admin": "adminHome",
             "admin/signIn": "signIn"
         },
 
         home: function() {
-            homeController.init();
-            var template = {
-                view_name: "Home",
-                template_name: "home",
-                path: ""
-            };
-            viewLoader(template, function() {
-                $('#pages-container').html(new app.views.Home().render().$el.i18n());
-            });
+            this.userAbout();
         },
         adminHome: function() {
             this.adminAbout();
@@ -42,6 +35,12 @@
             signInView.init();
             viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.SIGN_IN, function() {
                 $('#pages-container').html(new app.views.SignIn().render().$el.i18n());
+            });
+        },
+        userAbout: function() {
+            userHeader.init();
+            viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
+                $('#pages-container').html(new app.views.UserHeader().render().$el.i18n());
             });
         }
     });

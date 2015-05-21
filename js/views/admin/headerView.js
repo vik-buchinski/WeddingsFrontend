@@ -1,4 +1,4 @@
-﻿define(['server', 'local-storage'], function(server, localStorage) {
+﻿define(['local-storage'], function(localStorage) {
     return {
         init: function() {
             if (!window.app.views.AdminHeader) {
@@ -8,7 +8,11 @@
                         return this;
                     },
                     events: {
-                        //"submit #admin-sign-in-form": "signInSubmit"
+                        "click #log-out": "logOut"
+                    },
+                    logOut: function() {
+                        localStorage.saveSession(null);
+                        window.app.router.navigate("admin/signIn", true);
                     }
                 });
             }

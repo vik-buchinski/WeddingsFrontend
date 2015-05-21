@@ -53,6 +53,18 @@
                     main_container: "main_container"
                 }
             }
+        },
+        USER: {
+            HEADER: {
+                view_name: "UserHeader",
+                template_name: "header",
+                path: "user_part/common/"
+            },
+            ABOUT: {
+                view_name: "UserAbout",
+                template_name: "about",
+                path: "user_part/"
+            }
         }
     }
 });
