@@ -11,6 +11,7 @@
 
                     render: function() {
                         this.$el.html(this.template());
+                        this.initSectionPadding();
                         return this;
                     },
 
@@ -44,6 +45,23 @@
                         });
 
                         this.sub.show();
+                    },
+
+                    initSectionPadding: function() {
+                        if (window.ifpluso) {
+                            var sec = 0;
+                            var inteval = setInterval(function() {
+                                $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+
+                                if (++sec >= 30) clearInterval(inteval);
+                            }, 1000);
+                        } else {
+                            $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+                        }
+
+                        $(window).on('resize', function() {
+                            $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+                        })
                     }
                 });
             }
