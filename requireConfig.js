@@ -10,7 +10,7 @@ require.config({
         'ckjquery': "../lib/ckeditor/ckjquery",
         'jquery.form': "../lib/jquery.form",
 
-        'user-title': "./views/user_part/common/title",
+        'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",
         'sub-menu': "./views/user_part/common/subMenuView",
         'user-about': "./views/user_part/userAboutView",

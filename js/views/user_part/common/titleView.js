@@ -49,8 +49,10 @@
         },
 
         render: function() {
-
-            this.resize();
+            var self = this;
+            setTimeout(function() {
+                self.resize();
+            }, 120);
 
             return this;
         }

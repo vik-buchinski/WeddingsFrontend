@@ -5,12 +5,16 @@
                 window.app.views.UserHeader = Backbone.View.extend({
                     sub: null,
 
-                    initialize: function() {
+                    initialize: function(options) {
+                        this.page_name = options.page_name;
                         _.bindAll(this);
                     },
 
                     render: function() {
-                        this.$el.html(this.template());
+                        var data = {
+                            page_name: this.page_name
+                        };
+                        this.$el.html(this.template(data));
                         this.initSectionPadding();
                         return this;
                     },

@@ -40,7 +40,7 @@
         userAbout: function() {
             userHeader.init();
             viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                $('#pages-container').html(new app.views.UserHeader().render().$el.i18n());
+                $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title") }).render().$el.i18n());
                 userAbout.init();
                 viewLoader(constants.PAGE_TEMPLATES_DATA.USER.ABOUT, function() {
                     $('section.page .container').html(new app.views.UserAbout().render().$el.i18n());

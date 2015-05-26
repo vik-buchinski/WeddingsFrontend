@@ -293,6 +293,58 @@ header nav.menu .sub-menu .menu-item:last-child {
 header nav.menu .menu-item.separator:last-child {
 	display: none;
 }
+/* fontello */
+@font-face {
+  font-family: 'fontello';
+  src: url("./fontello.eot?78578030");
+  src: url("./fontello.eot?78578030#iefix") format('embedded-opentype'), url("./fontello.woff?78578030") format('woff'), url("./fontello.ttf?78578030") format('truetype'), url("./fontello.svg?78578030#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('./fontello.svg?78578030#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+/* opacity .8 */
+/* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+/* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+/* Animation center compensation - magrins should be symmetric */
+/* remove if not needed */
+  margin-left: 0.2em;
+/* you can be more comfortable with increased icons size */
+/* font-size: 120%; */
+/* Uncomment for 3D effect */
+/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-cancel:before { content: '\2715'; } /* 'вњ•' */
+.icon-down-open-1:before { content: '\e0a4'; } /* 'о‚¤' */
+.icon-up-open-1:before { content: '\e0cb'; } /* 'оѓ‹' */
+.icon-right-open-1:before { content: '\e0cc'; } /* 'оѓЊ' */
+.icon-left-open-1:before { content: '\e0cd'; } /* 'оѓЌ' */
+.icon-open:before {  content: '\e0a4'; font-size: 12px;} /* '?' */
+.icon-open.down:before { content: '\e0cb'; font-size: 12px;} /* '?' */
+
 
 /* Gallery */
 .photos-loading {
@@ -924,6 +976,147 @@ body > .content.private .thumbnail {
 #gphw-fd {
     position: fixed !important;
 }
+/*social-icons*/
+@font-face {
+  font-family: 'social-icons-v2';
+  src: url('./social-icons-v2.eot?25815597');
+  src: url('./social-icons-v2.eot?25815597#iefix') format('embedded-opentype'),
+       url('./social-icons-v2.woff?25815597') format('woff'),
+       url('./social-icons-v2.ttf?25815597') format('truetype'),
+       url('./social-icons-v2.svg?25815597#social-icons-v2') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'social-icons-v2';
+    src: url('../font/social-icons-v2.svg?25815597#social-icons-v2') format('svg');
+  }
+}
+*/
+ 
+.social-icons [class^="icon-"]:before, .social-icons [class*=" icon-"]:before {
+  font-family: "social-icons-v2";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.social-icons .social-icons-wrapper { 
+    display: flex; 
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-flex-flow: row wrap; 
+    flex-flow: row wrap;
+    -webkit-justify-content: center;
+    justify-content: center; 
+}
+.social-icons .social-icons-wrapper .social-icon-box {}
+
+.icon-blogspot:before { content: '\e800' !important; } /* 'о Ђ' */
+.icon-dribbble-circle:before { content: '\e801' !important; } /* 'о Ѓ' */
+.icon-dribbble-rounded:before { content: '\e802' !important; } /* 'о ‚' */
+.icon-dribbble:before { content: '\e803' !important; } /* 'о ѓ' */
+.icon-facebook-circle:before { content: '\e804' !important; } /* 'о „' */
+.icon-facebook-rounded:before { content: '\e805' !important; } /* 'о …' */
+.icon-facebook:before { content: '\e806' !important; } /* 'о †' */
+.icon-flickr-circle:before { content: '\e807' !important; } /* 'о ‡' */
+.icon-500px-circle:before { content: '\e808' !important; } /* 'о €' */
+.icon-500px-rounded:before { content: '\e809' !important; } /* 'о ‰' */
+.icon-500px:before { content: '\e80a' !important; } /* 'о Љ' */
+.icon-behance-circle:before { content: '\e80b' !important; } /* 'о ‹' */
+.icon-flickr-rounded:before { content: '\e80c' !important; } /* 'о Њ' */
+.icon-flickr:before { content: '\e80d' !important; } /* 'о Ќ' */
+.icon-gplus-circle:before { content: '\e80e' !important; } /* 'о Ћ' */
+.icon-gplus-rounded:before { content: '\e80f' !important; } /* 'о Џ' */
+.icon-gplus:before { content: '\e810' !important; } /* 'о ђ' */
+.icon-instagram-circle:before { content: '\e811' !important; } /* 'о ‘' */
+.icon-instagram-rounded:before { content: '\e812' !important; } /* 'о ’' */
+.icon-instagram:before { content: '\e813' !important; } /* 'о “' */
+.icon-linkedin-circle:before { content: '\e814' !important; } /* 'о ”' */
+.icon-linkedin-rounded:before { content: '\e815' !important; } /* 'о •' */
+.icon-linkedin:before { content: '\e816' !important; } /* 'о –' */
+.icon-livejournal-circle:before { content: '\e817' !important; } /* 'о —' */
+.icon-livejournal-rounded:before { content: '\e818' !important; } /* 'о ' */
+.icon-livejournal:before { content: '\e819' !important; } /* 'о ™' */
+.icon-mywed-circle:before { content: '\e81a' !important; } /* 'о љ' */
+.icon-mywed-rounded:before { content: '\e81b' !important; } /* 'о ›' */
+.icon-mywed:before { content: '\e81c' !important; } /* 'о њ' */
+.icon-odnoklassniki-circle:before { content: '\e81d' !important; } /* 'о ќ' */
+.icon-odnoklassniki-rounded:before { content: '\e81e' !important; } /* 'о ћ' */
+.icon-odnoklassniki:before { content: '\e81f' !important; } /* 'о џ' */
+.icon-pinterest-circle:before { content: '\e820' !important; } /* 'о  ' */
+.icon-pinterest-rounded:before { content: '\e821' !important; } /* 'о Ў' */
+.icon-pinterest:before { content: '\e822' !important; } /* 'о ў' */
+.icon-tumblr-circle:before { content: '\e823' !important; } /* 'о Ј' */
+.icon-tumblr-rounded:before { content: '\e824' !important; } /* 'о ¤' */
+.icon-tumblr:before { content: '\e825' !important; } /* 'о Ґ' */
+.icon-twitter-circle:before { content: '\e826' !important; } /* 'о ¦' */
+.icon-twitter-rounded:before { content: '\e827' !important; } /* 'о §' */
+.icon-twitter:before { content: '\e828' !important; } /* 'о Ё' */
+.icon-vimeo-circle:before { content: '\e829' !important; } /* 'о ©' */
+.icon-vimeo-rounded:before { content: '\e82a' !important; } /* 'о Є' */
+.icon-vimeo:before { content: '\e82b' !important; } /* 'о «' */
+.icon-vkontakte-circle:before { content: '\e82c' !important; } /* 'о ¬' */
+.icon-vkontakte-rounded:before { content: '\e82d' !important; } /* 'о ­' */
+.icon-behance-rounded:before { content: '\e82e' !important; } /* 'о ®' */
+.icon-behance:before { content: '\e82f' !important; } /* 'о Ї' */
+.icon-blogspot-circle:before { content: '\e830' !important; } /* 'о °' */
+.icon-blogspot-rounded:before { content: '\e831' !important; } /* 'о ±' */
+.icon-vkontakte:before { content: '\e832' !important; } /* 'о І' */
+.icon-youtube-circle:before { content: '\e833' !important; } /* 'о і' */
+.icon-youtube-rounded:before { content: '\e834' !important; } /* 'о ґ' */
+.icon-youtube:before { content: '\e835' !important; } /* 'о µ' */
+
+/* Bruno */
+.social-icons.size16px i  {font-size: 16px; line-height: 16px}
+.social-icons.size24px i  {font-size: 24px; line-height: 24px}
+.social-icons.size32px i  {font-size: 32px; line-height: 32px}
+
+/* Fabio */
+body.fabio .social-icons .social-icons-wrapper {display: block;}
+body.fabio .social-icons .social-icons-wrapper .social-icon-box {display: inline-block;}
+
+/* Levi */
+body.levi .menu-left .social-icons .social-icons-wrapper {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start; 
+}
+body.levi .menu-right .social-icons .social-icons-wrapper {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end; 
+}
+
+/* Polina */
+body.polina.desktop .social-icons .social-icons-wrapper { flex-direction: column; }
+
+
 
 /*custom*/
 body {
@@ -949,10 +1142,8 @@ header, .mobile #sidebar {
 	}
 
 footer {
-			border-top-color: #d6d6d6;
-	 
-			background-color: #ffffff;
-	 
+    border-top-color: #d6d6d6;
+    background-color: #ffffff;
 }
 
 header .top-pane .langs-pane a {
