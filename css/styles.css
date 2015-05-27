@@ -44,3 +44,17 @@
     height: 100px;
     display: none;
 }
+.about-text-template {
+    width: 100%;
+}
+.about-text-template tbody tr > td.image {
+    text-align: justify;
+}
+.about-text-template tbody tr > td.image > img {
+    max-width: 45%;
+    float: right;
+    max-height: 350px;
+}
+.about-text-template tbody tr > td.image > div {
+    text-align: left;
+}

@@ -27,7 +27,14 @@
     },
     "user": {
         "header": {
-
+            "title": "DESIGN FOR LIFE",
+            "about": "ABOUT",
+            "bukiety": "BUKIETY",
+            "decorations": "DEKORACJE",
+            "invitations": "ZAPROSZENIA ŚLUBNE",
+            "graphics": "GRAFIKA UŻYTKOWA",
+            "blog": "BLOG",
+            "contacts": "CONTACTS"
         },
         "about": { 
             "title": "About"

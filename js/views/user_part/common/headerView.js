@@ -15,21 +15,30 @@
                             page_name: this.page_name
                         };
                         this.$el.html(this.template(data));
-                        this.initSectionPadding();
+                        var self = this;
+                        setTimeout(function() {
+                            self.initSectionPadding();
+                        }, 120);
                         return this;
                     },
 
                     events: {
                         'mouseover .menu-item': 'open',
-                        'click > ul > .menu-item > a': 'click'
+                        'click ul > .menu-item > a': 'click'
                     },
 
                     click: function(e) {
-
                         var item = $(e.currentTarget);
 
                         if (item.parents('.menu-item').find('.sub-menu').length) {
                             e.preventDefault();
+                        } else {
+                            _.each($("header li.menu-item"), function(el) {
+                                if ($(el).hasClass("active")) {
+                                    $(el).removeClass("active");
+                                }
+                            });
+                            item.parent().addClass("active");
                         }
                     },
 
@@ -55,17 +64,17 @@
                         if (window.ifpluso) {
                             var sec = 0;
                             var inteval = setInterval(function() {
-                                $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+                                $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
 
                                 if (++sec >= 30) clearInterval(inteval);
                             }, 1000);
                         } else {
-                            $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+                            $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
                         }
 
                         $(window).on('resize', function() {
-                            $('.page > section').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
-                        })
+                            $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
+                        });
                     }
                 });
             }

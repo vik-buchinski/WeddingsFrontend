@@ -22,6 +22,12 @@
                     type: "GET"
                 }
             }
+        },
+        user: {
+            about: {
+                url: "about",
+                type: "GET"
+            }
         }
     },
 

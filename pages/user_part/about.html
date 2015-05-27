@@ -1,0 +1,18 @@
+<% if(data) { %>
+    <table class="about-text-template">
+        <tbody>
+            <tr>
+                <td class="image">
+                    <% if(data.image_url) { %>
+                        <img src="<%=data.image_url%>" />
+                    <% } %>
+                    <% if(data.description) { %>
+                        <div>
+                            <%=data.description%>
+                        </div>
+                    <% } %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<% } %>

@@ -7,7 +7,7 @@ require.config({
         i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
         'ckeditor': "../lib/ckeditor/ckeditor",
-        'ckjquery': "../lib/ckeditor/ckjquery",
+        'ckjquery': "../lib/ckeditor/adapters/jquery",
         'jquery.form': "../lib/jquery.form",
 
         'user-title': "./views/user_part/common/titleView",

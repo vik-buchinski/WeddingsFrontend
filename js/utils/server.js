@@ -98,6 +98,9 @@
         
         getAdminAbout: function (sessionToken, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.about.get.url, constants.API_METHODS.admin.about.get.type, null, successCallback, sessionToken);
+        },
+        getUserAbout: function(successCallback) {
+            commonServerRequest(constants.API_METHODS.user.about.url, constants.API_METHODS.user.about.type, null, successCallback);
         }
     };
 

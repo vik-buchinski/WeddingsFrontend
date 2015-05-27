@@ -2,6 +2,7 @@
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
+            "home": "home",
             "about": "userAbout",
             "admin": "adminHome",
             "admin/signIn": "signIn"
@@ -13,7 +14,7 @@
         adminHome: function() {
             this.adminAbout();
         },
-        adminAbout: function () {
+        adminAbout: function() {
             var sessionModel = localStorage.getSession();
             if (null != sessionModel) {
                 server.getAdminAbout(sessionModel.session.token, function(data) {
@@ -38,12 +39,14 @@
             });
         },
         userAbout: function() {
-            userHeader.init();
-            viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title") }).render().$el.i18n());
-                userAbout.init();
-                viewLoader(constants.PAGE_TEMPLATES_DATA.USER.ABOUT, function() {
-                    $('section.page .container').html(new app.views.UserAbout().render().$el.i18n());
+            server.getUserAbout(function(data) {
+                userHeader.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
+                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title") }).render().$el.i18n());
+                    userAbout.init();
+                    viewLoader(constants.PAGE_TEMPLATES_DATA.USER.ABOUT, function() {
+                        $('section.page .container').html(new app.views.UserAbout({ data: data }).render().$el.i18n());
+                    });
                 });
             });
         }
