@@ -1,4 +1,4 @@
-﻿define(['sub-menu'], function(SubMenu) {
+﻿define(['sub-menu', 'constants'], function (SubMenu, constants) {
     return {
         init: function() {
             if (!window.app.views.UserHeader) {
@@ -7,12 +7,15 @@
 
                     initialize: function(options) {
                         this.page_name = options.page_name;
+                        this.tab_name = options.tab_name;
                         _.bindAll(this);
                     },
 
                     render: function() {
                         var data = {
-                            page_name: this.page_name
+                            page_name: this.page_name,
+                            tab_name: this.tab_name,
+                            all_tabs: constants.USER_TABS
                         };
                         this.$el.html(this.template(data));
                         var self = this;

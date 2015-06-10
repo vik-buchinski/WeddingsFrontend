@@ -32,6 +32,10 @@
     },
 
     CKEDITOR_LANGUAGE: "ru",
+    
+    USER_TABS: {
+        about: "about"
+    },
 
     LEFT_PANELS: {
         about: "about"

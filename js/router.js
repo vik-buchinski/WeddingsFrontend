@@ -42,7 +42,7 @@
             server.getUserAbout(function(data) {
                 userHeader.init();
                 viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title") }).render().$el.i18n());
+                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title"), tab_name: constants.USER_TABS.about }).render().$el.i18n());
                     userAbout.init();
                     viewLoader(constants.PAGE_TEMPLATES_DATA.USER.ABOUT, function() {
                         $('section.page .container').html(new app.views.UserAbout({ data: data }).render().$el.i18n());
