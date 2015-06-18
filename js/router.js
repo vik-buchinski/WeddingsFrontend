@@ -1,11 +1,12 @@
-﻿define(['user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function (userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
+﻿define(['admin-bouquets', 'user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function(adminBouquetsView, userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
             "home": "home",
             "about": "userAbout",
             "admin": "adminHome",
-            "admin/signIn": "signIn"
+            "admin/signIn": "signIn",
+            "admin/bouquets": "adminBouquets"
         },
 
         home: function() {
@@ -31,6 +32,25 @@
             } else {
                 window.app.router.navigate("admin/signIn", true);
             }
+        },
+        adminBouquets: function() {
+            var sessionModel = localStorage.getSession();
+            if (null != sessionModel) {
+                //server.getAdminAbout(sessionModel.session.token, function(data) {
+                adminBouquetsView.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.BOUQUETS, function() {
+                        adminHeader.init();
+                        viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
+                            var content = new app.views.AdminBouquets(/*{ bouquets_data: data }*/).render().$el.i18n();
+                            content.prepend(new app.views.AdminHeader().render().$el.i18n());
+                            $('#pages-container').html(content);
+                        });
+                    });
+                //});
+            } else {
+                window.app.router.navigate("admin/signIn", true);
+            }
+            
         },
         signIn: function() {
             signInView.init();

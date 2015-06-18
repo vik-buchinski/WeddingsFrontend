@@ -16,6 +16,7 @@ require.config({
         'user-about': "./views/user_part/userAboutView",
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
+        'admin-bouquets': "./views/admin/bouquetsView",
         'sign-in-view': "./views/admin/signInView",
         server: "./utils/server",
         constants: "./utils/constants",

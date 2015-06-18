@@ -1,0 +1,41 @@
+﻿<h3 class="page-header"><%=$.i18n.t("admin.bouquets-page.page-title")%></h3>
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
+<form class="breadcrumb">
+    <div class="form-group">
+        <label for="avatar-row"><%=$.i18n.t("admin.bouquets-page.choose-title")%></label>
+        <div class="row" id="avatar-row">
+            <div class="col-sm-offset-0 col-sm-3">
+                <img id="image" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+            </div>
+        </div>
+        <br />
+        <input id="avatar-image" name="avatar-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <label for="image-description"><%=$.i18n.t("admin.bouquets-page.description")%></label>
+            <input type="text" class="form-control" id="image-description" placeholder="description">
+        </div>
+    </div>
+    <button id="submit-btn" class="btn btn-success"><%=$.i18n.t("admin.bouquets-page.add-btn")%></button>
+</form>
+
+<br/>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><%=$.i18n.t("admin.bouquets-page.list-title")%></div>
+    <div class="panel-body">        
+        <div class="media preview-obj img-thumbnail">
+            <div class="media-left">
+                <img class="media-object" src="http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/ad_nbcn_ClaritinTEST_150423.jpg">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                <div class="media-actonbar">
+                    <button class="btn btn-danger"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+                    <button class="btn btn-primary"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

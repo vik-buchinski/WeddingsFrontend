@@ -7,7 +7,7 @@
                         this.about_data = options.about_data;
                     },
                     render: function () {
-                        document.title = $.i18n.t("admin.about_page.page-title");
+                        document.title = $.i18n.t("admin.about-page.page-title");
                         this.$el.html(this.MainContainerTemplate({
                             all_pages: constants.LEFT_PANELS,
                             selected_page: constants.LEFT_PANELS.about

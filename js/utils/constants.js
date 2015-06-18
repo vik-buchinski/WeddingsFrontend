@@ -38,7 +38,8 @@
     },
 
     LEFT_PANELS: {
-        about: "about"
+        about: "about",
+        bouquets: "bouquets"
     },
 
     PAGE_TEMPLATES_DATA: {
@@ -56,6 +57,16 @@
             ABOUT: {
                 view_name: "AdminAbout",
                 template_name: "about",
+                path: "admin/",
+                admin_templates: {
+                    path: "admin/common/",
+                    //header_name: "header",
+                    main_container: "main_container"
+                }
+            },
+            BOUQUETS: {
+                view_name: "AdminBouquets",
+                template_name: "bouquets",
                 path: "admin/",
                 admin_templates: {
                     path: "admin/common/",
