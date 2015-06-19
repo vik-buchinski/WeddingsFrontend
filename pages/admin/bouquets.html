@@ -30,11 +30,76 @@
                 <img class="media-object" src="http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/ad_nbcn_ClaritinTEST_150423.jpg">
             </div>
             <div class="media-body">
-                <h4 class="media-heading">Media heading</h4>
+                <h4 class="media-heading">Photo description</h4>
                 <div class="media-actonbar">
-                    <button class="btn btn-danger"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
-                    <button class="btn btn-primary"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+                    <button id="delete-btn" class="btn btn-danger" data-photo-number="1999"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+                    <button id="edit-btn" class="btn btn-primary" data-photo-number="1999"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
                 </div>
+            </div>
+        </div>
+        <div class="media preview-obj img-thumbnail">
+            <div class="media-left">
+                <img class="media-object" src="http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/ad_nbcn_ClaritinTEST_150423.jpg">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Photo description</h4>
+                <div class="media-actonbar">
+                    <button id="delete-btn" class="btn btn-danger" data-photo-number="1998"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+                    <button id="edit-btn" class="btn btn-primary" data-photo-number="1998"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="confirm-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><%=$.i18n.t("admin.bouquets-page.confirm-title")%></h4>
+            </div>
+            <div class="modal-body">
+                <p><%=$.i18n.t("admin.bouquets-page.confirmation-text")%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.bouquets-page.modal-cancel")%></button>
+                <button type="button" class="btn btn-primary" id="confirm-delete-btn"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit-photo-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="edit-photo-name"><%=$.i18n.t("admin.bouquets-page.edit-modal-title")%></h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="avatar-row">Photo description</label>
+                        <div class="row" id="avatar-row">
+                            <div class="col-sm-offset-0 col-sm-3">
+                                <img id="edit-image" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                            </div>
+                        </div>
+                        <br />
+                        <input id="edit-avatar-image" name="edit-avatar-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <label for="edit-image-description"><%=$.i18n.t("admin.bouquets-page.description")%></label>
+                            <input type="text" class="form-control" id="edit-image-description" placeholder="description">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.bouquets-page.modal-cancel")%></button>
+                <button type="button" class="btn btn-primary" id="save-changes-btn"><%=$.i18n.t("admin.bouquets-page.modal-save-changes")%></button>
             </div>
         </div>
     </div>

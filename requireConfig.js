@@ -9,6 +9,7 @@ require.config({
         'ckeditor': "../lib/ckeditor/ckeditor",
         'ckjquery': "../lib/ckeditor/adapters/jquery",
         'jquery.form': "../lib/jquery.form",
+        'bootstrap': "../lib/bootstrap.min",
 
         'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",
@@ -41,12 +42,15 @@ require.config({
         },
         'ckjquery': {
             deps: ['jquery', 'ckeditor']
+        },
+        'bootstrap': {
+            'deps': ['jquery']
         }
     },
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery', 'jquery.form'], function (app) {
+require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery', 'jquery.form', 'bootstrap'], function(app) {
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,

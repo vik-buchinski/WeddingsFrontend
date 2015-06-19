@@ -32,7 +32,12 @@
             "description": "Short description",
             "list-title": "Bouquets Images:",
             "delete": "Delete",
-            "edit": "Edit"
+            "edit": "Edit",
+            "confirm-title": "Confirmation",
+            "confirmation-text": "Are you really want delete this photo?",
+            "modal-cancel": "Cancel",
+            "edit-modal-title": "Photo Editting",
+            "modal-save-changes": "Save changes"
         }
     },
     "user": {
