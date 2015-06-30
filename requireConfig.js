@@ -50,7 +50,7 @@ require.config({
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST', 'ckeditor', 'ckjquery', 'jquery.form', 'bootstrap'], function(app) {
+require(['app', 'i18n', 'JST', 'jquery.form', 'bootstrap'], function(app) {
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,

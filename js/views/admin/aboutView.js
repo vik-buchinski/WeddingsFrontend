@@ -1,4 +1,4 @@
-﻿define(['server', 'local-storage', 'constants'], function (server, localStorage, constants) {
+﻿define(['server', 'local-storage', 'constants', 'ckeditor', 'ckjquery'], function(server, localStorage, constants) {
     return {
         init: function () {
             if (!window.app.views.AdminAbout) {
