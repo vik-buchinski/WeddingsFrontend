@@ -21,6 +21,24 @@
                     url: "admin/about/get",
                     type: "GET"
                 }
+            },
+            bouquets: {
+                add: {
+                    url: "admin/bouquets/images",
+                    type: "POST"
+                },
+                edit: {
+                    url: "admin/bouquets/images/",
+                    type: "PUT"
+                },
+                getAll: {
+                    url: "admin/bouquets/images",
+                    type: "GET"
+                },
+                delete: {
+                    url: "admin/bouquets/images/",
+                    type: "DELETE"
+                }
             }
         },
         user: {

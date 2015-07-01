@@ -5,11 +5,11 @@
         <label for="avatar-row"><%=$.i18n.t("admin.bouquets-page.choose-title")%></label>
         <div class="row" id="avatar-row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img id="image" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                <img id="adding-image-preview" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
-        <input id="avatar-image" name="avatar-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+        <input id="adding-image" name="adding-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
     </div>
     <div class="form-group row">
         <div class="col-xs-3">
@@ -24,31 +24,25 @@
 
 <div class="panel panel-default">
     <div class="panel-heading"><%=$.i18n.t("admin.bouquets-page.list-title")%></div>
-    <div class="panel-body">        
-        <div class="media preview-obj img-thumbnail">
-            <div class="media-left">
-                <img class="media-object" src="http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/ad_nbcn_ClaritinTEST_150423.jpg">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Photo description</h4>
-                <div class="media-actonbar">
-                    <button id="delete-btn" class="btn btn-danger" data-photo-number="1999"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
-                    <button id="edit-btn" class="btn btn-primary" data-photo-number="1999"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+    <div class="panel-body">
+        <% if(data && data.length > 0) { %>
+            <% _.each(data, function(photo) { %>
+                <div class="media preview-obj img-thumbnail">
+                    <div class="media-left">
+                        <img class="media-object" src="<%=photo.image_url%>">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%=photo.description%></h4>
+                        <div class="media-actonbar">
+                            <button id="delete-btn" class="btn btn-danger" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+                            <button id="edit-btn" class="btn btn-primary" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="media preview-obj img-thumbnail">
-            <div class="media-left">
-                <img class="media-object" src="http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/ad_nbcn_ClaritinTEST_150423.jpg">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Photo description</h4>
-                <div class="media-actonbar">
-                    <button id="delete-btn" class="btn btn-danger" data-photo-number="1998"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
-                    <button id="edit-btn" class="btn btn-primary" data-photo-number="1998"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
-                </div>
-            </div>
-        </div>
+            <% }); %>
+        <% } else { %>
+            <span>No data</span>
+        <% } %>
     </div>
 </div>
 

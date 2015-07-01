@@ -21,6 +21,7 @@ require.config({
         'sign-in-view': "./views/admin/signInView",
         server: "./utils/server",
         constants: "./utils/constants",
+        common: "./utils/common",
         'local-storage': "./utils/localStorage",
         app: "./app",
         router: "./router",

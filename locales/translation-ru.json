@@ -2,7 +2,10 @@
     "default-title": "Design for life",
     "server-error-message": "Server unavailable",
     "supported-format-message": "Supported image formats: ",
+    "select-image-message": "Image is required",
     "max-file-size-message": "Max file size: ",
+    "image-added-message": "Image added",
+    "saved-message": "Saved",
     "mb-prefix": "Mb",
     "admin": {
         "header": {

@@ -79,3 +79,6 @@ form .form-group .img-responsive {
     height: 1px;
     background-color: #CCCCCC;
 }
+.media-heading {
+    min-height: 50px;
+}

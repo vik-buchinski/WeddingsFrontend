@@ -30,7 +30,7 @@
                 console.log('Success!' + '. URL: ' + url + ' METHOD: ' + method);
                 successCallback(data);
             })
-            .fail(function (jqXhr) {
+            .fail(function(jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
                     window.app.router.navigate("admin/signIn", true);
                 } else {
@@ -47,7 +47,7 @@
     function commonFileSubmitUrl(url, method, params, successCallback) {
         $.ajax({
             url: constants.BASE_API_URL + url,
-            beforeSend: function(request) {
+            beforeSend: function() {
                 requestsLaunched++;
                 $("#loader").show();
             },
@@ -94,6 +94,30 @@
 
         submitAdminAbout: function(params, successCallback) {
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save.url, constants.API_METHODS.admin.about.save.type, params, successCallback);
+        },
+
+        addBouquetsImage: function(token, image, desc, successCallback) {
+            var params = new FormData();
+            params.append('image', image);
+            params.append("description", desc);
+            params.append("Session-Token", token);
+            commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.add.url, constants.API_METHODS.admin.bouquets.add.type, params, successCallback);
+        },
+
+        editBouquetsImage: function(token, image, desc, imageId, successCallback) {
+            var params = new FormData();
+            params.append('image', image);
+            params.append("description", desc);
+            params.append("Session-Token", token);
+            commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.edit.url + imageId, constants.API_METHODS.admin.bouquets.edit.type, params, successCallback);
+        },
+
+        getBouquetsImages: function(token, successCallback) {
+            commonServerRequest(constants.API_METHODS.admin.bouquets.getAll.url, constants.API_METHODS.admin.bouquets.getAll.type, null, successCallback, token);
+        },
+
+        deleteBouquetsImage: function(token, imageId, successCallback) {
+            commonServerRequest(constants.API_METHODS.admin.bouquets.delete.url + imageId, constants.API_METHODS.admin.bouquets.delete.type, null, successCallback, token);
         },
         
         getAdminAbout: function (sessionToken, successCallback) {
