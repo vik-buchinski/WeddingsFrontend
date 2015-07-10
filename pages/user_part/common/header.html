@@ -12,7 +12,7 @@
                 <ul>
                     <li class="menu-item <% if(tab_name == all_tabs.about) { %>active<% } %>"><a href="#home"><%=$.i18n.t("user.header.about")%></a></li>
                     <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.bukiety")%></a></li>
+                    <li class="menu-item <% if(tab_name == all_tabs.bouquets) { %>active<% } %>"><a href="#bouquets"><%=$.i18n.t("user.header.bukiety")%></a></li>
                     <li class="menu-item separator">|</li>
                     <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.decorations")%></a></li>
                     <li class="menu-item separator">|</li>
@@ -43,7 +43,7 @@
     <h1 class="title">
         <hr class="left-hr"/><span><%=page_name%></span><hr class="right-hr"/>
     </h1>
-    <div class="container">
+    <div id="content" class="container">
     </div>
 </section>
 <footer>

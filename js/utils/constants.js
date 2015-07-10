@@ -45,6 +45,10 @@
             about: {
                 url: "about",
                 type: "GET"
+            },
+            bouquets: {
+                url: "bouquets",
+                type: "GET"
             }
         }
     },
@@ -52,7 +56,8 @@
     CKEDITOR_LANGUAGE: "ru",
     
     USER_TABS: {
-        about: "about"
+        about: "about",
+        bouquets: "bouquets"
     },
 
     LEFT_PANELS: {
@@ -102,6 +107,11 @@
             ABOUT: {
                 view_name: "UserAbout",
                 template_name: "about",
+                path: "user_part/"
+            },
+            BOUQUETS: {
+                view_name: "UserBouquets",
+                template_name: "bouquets",
                 path: "user_part/"
             }
         }

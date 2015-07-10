@@ -28,7 +28,7 @@
             "description-title": "Desciption text:",
             "save-btn": "Save"
         },
-        "bouquets-page": { 
+        "bouquets-page": {
             "page-title": "Bouquets filling",
             "choose-title": "Add new photo:",
             "add-btn": "Add",
@@ -54,8 +54,11 @@
             "blog": "BLOG",
             "contacts": "CONTACTS"
         },
-        "about": { 
+        "about": {
             "title": "About"
+        },
+        "bouquets": {
+            "title": "Bukiety"
         }
     }
 }

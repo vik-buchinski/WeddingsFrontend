@@ -15,6 +15,7 @@ require.config({
         'user-header': "./views/user_part/common/headerView",
         'sub-menu': "./views/user_part/common/subMenuView",
         'user-about': "./views/user_part/userAboutView",
+        'user-bouquets': "./views/user_part/userBouquetsView",
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
         'admin-bouquets': "./views/admin/bouquetsView",

@@ -96,7 +96,7 @@
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save.url, constants.API_METHODS.admin.about.save.type, params, successCallback);
         },
 
-        addBouquetsImage: function(token, image, desc, successCallback) {
+        addAdminBouquetsImage: function(token, image, desc, successCallback) {
             var params = new FormData();
             params.append('image', image);
             params.append("description", desc);
@@ -104,7 +104,7 @@
             commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.add.url, constants.API_METHODS.admin.bouquets.add.type, params, successCallback);
         },
 
-        editBouquetsImage: function(token, image, desc, imageId, successCallback) {
+        editAdminBouquetsImage: function(token, image, desc, imageId, successCallback) {
             var params = new FormData();
             params.append('image', image);
             params.append("description", desc);
@@ -112,19 +112,24 @@
             commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.edit.url + imageId, constants.API_METHODS.admin.bouquets.edit.type, params, successCallback);
         },
 
-        getBouquetsImages: function(token, successCallback) {
+        getAdminBouquetsImages: function(token, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.bouquets.getAll.url, constants.API_METHODS.admin.bouquets.getAll.type, null, successCallback, token);
         },
 
-        deleteBouquetsImage: function(token, imageId, successCallback) {
+        deleteAdminBouquetsImage: function(token, imageId, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.bouquets.delete.url + imageId, constants.API_METHODS.admin.bouquets.delete.type, null, successCallback, token);
         },
         
         getAdminAbout: function (sessionToken, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.about.get.url, constants.API_METHODS.admin.about.get.type, null, successCallback, sessionToken);
         },
+
         getUserAbout: function(successCallback) {
             commonServerRequest(constants.API_METHODS.user.about.url, constants.API_METHODS.user.about.type, null, successCallback);
+        },
+
+        getUserBouquets: function(successCallback) {
+            commonServerRequest(constants.API_METHODS.user.bouquets.url, constants.API_METHODS.user.bouquets.type, null, successCallback);
         }
     };
 

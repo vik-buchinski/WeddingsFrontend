@@ -85,7 +85,7 @@
                             alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
                         }
 
-                        server.addBouquetsImage(localStorage.getSession().session.token, file, $("#image-description").val(), function(response) {
+                        server.addAdminBouquetsImage(localStorage.getSession().session.token, file, $("#image-description").val(), function(response) {
                             alert($.i18n.t("image-added-message"));
                             window.location.reload();
                         });
@@ -94,7 +94,7 @@
                     deletePhoto: function(ev) {
                         $('#confirm-modal').modal({ backdrop: 'static', keyboard: false })
                             .one('click', '#confirm-delete-btn', function(e) {
-                                server.deleteBouquetsImage(localStorage.getSession().session.token, $(ev.currentTarget).data('photo-number'), function() {
+                                server.deleteAdminBouquetsImage(localStorage.getSession().session.token, $(ev.currentTarget).data('photo-number'), function() {
                                     $('#confirm-modal').modal('hide');
                                     window.location.reload();
                                 });
@@ -110,7 +110,7 @@
                         $('#edit-photo-modal').unbind();
                         $('#edit-photo-modal').modal({ backdrop: 'static', keyboard: false })
                             .one('click', '#save-changes-btn', function(e) {
-                                server.editBouquetsImage(localStorage.getSession().session.token, $("#edit-avatar-image")[0].files[0], $('#edit-image-description').val(), photoId, function() {
+                                server.editAdminBouquetsImage(localStorage.getSession().session.token, $("#edit-avatar-image")[0].files[0], $('#edit-image-description').val(), photoId, function() {
                                     $('#edit-photo-modal').modal('hide');
                                     window.location.reload();
                                 });

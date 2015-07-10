@@ -163,6 +163,18 @@ body > .page {
 	position: relative;
 }
 
+@media (max-width: 800px) {
+    .desktop .container,
+    .tablet .container {
+        padding: 0 30px;
+    }
+}
+
+.desktop .fullscreen-content.container,
+.tablet .fullscreen-content.container {
+	max-width: 100%;
+}
+
 body > .page > section {
 	padding-bottom: 264px;
 }

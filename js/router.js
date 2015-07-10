@@ -1,9 +1,10 @@
-﻿define(['admin-bouquets', 'user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function(adminBouquetsView, userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
+﻿define(['user-bouquets', 'admin-bouquets', 'user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function(userBouquetsView, adminBouquetsView, userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
             "home": "home",
             "about": "userAbout",
+            "bouquets": "userBouquets",
             "admin": "adminHome",
             "admin/signIn": "signIn",
             "admin/bouquets": "adminBouquets"
@@ -36,7 +37,7 @@
         adminBouquets: function() {
             var sessionModel = localStorage.getSession();
             if (null != sessionModel) {
-                server.getBouquetsImages(sessionModel.session.token, function(data) {
+                server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
                     adminBouquetsView.init();
                     viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.BOUQUETS, function() {
                         adminHeader.init();
@@ -68,6 +69,19 @@
                     });
                 });
             });
+        },
+        userBouquets: function() {
+            server.getUserBouquets(function(data) {
+                userHeader.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
+                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.bouquets.title"), tab_name: constants.USER_TABS.bouquets }).render().$el.i18n());
+                    userBouquetsView.init();
+                    viewLoader(constants.PAGE_TEMPLATES_DATA.USER.BOUQUETS, function() {
+                        $('section.page .container').html(new app.views.UserBouquets({ data: data }).render().$el.i18n());
+                    });
+                });
+            });
+            
         }
     });
 
