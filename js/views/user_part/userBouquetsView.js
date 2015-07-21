@@ -17,6 +17,14 @@
 
                         $(".container").addClass("fullscreen-content");
 
+                        $(this.$el).find("img.lazy").lazyload();
+                        
+                        var tempImage1 = new Image();
+tempImage1.src = "http://lorempixel.com/530/800/animals/";
+tempImage1.onload = function() {
+    debugger;
+    console.log(tempImage1.width, tempImage1.height);
+}
                         return this;
                     },
                     events: {

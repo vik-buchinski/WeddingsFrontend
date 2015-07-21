@@ -10,6 +10,7 @@ require.config({
         'ckjquery': "../lib/ckeditor/adapters/jquery",
         'jquery.form': "../lib/jquery.form",
         'bootstrap': "../lib/bootstrap.min",
+        'lazy-load': "../lib/jquery.lazyload",
 
         'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",
@@ -47,12 +48,15 @@ require.config({
         },
         'bootstrap': {
             'deps': ['jquery']
+        },
+        'lazy-load': {
+            'deps': ['jquery']
         }
     },
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST', 'jquery.form', 'bootstrap'], function(app) {
+require(['app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function (app) {
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,
