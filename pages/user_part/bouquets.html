@@ -1,3 +1,9 @@
-﻿<div class="photos">
-    
+﻿<div class="images-grid" style="height: <%= data.totalHeight %>px;">
+    <% _.each(data.images, function(image) { %>
+        <img src="<%=image.url%>"
+            style="width: <%=image.styles.width%>px;
+                    height: <%=image.styles.height%>px;
+                    left: <%=image.styles.left%>px;
+                    top: <%=image.styles.top%>px;"/>
+    <% }); %>
 </div>

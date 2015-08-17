@@ -10,7 +10,7 @@ require.config({
         'ckjquery': "../lib/ckeditor/adapters/jquery",
         'jquery.form': "../lib/jquery.form",
         'bootstrap': "../lib/bootstrap.min",
-        'lazy-load': "../lib/jquery.lazyload",
+        'lazy-load': "../node_modules/jquery-lazyload/jquery.lazyload",
 
         'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",

@@ -17,11 +17,14 @@
                             tab_name: this.tab_name,
                             all_tabs: constants.USER_TABS
                         };
-                        this.$el.html(this.template(data));
+                        this.setElement(this.template(data));
                         var self = this;
                         setTimeout(function() {
                             self.initSectionPadding();
                         }, 120);
+                        $(window).resize(function () {
+                            self.initSectionPadding();
+                        });
                         return this;
                     },
 

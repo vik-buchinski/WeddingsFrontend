@@ -82,8 +82,12 @@ form .form-group .img-responsive {
 .media-heading {
     min-height: 50px;
 }
-.photos img {
-    float: left;
+.images-grid {
+    position: relative;
+}
+
+.images-grid img {
+    position: absolute;
 }
 /*
 
