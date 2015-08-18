@@ -6,7 +6,7 @@
                     initialize: function(options) {
                         this.images = options.data;
                     },
-                    
+
                     render: function() {
                         this.setElement(this.template({ data: this.buildImagesGrid() }));
                         if ($('section.page h1.title').length) {
@@ -22,23 +22,22 @@
 
                         return this;
                     },
-                    
+
                     events: {
                         
                     },
-                    
-                    buildImagesGrid: function () {
+
+                    buildImagesGrid: function() {
                         var width = $(window).width();
                         var columnsCount;
                         var dividerHeight = 10;
                         var paddingRight = 80,
                             paddingLeft = 80;
-                        /*if (width < 400) {
+                        if (width < 400) {
                             columnsCount = 1;
                             paddingRight = 30,
-                            paddingLeft = 30;*/
-                        return this.buildOneColumn(width, dividerHeight, paddingRight, paddingLeft);
-                        /*} else if (width < 800) {
+                            paddingLeft = 30;
+                        } else if (width < 800) {
                             paddingRight = 30,
                             paddingLeft = 30;
                             columnsCount = 2;
@@ -46,60 +45,60 @@
                             columnsCount = 3;
                         } else {
                             columnsCount = 4;
-                        }*/
+                        }
+                        return this.buildColumns(columnsCount, width, dividerHeight, paddingRight, paddingLeft);
                     },
-                    
-                    buildTwoColumn: function (screenWidth, dividerHeight, paddingRight, paddingLeft) {
+
+                    buildColumns: function(columnsCount, screenWidth, dividerHeight, paddingRight, paddingLeft) {
                         var data = {};
                         data.totalHeight = 0;
                         data.images = new Array();
-                        var imageWidth = (screenWidth - paddingRight - paddingLeft) / 2 - dividerHeight;
-                        var number = 0;
-                        _.each(this.images, function (image) {
+                        var imageWidth = ((screenWidth - paddingRight - paddingLeft) - (dividerHeight * columnsCount - dividerHeight)) / columnsCount;
+                        var number = 1;
+
+                        var columnsHeightArr = this.createArray(columnsCount, 0);
+
+                        _.each(this.images, function(image) {
                             var imgHeight = image.image_height / (image.image_width / imageWidth);
-                            data.images.push({
+                            var imgObj = {
                                 description: image.description,
                                 id: image.id,
                                 url: image.image_url,
                                 styles: {
                                     width: imageWidth,
-                                    height: imgHeight,
-                                    left: 0 * imageWidth + dividerHeight,
-                                    top: data.totalHeight
+                                    height: imgHeight
                                 }
-                                //tut perepisat vsu logiku
-                            });
-                            if (number == 1) {
-                                number = 0;
+                            };
+
+                            imgObj.styles.top = columnsHeightArr[number - 1];
+                            if (number - 1 == 0) {
+                                imgObj.styles.left = 0;
+                            } else {
+                                imgObj.styles.left = (number - 1) * imageWidth + (dividerHeight * number - dividerHeight);
+                            }
+                            columnsHeightArr[number - 1] += (imgHeight + dividerHeight);
+
+                            if (number == columnsCount) {
+                                number = 1;
                             } else {
                                 number++;
                             }
-                            data.totalHeight += (imgHeight + dividerHeight);
+
+                            data.images.push(imgObj);
+                            data.totalHeight = Math.max.apply(Math, columnsHeightArr);
                         });
                         return data;
                     },
-                    
-                    buildOneColumn: function (screenWidth, dividerHeight, paddingRight, paddingLeft) {
-                        var data = {};
-                        data.totalHeight = 0;
-                        data.images = new Array();
-                        var imageWidth = screenWidth - paddingRight - paddingLeft;
-                        _.each(this.images, function (image) {
-                            var imgHeight = image.image_height / (image.image_width / imageWidth);
-                            data.images.push({
-                                description: image.description,
-                                id: image.id,
-                                url: image.image_url,
-                                styles: {
-                                    width: imageWidth,
-                                    height: imgHeight,
-                                    left: 0,
-                                    top: data.totalHeight
-                                }
-                            });
-                            data.totalHeight += (imgHeight + dividerHeight);
-                        });
-                        return data;
+
+                    createArray: function(size, defaultVal) {
+                        var arr = new Array(size);
+                        if (arguments.length == 2) {
+                            // optional default value
+                            for (var i = 0; i < size; ++i) {
+                                arr[i] = defaultVal;
+                            }
+                        }
+                        return arr;
                     }
                 });
             }
