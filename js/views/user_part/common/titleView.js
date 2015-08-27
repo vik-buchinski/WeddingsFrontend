@@ -48,11 +48,15 @@
 
         },
 
-        render: function() {
+        render: function (isWithoutTimeout) {
             var self = this;
-            setTimeout(function() {
-                self.resize();
-            }, 120);
+            if (!isWithoutTimeout) {
+                setTimeout(function() {
+                    self.resize();
+                }, 120);
+            } else {
+                this.resize();
+            }
 
             return this;
         }

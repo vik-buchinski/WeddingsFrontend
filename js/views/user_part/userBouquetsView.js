@@ -1,4 +1,4 @@
-﻿define(['user-title'], function(Title) {
+﻿define([], function() {
     return {
         init: function() {
             if (!window.app.views.UserBouquets) {
@@ -9,12 +9,6 @@
 
                     render: function() {
                         this.setElement(this.template({ data: this.buildImagesGrid() }));
-                        if ($('section.page h1.title').length) {
-                            var t = new Title({
-                                el: $('section.page h1.title')
-                            });
-                            t.render();
-                        }
 
                         $(".container").addClass("fullscreen-content");
 

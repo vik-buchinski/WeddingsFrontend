@@ -1,4 +1,4 @@
-﻿define(['user-bouquets', 'admin-bouquets', 'user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function(userBouquetsView, adminBouquetsView, userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
+﻿define(['user-title', 'user-bouquets', 'admin-bouquets', 'user-header', 'user-about', 'admin-header', 'server', 'admin-about', 'local-storage', 'sign-in-view', 'view-loader', 'constants', 'backbone'], function (Title, userBouquetsView, adminBouquetsView, userHeader, userAbout, adminHeader, server, adminAbouView, localStorage, signInView, viewLoader, constants) {
     var router = Backbone.Router.extend({
         routes: {
             "": "home",
@@ -19,16 +19,15 @@
         adminAbout: function() {
             var sessionModel = localStorage.getSession();
             if (null != sessionModel) {
+                var self = this;
                 server.getAdminAbout(sessionModel.session.token, function(data) {
-                    adminAbouView.init();
-                    viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT, function() {
-                        adminHeader.init();
-                        viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
-                            var content = new app.views.AdminAbout({ about_data: data }).render().$el.i18n();
-                            content.prepend(new app.views.AdminHeader().render().$el.i18n());
-                            $('#pages-container').html(content);
-                        });
-                    });
+                    self.buildView(
+                        adminAbouView,
+                        "AdminAbout",
+                        constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT,
+                        { about_data: data },
+                        false,
+                        true);
                 });
             } else {
                 window.app.router.navigate("admin/signIn", true);
@@ -37,16 +36,15 @@
         adminBouquets: function() {
             var sessionModel = localStorage.getSession();
             if (null != sessionModel) {
+                var self = this;
                 server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
-                    adminBouquetsView.init();
-                    viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.BOUQUETS, function() {
-                        adminHeader.init();
-                        viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
-                            var content = new app.views.AdminBouquets({ bouquets_data: data }).render().$el.i18n();
-                            content.prepend(new app.views.AdminHeader().render().$el.i18n());
-                            $('#pages-container').html(content);
-                        });
-                    });
+                    self.buildView(
+                        adminBouquetsView,
+                        "AdminBouquets",
+                        constants.PAGE_TEMPLATES_DATA.ADMIN.BOUQUETS,
+                        { bouquets_data: data },
+                        false,
+                        true);
                 });
             } else {
                 window.app.router.navigate("admin/signIn", true);
@@ -59,29 +57,79 @@
             });
         },
         userAbout: function() {
+            var self = this;
             server.getUserAbout(function(data) {
-                userHeader.init();
-                viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.about.title"), tab_name: constants.USER_TABS.about }).render().$el.i18n());
-                    userAbout.init();
-                    viewLoader(constants.PAGE_TEMPLATES_DATA.USER.ABOUT, function() {
-                        $('section.page .container').html(new app.views.UserAbout({ data: data }).render().$el.i18n());
-                    });
-                });
+                self.buildView(
+                    userAbout,
+                    "UserAbout",
+                    constants.PAGE_TEMPLATES_DATA.USER.ABOUT,
+                    { data: data },
+                    true,
+                    false,
+                    $.i18n.t("user.about.title"),
+                    constants.USER_TABS.about);
             });
         },
         userBouquets: function() {
+            var self = this;
             server.getUserBouquets(function(data) {
+                self.buildView(
+                    userBouquetsView,
+                    "UserBouquets",
+                    constants.PAGE_TEMPLATES_DATA.USER.BOUQUETS,
+                    { data: data },
+                    true,
+                    false,
+                    $.i18n.t("user.bouquets.title"),
+                    constants.USER_TABS.bouquets);
+            });
+        },
+
+        buildView: function(view, viewName, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {
+
+            if (window.isUserPart != isUserPart && isUserPart) {
                 userHeader.init();
                 viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                    $('#pages-container').html(new app.views.UserHeader({ page_name: $.i18n.t("user.bouquets.title"), tab_name: constants.USER_TABS.bouquets }).render().$el.i18n());
-                    userBouquetsView.init();
-                    viewLoader(constants.PAGE_TEMPLATES_DATA.USER.BOUQUETS, function() {
-                        $('section.page .container').html(new app.views.UserBouquets({ data: data }).render().$el.i18n());
+                    $('#pages-container').html(new app.views.UserHeader({ page_name: pageName, tab_name: tabName }).render().$el.i18n());
+                    if ($('section.page h1.title').length) {
+                        var t = new Title({
+                            el: $('section.page h1.title')
+                        });
+                        t.render(false);
+                    }
+                    view.init();
+                    viewLoader(viewLoadData, function() {
+                        $('section.page .container').html(new app.views[viewName](jsonData).render().$el.i18n());
                     });
                 });
-            });
-            
+            } else if (window.isUserPart == isUserPart && isUserPart) {
+                view.init();
+                viewLoader(viewLoadData, function () {
+                    $('section.page h1.title span').html(pageName);
+                    if ($('section.page h1.title').length) {
+                        var t = new Title({
+                            el: $('section.page h1.title')
+                        });
+                        t.render(true);
+                    }
+                    $('section.page .container').html(new app.views[viewName](jsonData).render().$el.i18n());
+                });
+            }
+
+
+            if (isAdminPart) {
+                view.init();
+                viewLoader(viewLoadData, function() {
+                    adminHeader.init();
+                    viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
+                        var viewObject = new app.views[viewName](jsonData).render().$el.i18n();
+                        viewObject.prepend(new app.views.AdminHeader().render().$el.i18n());
+                        $('#pages-container').html(viewObject);
+                    });
+                });
+            }
+            window.isAdminPart = isAdminPart;
+            window.isUserPart = isUserPart;
         }
     });
 

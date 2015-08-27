@@ -1,4 +1,4 @@
-﻿define(['user-title'], function(Title) {
+﻿define([], function() {
     return {
         init: function() {
             if (!window.app.views.UserAbout) {
@@ -8,12 +8,6 @@
                     },
                     render: function() {
                         this.$el.html(this.template({data: this.data}));
-                        if ($('section.page h1.title').length) {
-                            var t = new Title({
-                                el: $('section.page h1.title')
-                            });
-                            t.render();
-                        }
                         return this;
                     },
                     events: {
