@@ -7,7 +7,10 @@
                         this.data = options.data;
                     },
                     render: function() {
-                        this.$el.html(this.template({data: this.data}));
+                        this.$el.html(this.template({ data: this.data }));
+                        if ($(".container").hasClass("fullscreen-content")) {
+                            $(".container").removeClass("fullscreen-content");
+                        }
                         return this;
                     },
                     events: {

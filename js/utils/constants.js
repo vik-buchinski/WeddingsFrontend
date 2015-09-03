@@ -6,6 +6,10 @@
     MAX_UPLOADS_FILE_SIZE: 10485760,
     SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
 
+    ALBUM_TYPES: {
+        bouquets: "bouquets"
+    },
+
     API_METHODS: {
         admin: {
             login: {
@@ -46,9 +50,15 @@
                 url: "about",
                 type: "GET"
             },
-            bouquets: {
-                url: "bouquets",
-                type: "GET"
+            album: {
+                //for receiveing album info: album/{type}
+                url: "album/",
+                type: "GET",
+                images: {
+                    //for receiveing album photos: album/{type}/images
+                    url: "/images",
+                    type: "GET",
+                }
             }
         }
     },

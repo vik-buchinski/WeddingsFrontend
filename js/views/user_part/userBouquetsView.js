@@ -8,32 +8,37 @@
                     },
 
                     render: function() {
-                        this.setElement(this.template({ data: this.buildImagesGrid() }));
-
+                        var self = this;
+                        $(window).on('resize', function() {
+                            self.buildView();
+                        });
+                        //this.setElement(this.template({ data: this.buildImagesGrid() }));
+                        setTimeout(function() {
+                            self.buildView();
+                        }, 100);
                         $(".container").addClass("fullscreen-content");
-
-                        $(this.$el).find("img").lazyload();
-
                         return this;
                     },
 
+                    buildView: function() {
+                        this.setElement(this.template({ data: this.buildImagesGrid() }));
+                        $(this.$el).find("img").lazyload();
+                        $(this.$el).find("img").lazyload();
+                        $("section.page .container").html(this.$el);
+                    },
+
                     events: {
-                        
                     },
 
                     buildImagesGrid: function() {
                         var width = $(window).width();
                         var columnsCount;
                         var dividerHeight = 10;
-                        var paddingRight = 80,
-                            paddingLeft = 80;
+                        var paddingRight = $("section.page .container").css('padding-right').replace("px", ""),
+                            paddingLeft = $("section.page .container").css('padding-left').replace("px", "");
                         if (width < 400) {
                             columnsCount = 1;
-                            paddingRight = 30,
-                            paddingLeft = 30;
                         } else if (width < 800) {
-                            paddingRight = 30,
-                            paddingLeft = 30;
                             columnsCount = 2;
                         } else if (width < 1000) {
                             columnsCount = 3;
