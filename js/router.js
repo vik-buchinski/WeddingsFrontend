@@ -1,5 +1,6 @@
 ﻿define(
     [
+        'fullscreenImageView',
         'user-title', 'user-album-images',
         'admin-bouquets', 'user-header',
         'user-about', 'admin-header',
@@ -9,6 +10,7 @@
         'backbone'
     ],
     function(
+        fullscreenImageView,
         Title, albumImagesView,
         adminBouquetsView, userHeader,
         userAbout, adminHeader,
@@ -113,6 +115,12 @@
                             });
                             t.render(false);
                         }
+
+                        fullscreenImageView.init();
+                        new app.views.FullscreenImageView({
+                            el: $('.fsbox')
+                        }).render();
+
                         //setTimeout(function() {
                             view.init();
                             viewLoader(viewLoadData, function() {

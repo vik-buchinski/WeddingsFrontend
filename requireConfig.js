@@ -11,7 +11,9 @@ require.config({
         'jquery.form': "../lib/jquery.form",
         'bootstrap': "../lib/bootstrap.min",
         'lazy-load': "../node_modules/jquery-lazyload/jquery.lazyload",
+        'raphael': "../lib/raphael-min",
 
+        'fullscreenImageView': './views/user_part/common/fullscreenImageView',
         'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",
         'sub-menu': "./views/user_part/common/subMenuView",
