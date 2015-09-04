@@ -1,9 +1,9 @@
 ﻿<div class="images-grid" style="height: <%= data.totalHeight %>px;">
     <% _.each(data.images, function(image) { %>
-        <img src="<%=image.url%>"
+        <img class="lazy" data-original="<%=image.url%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="width: <%=image.styles.width%>px;
                     height: <%=image.styles.height%>px;
                     left: <%=image.styles.left%>px;
-                    top: <%=image.styles.top%>px;"/>
+                    top: <%=image.styles.top%>px;" <% if(image.description){ %>alt="<%=image.description%>" <% } %>/>
     <% }); %>
 </div>

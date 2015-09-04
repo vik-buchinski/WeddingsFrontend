@@ -12,7 +12,7 @@
                         $(window).on('resize', function() {
                             self.buildView();
                         });
-                        //this.setElement(this.template({ data: this.buildImagesGrid() }));
+
                         setTimeout(function() {
                             self.buildView();
                         }, 100);
@@ -22,12 +22,14 @@
 
                     buildView: function() {
                         this.setElement(this.template({ data: this.buildImagesGrid() }));
-                        $(this.$el).find("img").lazyload();
-                        $(this.$el).find("img").lazyload();
                         $("section.page .container").html(this.$el);
+                        $(this.$el).find("img.lazy").lazyload({
+                            threshold: 200
+                        });
                     },
 
                     events: {
+                    
                     },
 
                     buildImagesGrid: function() {
