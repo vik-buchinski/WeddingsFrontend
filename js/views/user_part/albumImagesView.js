@@ -1,8 +1,8 @@
 ﻿define([], function() {
     return {
         init: function() {
-            if (!window.app.views.UserBouquets) {
-                window.app.views.UserBouquets = Backbone.View.extend({
+            if (!window.app.views.AlbumImages) {
+                window.app.views.AlbumImages = Backbone.View.extend({
                     initialize: function(options) {
                         this.images = options.data;
                     },

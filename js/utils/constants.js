@@ -119,9 +119,9 @@
                 template_name: "about",
                 path: "user_part/"
             },
-            BOUQUETS: {
-                view_name: "UserBouquets",
-                template_name: "bouquets",
+            ALBUM_IMAGES: {
+                view_name: "AlbumImages",
+                template_name: "album_images",
                 path: "user_part/"
             }
         }

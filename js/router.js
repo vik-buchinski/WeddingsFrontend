@@ -1,6 +1,6 @@
 ﻿define(
     [
-        'user-title', 'user-bouquets',
+        'user-title', 'user-album-images',
         'admin-bouquets', 'user-header',
         'user-about', 'admin-header',
         'server', 'admin-about',
@@ -9,7 +9,7 @@
         'backbone'
     ],
     function(
-        Title, userBouquetsView,
+        Title, albumImagesView,
         adminBouquetsView, userHeader,
         userAbout, adminHeader,
         server, adminAbouView,
@@ -20,7 +20,7 @@
                 "": "home",
                 "home": "home",
                 "about": "userAbout",
-                "bouquets": "userBouquets",
+                "bouquets": "albumImages",
                 "admin": "adminHome",
                 "admin/signIn": "signIn",
                 "admin/bouquets": "adminBouquets"
@@ -86,13 +86,13 @@
                         constants.USER_TABS.about);
                 });
             },
-            userBouquets: function() {
+            albumImages: function() {
                 var self = this;
                 server.getUserAlbumImages(function(data) {
                     self.buildView(
-                        userBouquetsView,
-                        "UserBouquets",
-                        constants.PAGE_TEMPLATES_DATA.USER.BOUQUETS,
+                        albumImagesView,
+                        "AlbumImages",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
                         { data: data },
                         true,
                         false,
