@@ -2,9 +2,9 @@
     var load = function(view, callback) {
         if (window.app.views[view.view_name]) {
             window.app.views[view.view_name].prototype.template = JST['pages/' + (view.path || "") + view.template_name + '.html'];
-            if (view.admin_templates) {
-                //window.app.views[view.view_name].prototype.headerTemplate = JST['pages/' + (view.admin_templates.path || "") + view.admin_templates.header_name + '.html'];
-                window.app.views[view.view_name].prototype.MainContainerTemplate = JST['pages/' + (view.admin_templates.path || "") + view.admin_templates.main_container + '.html'];
+            if (view.other_templates) {
+                window.app.views[view.view_name].prototype[view.other_templates.access_point]
+                    = JST['pages/' + (view.other_templates.path || "") + view.other_templates.template_name + '.html'];
             }
         } else {
             alert(view.view_name + " not found");

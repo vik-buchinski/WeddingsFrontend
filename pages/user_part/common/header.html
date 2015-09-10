@@ -9,32 +9,7 @@
                 </a>
             </div>
             <nav class="menu">
-                <ul>
-                    <li class="menu-item <% if(tab_name == all_tabs.about) { %>active<% } %>"><a href="#home"><%=$.i18n.t("user.header.about")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item <% if(tab_name == all_tabs.bouquets) { %>active<% } %>"><a href="#bouquets"><%=$.i18n.t("user.header.bukiety")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.decorations")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.invitations")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.graphics")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.blog")%></a></li>
-                    <li class="menu-item separator">|</li>
-                    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.contacts")%></a></li>
-                    <!--<li class="menu-item active">
-                        <a href=""  >ANASTASIA VOLKOVA</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item"><a href="http://anastasiavolkova.com/faq"  >F.A.Q.</a></li>
-                            <li class="menu-item active"><a href="http://anastasiavolkova.com/photoshoots"  >PHOTOSHOOTS</a></li>
-                            <li class="menu-item"><a href="http://anastasiavolkova.com/self-portraits"  >SELF PORTRAITS</a></li>
-                            <li class="menu-item"><a href="http://anastasiavolkova.com/video"  >VIDEO</a></li>
-                            <li class="menu-item"><a href="http://anastasiavolkova.com/film"  >FILM</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item separator">|</li>-->
-                </ul>
+                <!-- Dynamic content -->
             </nav>	
         </div>
     </div>
@@ -46,27 +21,14 @@
     <div id="content" class="container">
     </div>
     
-    <div id="fsbox">
-        <div class="control close"><a href="#" id="fsbox-close"></a></div>
+    <div class="fsbox disabled-selection">
+        <div class="control close"><a class="fsbox-close"></a></div>
         <div class="slides-container">
-            <a href="#" id="fsbox-prev"><i></i></a>
-            <a href="#" id="fsbox-next"><i></i></a>
+            <a class="fsbox-prev"><i></i></a>
+            <a class="fsbox-next"><i></i></a>
             <div class="spinner"><!--  --></div>
             <div class="slides">
-                <img
-                    class="copy-protect"
-                    alt="PORTFOLIO"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-size="{&quot;1000&quot;: {&quot;h&quot;: &quot;900&quot;, &quot;w&quot;: &quot;599&quot;}, &quot;1500&quot;: {&quot;h&quot;: &quot;900&quot;, &quot;w&quot;: &quot;599&quot;}, &quot;2000&quot;: {&quot;h&quot;: &quot;900&quot;, &quot;w&quot;: &quot;599&quot;}, &quot;300&quot;: {&quot;h&quot;: &quot;451&quot;, &quot;w&quot;: &quot;300&quot;}, &quot;500&quot;: {&quot;h&quot;: &quot;751&quot;, &quot;w&quot;: &quot;500&quot;}}"
-                    data-file="gophotoweb-b307fcd01876ffa429821ebf9875c0eb.jpg"
-                    data-fsbox-src="http://static1.gophotoweb.com/demo.polina-3.gophotoweb.com/2/photos/622/2000-gophotoweb-b307fcd01876ffa429821ebf9875c0eb.jpg" />
-                <img
-                    class="copy-protect"
-                    alt="PORTFOLIO"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-size="{&quot;1000&quot;: {&quot;h&quot;: &quot;665&quot;, &quot;w&quot;: &quot;1000&quot;}, &quot;1500&quot;: {&quot;h&quot;: &quot;665&quot;, &quot;w&quot;: &quot;1000&quot;}, &quot;2000&quot;: {&quot;h&quot;: &quot;665&quot;, &quot;w&quot;: &quot;1000&quot;}, &quot;300&quot;: {&quot;h&quot;: &quot;200&quot;, &quot;w&quot;: &quot;300&quot;}, &quot;500&quot;: {&quot;h&quot;: &quot;333&quot;, &quot;w&quot;: &quot;500&quot;}}"
-                    data-file="gophotoweb-a2fd1c4823571d88baea3ead8db4e400.jpg"
-                    data-fsbox-src="http://static1.gophotoweb.com/demo.polina-3.gophotoweb.com/2/photos/622/2000-gophotoweb-a2fd1c4823571d88baea3ead8db4e400.jpg" />
+                <img/>
             </div>
         </div>
     </div>

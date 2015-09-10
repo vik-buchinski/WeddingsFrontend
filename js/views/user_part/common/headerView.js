@@ -8,14 +8,13 @@
                     initialize: function(options) {
                         this.page_name = options.page_name;
                         this.tab_name = options.tab_name;
+                        this.listenTo(window.Vent, "changeHeaderActiveTab", this.renderMenu);
                         _.bindAll(this);
                     },
 
                     render: function() {
                         var data = {
-                            page_name: this.page_name,
-                            tab_name: this.tab_name,
-                            all_tabs: constants.USER_TABS
+                            page_name: this.page_name
                         };
                         this.setElement(this.template(data));
                         var self = this;
@@ -25,12 +24,24 @@
                         $(window).resize(function () {
                             self.initSectionPadding();
                         });
+                        this.renderMenu();
                         return this;
                     },
 
                     events: {
                         'mouseover .menu-item': 'open',
                         'click ul > .menu-item > a': 'click'
+                    },
+                    
+                    renderMenu: function (data) {
+                        if (!data) {
+                            data = {};
+                        }
+                        var self = this;
+                        $(this.$el).find("nav.menu").html(self.HeaderMenu({
+                            tab_name: data.tab_name || self.tab_name,
+                            all_tabs: constants.USER_TABS
+                        }));
                     },
 
                     click: function(e) {

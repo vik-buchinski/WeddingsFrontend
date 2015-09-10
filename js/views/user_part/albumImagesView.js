@@ -5,6 +5,7 @@
                 window.app.views.AlbumImages = Backbone.View.extend({
                     initialize: function(options) {
                         this.images = options.data;
+                        window.Vent.trigger("setFullscreenImages", { images: options.data });
                     },
 
                     render: function() {
@@ -29,7 +30,11 @@
                     },
 
                     events: {
+                        "click img.lazy": "openFSImage"
+                    },
                     
+                    openFSImage: function (ev) {
+                        window.Vent.trigger("openFSImage", { image_id: $(ev.currentTarget).data("id") });
                     },
 
                     buildImagesGrid: function() {

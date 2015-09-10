@@ -1414,7 +1414,7 @@ section.contact form .button.large, .testimonials-form .button.large { letter-sp
 body > div.page.desktop > section > div > form > div.columns > div.second-column > textarea.f-textarea.empty { letter-spacing: 0.02em; }
 header nav.menu .menu-item { padding: 0 4px; margin: 0 5px; }
 
-#fsbox {
+.fsbox {
     background-color: #1a1a1a;
     position: fixed;
     top: 0;
@@ -1425,15 +1425,15 @@ header nav.menu .menu-item { padding: 0 4px; margin: 0 5px; }
     display: none;
 }
 
-#fsbox-next path,
-#fsbox-prev path,
-#fsbox .close path { stroke: #f5f5f5; }
+.fsbox-next path,
+.fsbox-prev path,
+.fsbox .close path { stroke: #f5f5f5; }
 
-body.desktop #fsbox-next:hover path,
-body.desktop #fsbox-prev:hover path,
-body.desktop #fsbox .close:hover path { stroke: #d1d1d1; }
+body.desktop .fsbox-next:hover path,
+body.desktop .fsbox-prev:hover path,
+body.desktop .fsbox .close:hover path { stroke: #d1d1d1; }
 
-#fsbox .control.close {
+.fsbox .control.close {
     text-align: right;
     position: absolute;
     right: 30px;
@@ -1441,33 +1441,39 @@ body.desktop #fsbox .close:hover path { stroke: #d1d1d1; }
     z-index: 100;
 }
 
-#fsbox .control a {
+.fsbox .control a {
     text-decoration: none;
 }
 
-#fsbox .control.close {
+.fsbox .control.close {
     text-align: right;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 0;
+    top: 0;
     z-index: 100;
 }
 
-#fsbox-prev {
+.fsbox-prev {
     position: absolute;
     top: 50%;
-    margin-top: -13px;
-    left: 30px;
+    margin-top: -43px;
+    padding: 30px;
 }
 
-#fsbox-next {
+.fsbox-next {
     position: absolute;
     top: 50%;
-    margin-top: -13px;
-    right: 30px;
+    margin-top: -43px;
+    padding: 30px;
+    right: 0;
 }
 
-#fsbox .controls {
+.fsbox-close {
+    padding: 30px;
+    display: block;
+}
+
+.fsbox .controls {
     height: 26px;
     width: 100%;
     text-align: center;
@@ -1475,21 +1481,21 @@ body.desktop #fsbox .close:hover path { stroke: #d1d1d1; }
     bottom: 30px;
 }
 
-#fsbox .slides-container {
+.fsbox .slides-container {
     height: 100%;
 }
 
-#fsbox .slides {
+.fsbox .slides {
     position: absolute;
-    top: 76px;
+    top: 50px;
     right: 76px;
     left: 76px;
-    bottom: 86px;
+    bottom: 50px;
     text-align: center;
 }
 
 
-#fsbox .slides > div {
+.fsbox .slides > div {
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -1497,25 +1503,33 @@ body.desktop #fsbox .close:hover path { stroke: #d1d1d1; }
     position: absolute;
 }
 
-#fsbox .slides img {
+.fsbox .slides img {
     max-width: 100%;
     max-height: 100%;
     z-index: 100;
+}
+
+.fsbox .slides > img {
+    display: block;
     position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 
-#fsbox .slides > img {
-    cursor: pointer;
-    opacity: 0;
-}
-
-#fsbox .spinner {
+.fsbox .spinner {
     z-index: 100;
 }
 
-#fsbox .social-box {
+.fsbox .social-box {
     width: 100%;
     position: absolute;
     bottom: 20px;
     z-index: 100;
+}
+
+.fsbox-active {
+    overflow-y: hidden;
 }

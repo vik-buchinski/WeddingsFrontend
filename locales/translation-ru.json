@@ -7,6 +7,7 @@
     "image-added-message": "Image added",
     "saved-message": "Saved",
     "mb-prefix": "Mb",
+	"image-not-found-error":"Image with such id is not found.",
     "admin": {
         "header": {
             "panel-name": "Administration panel"

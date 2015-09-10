@@ -129,6 +129,14 @@
                         //}, 100);
                     });
                 } else if (window.isUserPart == isUserPart && isUserPart) {
+                    $(".fsbox").hide();
+                    if ($("body").hasClass("fsbox-active")) {
+                        $("body").removeClass("fsbox-active");
+                    }
+                    
+                    //TODO: call this function only when back button clicked!
+                    window.Vent.trigger("changeHeaderActiveTab", { tab_name: tabName });
+
                     view.init();
                     viewLoader(viewLoadData, function() {
                         $('section.page h1.title span').html(pageName);

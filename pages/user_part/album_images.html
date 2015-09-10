@@ -1,6 +1,6 @@
 ﻿<div class="images-grid" style="height: <%= data.totalHeight %>px;">
     <% _.each(data.images, function(image) { %>
-        <img class="lazy" data-original="<%=image.url%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        <img class="lazy" data-original="<%=image.url%>" data-id="<%=image.id%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="width: <%=image.styles.width%>px;
                     height: <%=image.styles.height%>px;
                     left: <%=image.styles.left%>px;

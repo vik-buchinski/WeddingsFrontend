@@ -91,20 +91,20 @@
                 view_name: "AdminAbout",
                 template_name: "about",
                 path: "admin/",
-                admin_templates: {
+                other_templates: {
                     path: "admin/common/",
-                    //header_name: "header",
-                    main_container: "main_container"
+                    access_point: "MainContainerTemplate",
+                    template_name: "main_container"
                 }
             },
             BOUQUETS: {
                 view_name: "AdminBouquets",
                 template_name: "bouquets",
                 path: "admin/",
-                admin_templates: {
+                other_templates: {
                     path: "admin/common/",
-                    //header_name: "header",
-                    main_container: "main_container"
+                    access_point: "MainContainerTemplate",
+                    template_name: "main_container"
                 }
             }
         },
@@ -112,7 +112,12 @@
             HEADER: {
                 view_name: "UserHeader",
                 template_name: "header",
-                path: "user_part/common/"
+                path: "user_part/common/",
+                other_templates: {
+                    path: "user_part/common/",
+                    access_point: "HeaderMenu",
+                    template_name: "header_menu"
+                }
             },
             ABOUT: {
                 view_name: "UserAbout",
