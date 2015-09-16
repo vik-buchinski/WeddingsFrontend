@@ -1,4 +1,10 @@
 ﻿<h3 class="page-header"><%=$.i18n.t("admin.bouquets-page.page-title")%></h3>
+
+<div class="form-group">
+    <label for="description"><%=$.i18n.t("admin.bouquets-page.description-title")%></label>
+    <textarea cols="80" id="description" rows="8"><% if(data && data.description) {%> <%=data.description%> <% } %></textarea>
+</div>
+
 <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
 <form class="breadcrumb">
     <div class="form-group">

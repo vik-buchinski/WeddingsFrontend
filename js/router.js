@@ -90,7 +90,7 @@
             },
             albumImages: function() {
                 var self = this;
-                server.getUserAlbumImages(function(data) {
+                server.getAlbumImagesByType(function (data) {
                     self.buildView(
                         albumImagesView,
                         "AlbumImages",

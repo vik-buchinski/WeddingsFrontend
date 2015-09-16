@@ -59,6 +59,10 @@
                     url: "/images",
                     type: "GET",
                 }
+            },
+            album_by_type: {
+                url: "album_images/",
+                type: "GET"
             }
         }
     },

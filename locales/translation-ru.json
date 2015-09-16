@@ -41,7 +41,8 @@
             "confirmation-text": "Are you really want delete this photo?",
             "modal-cancel": "Cancel",
             "edit-modal-title": "Photo Editting",
-            "modal-save-changes": "Save changes"
+            "modal-save-changes": "Save changes",
+            "description-title": "Desciption text:"
         }
     },
     "user": {
