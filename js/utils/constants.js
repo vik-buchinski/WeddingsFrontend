@@ -36,7 +36,7 @@
                     type: "PUT"
                 },
                 getAll: {
-                    url: "admin/bouquets/images",
+                    url: "admin/bouquets",
                     type: "GET"
                 },
                 delete: {
@@ -48,6 +48,10 @@
         user: {
             about: {
                 url: "about",
+                type: "GET"
+            },
+            bouquets: {
+                url: "bouquets",
                 type: "GET"
             },
             album: {

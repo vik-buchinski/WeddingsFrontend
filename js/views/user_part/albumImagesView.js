@@ -4,8 +4,8 @@
             if (!window.app.views.AlbumImages) {
                 window.app.views.AlbumImages = Backbone.View.extend({
                     initialize: function(options) {
-                        this.images = options.data;
-                        window.Vent.trigger("setFullscreenImages", { images: options.data });
+                        this.data = options.data;
+                        window.Vent.trigger("setFullscreenImages", { images: options.data.images });
                     },
 
                     render: function() {
@@ -64,7 +64,7 @@
 
                         var columnsHeightArr = this.createArray(columnsCount, 0);
 
-                        _.each(this.images, function(image) {
+                        _.each(this.data.images, function(image) {
                             var imgHeight = image.image_height / (image.image_width / imageWidth);
                             var imgObj = {
                                 description: image.description,

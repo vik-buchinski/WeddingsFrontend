@@ -22,7 +22,7 @@
                 "": "home",
                 "home": "home",
                 "about": "userAbout",
-                "bouquets": "albumImages",
+                "bouquets": "userBouquets",
                 "admin": "adminHome",
                 "admin/signIn": "signIn",
                 "admin/bouquets": "adminBouquets"
@@ -88,8 +88,22 @@
                         constants.USER_TABS.about);
                 });
             },
-            albumImages: function() {
+            userBouquets: function() {
                 var self = this;
+                server.getBouquetsAlbum(function(data) {
+                    self.buildView(
+                        albumImagesView,
+                        "AlbumImages",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user.bouquets.title"),
+                        constants.USER_TABS.bouquets);
+                });
+            },
+            albumImages: function() {
+                /*var self = this;
                 server.getAlbumImagesByType(function (data) {
                     self.buildView(
                         albumImagesView,
@@ -100,7 +114,7 @@
                         false,
                         $.i18n.t("user.bouquets.title"),
                         constants.USER_TABS.bouquets);
-                }, constants.ALBUM_TYPES.bouquets);
+                }, constants.ALBUM_TYPES.bouquets);*/
             },
 
             buildView: function(view, viewName, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {

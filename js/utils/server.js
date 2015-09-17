@@ -128,10 +128,10 @@
             commonServerRequest(constants.API_METHODS.user.about.url, constants.API_METHODS.user.about.type, null, successCallback);
         },
 
-        getAlbumImagesByType: function(successCallback, albumType) {
+        getBouquetsAlbum: function(successCallback) {
             commonServerRequest(
-                constants.API_METHODS.user.album_by_type.url + albumType,
-                constants.API_METHODS.user.album_by_type.type,
+                constants.API_METHODS.user.bouquets.url,
+                constants.API_METHODS.user.bouquets.type,
                 null,
                 successCallback);
         },

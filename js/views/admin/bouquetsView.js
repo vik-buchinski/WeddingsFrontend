@@ -16,6 +16,7 @@
                             data: this.bouquets_data
 
                         }));
+                        $(this.$el).find("textarea#description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
                         return this;
                     },
                     events: {
@@ -102,7 +103,7 @@
                     },
                     editPhoto: function(ev) {
                         var photoId = $(ev.currentTarget).data('photo-number');
-                        var photo = _.find(this.bouquets_data, function(image) {
+                        var photo = _.find(this.bouquets_data.images, function(image) {
                             return image.id == photoId;
                         });
                         $("#edit-image").attr("src", photo.image_url);

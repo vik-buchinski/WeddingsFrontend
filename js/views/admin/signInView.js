@@ -12,7 +12,7 @@
                         "submit #admin-sign-in-form": "signInSubmit"
                     },
                     signInSubmit: function () {
-                        server.login($("#input-email").val(), $("#input-password").val(), function (data) {
+                        server.login($("#input-email").val(), $("#input-password").val(), function(data) {
                             localStorage.saveSession(data);
                             window.app.router.navigate("admin", true);
                         });

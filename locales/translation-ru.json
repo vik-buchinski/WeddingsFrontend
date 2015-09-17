@@ -33,6 +33,7 @@
             "page-title": "Bouquets filling",
             "choose-title": "Add new photo:",
             "add-btn": "Add",
+            "save-btn": "Save",
             "description": "Short description",
             "list-title": "Bouquets Images:",
             "delete": "Delete",
@@ -42,7 +43,9 @@
             "modal-cancel": "Cancel",
             "edit-modal-title": "Photo Editting",
             "modal-save-changes": "Save changes",
-            "description-title": "Desciption text:"
+            "album-description": "Album description",
+            "album-name":  "Album name",
+            "album-image":  "Album image"
         }
     },
     "user": {
