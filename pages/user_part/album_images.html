@@ -1,4 +1,11 @@
-﻿<div class="images-grid" style="height: <%= data.totalHeight %>px;">
+﻿
+<% if(description) { %>
+    <div class="description">
+        <%= description %>
+    </div>
+<% } %>
+
+<div class="images-grid" style="height: <%= data.totalHeight %>px;">
     <% _.each(data.images, function(image) { %>
         <img class="lazy" data-original="<%=image.url%>" data-id="<%=image.id%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style="width: <%=image.styles.width%>px;

@@ -22,7 +22,7 @@
                     },
 
                     buildView: function() {
-                        this.setElement(this.template({ data: this.buildImagesGrid() }));
+                        this.setElement(this.template({ data: this.buildImagesGrid(), description: this.data.album_description }));
                         $("section.page .container").html(this.$el);
                         $(this.$el).find("img.lazy").lazyload({
                             threshold: 200

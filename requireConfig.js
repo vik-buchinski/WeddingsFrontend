@@ -21,7 +21,7 @@ require.config({
         'user-album-images': "./views/user_part/albumImagesView",
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
-        'admin-bouquets': "./views/admin/bouquetsView",
+        'admin-album': "./views/admin/albumView",
         'sign-in-view': "./views/admin/signInView",
         server: "./utils/server",
         constants: "./utils/constants",

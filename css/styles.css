@@ -104,3 +104,9 @@ form .form-group .img-responsive {
     user-select: none;
     outline: 0;
 }
+
+.description {
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-bottom: 40px;
+}

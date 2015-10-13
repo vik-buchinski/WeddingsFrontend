@@ -112,6 +112,17 @@
             commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.edit.url + imageId, constants.API_METHODS.admin.bouquets.edit.type, params, successCallback);
         },
 
+        editAdminAlbum: function(token, image, desc, name, albumId, successCallback) {
+            var params = new FormData();
+            if (image) {
+                params.append('image', image);
+            }
+            params.append("album_description", desc);
+            params.append("album_name", name);
+            params.append("Session-Token", token);
+            commonFileSubmitUrl(constants.API_METHODS.admin.album.edit.url + albumId, constants.API_METHODS.admin.album.edit.type, params, successCallback);
+        },
+
         getAdminBouquetsImages: function(token, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.bouquets.getAll.url, constants.API_METHODS.admin.bouquets.getAll.type, null, successCallback, token);
         },

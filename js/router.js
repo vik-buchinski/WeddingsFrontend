@@ -2,7 +2,7 @@
     [
         'fullscreenImageView',
         'user-title', 'user-album-images',
-        'admin-bouquets', 'user-header',
+        'admin-album', 'user-header',
         'user-about', 'admin-header',
         'server', 'admin-about',
         'local-storage', 'sign-in-view',
@@ -12,7 +12,7 @@
     function(
         fullscreenImageView,
         Title, albumImagesView,
-        adminBouquetsView, userHeader,
+        adminAlbumView, userHeader,
         userAbout, adminHeader,
         server, adminAbouView,
         localStorage, signInView,
@@ -57,9 +57,9 @@
                     var self = this;
                     server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
                         self.buildView(
-                            adminBouquetsView,
-                            "AdminBouquets",
-                            constants.PAGE_TEMPLATES_DATA.ADMIN.BOUQUETS,
+                            adminAlbumView,
+                            "AdminAlbum",
+                            constants.PAGE_TEMPLATES_DATA.ADMIN.ALBUM,
                             { bouquets_data: data },
                             false,
                             true);
@@ -101,20 +101,6 @@
                         $.i18n.t("user.bouquets.title"),
                         constants.USER_TABS.bouquets);
                 });
-            },
-            albumImages: function() {
-                /*var self = this;
-                server.getAlbumImagesByType(function (data) {
-                    self.buildView(
-                        albumImagesView,
-                        "AlbumImages",
-                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
-                        { data: data },
-                        true,
-                        false,
-                        $.i18n.t("user.bouquets.title"),
-                        constants.USER_TABS.bouquets);
-                }, constants.ALBUM_TYPES.bouquets);*/
             },
 
             buildView: function(view, viewName, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {

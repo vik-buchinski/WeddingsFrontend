@@ -32,9 +32,10 @@
 
                     closeBox: function () {
                         $(".fsbox").show();
-                        $(".fsbox").fadeOut(200);
-                        $(".fsbox .slides img").attr("src", "");
-                        $("body").removeClass("fsbox-active");
+                        $(".fsbox").fadeOut(200, function() {
+                            $(".fsbox .slides img").attr("src", "");
+                            $("body").removeClass("fsbox-active");
+                        });
                     },
                     
                     showNext: function () {

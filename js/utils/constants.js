@@ -6,6 +6,8 @@
     MAX_UPLOADS_FILE_SIZE: 10485760,
     SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
 
+    CKEDITOR_LANGUAGE: "ru",
+
     ALBUM_TYPES: {
         bouquets: "bouquets"
     },
@@ -43,6 +45,12 @@
                     url: "admin/bouquets/images/",
                     type: "DELETE"
                 }
+            },
+            album: {
+                edit: {
+                    url: "admin/album/",
+                    type: "PUT"
+                }
             }
         },
         user: {
@@ -70,8 +78,6 @@
             }
         }
     },
-
-    CKEDITOR_LANGUAGE: "ru",
     
     USER_TABS: {
         about: "about",
@@ -105,9 +111,9 @@
                     template_name: "main_container"
                 }
             },
-            BOUQUETS: {
-                view_name: "AdminBouquets",
-                template_name: "bouquets",
+            ALBUM: {
+                view_name: "AdminAlbum",
+                template_name: "album",
                 path: "admin/",
                 other_templates: {
                     path: "admin/common/",
