@@ -110,3 +110,15 @@ form .form-group .img-responsive {
     margin-right: 22%;
     margin-bottom: 40px;
 }
+@media (max-width: 1000px) {
+    .description {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+@media (max-width: 420px) {
+    .description {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

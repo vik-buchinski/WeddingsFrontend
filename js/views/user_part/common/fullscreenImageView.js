@@ -34,8 +34,8 @@
                         $(".fsbox").show();
                         $(".fsbox").fadeOut(200, function() {
                             $(".fsbox .slides img").attr("src", "");
-                            $("body").removeClass("fsbox-active");
                         });
+                        $("body").removeClass("fsbox-active");
                     },
                     
                     showNext: function () {
