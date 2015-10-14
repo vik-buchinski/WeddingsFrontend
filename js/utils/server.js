@@ -96,20 +96,28 @@
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save.url, constants.API_METHODS.admin.about.save.type, params, successCallback);
         },
 
-        addAdminBouquetsImage: function(token, image, desc, successCallback) {
+        addAdminAlbumImage: function(token, image, desc, albumId, successCallback) {
             var params = new FormData();
             params.append('image', image);
             params.append("description", desc);
             params.append("Session-Token", token);
-            commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.add.url, constants.API_METHODS.admin.bouquets.add.type, params, successCallback);
+            commonFileSubmitUrl(
+                constants.API_METHODS.admin.album.add_image.url + albumId + constants.API_METHODS.admin.album.add_image.url_2,
+                constants.API_METHODS.admin.album.add_image.type,
+                params,
+                successCallback);
         },
 
-        editAdminBouquetsImage: function(token, image, desc, imageId, successCallback) {
+        editAdminAlbumImage: function(token, image, desc, imageId, albumId, successCallback) {
             var params = new FormData();
             params.append('image', image);
             params.append("description", desc);
             params.append("Session-Token", token);
-            commonFileSubmitUrl(constants.API_METHODS.admin.bouquets.edit.url + imageId, constants.API_METHODS.admin.bouquets.edit.type, params, successCallback);
+            commonFileSubmitUrl(
+                constants.API_METHODS.admin.album.edit_image.url + albumId + constants.API_METHODS.admin.album.edit_image.url_2 + imageId,
+                constants.API_METHODS.admin.album.edit_image.type,
+                params,
+                successCallback);
         },
 
         editAdminAlbum: function(token, image, desc, name, albumId, successCallback) {
@@ -127,8 +135,13 @@
             commonServerRequest(constants.API_METHODS.admin.bouquets.getAll.url, constants.API_METHODS.admin.bouquets.getAll.type, null, successCallback, token);
         },
 
-        deleteAdminBouquetsImage: function(token, imageId, successCallback) {
-            commonServerRequest(constants.API_METHODS.admin.bouquets.delete.url + imageId, constants.API_METHODS.admin.bouquets.delete.type, null, successCallback, token);
+        deleteAdminAlbumImage: function(token, imageId, albumId, successCallback) {
+            commonServerRequest(
+                constants.API_METHODS.admin.album.delete_image.url + albumId + constants.API_METHODS.admin.album.delete_image.url_2 + imageId,
+                constants.API_METHODS.admin.album.delete_image.type,
+                null,
+                successCallback,
+                token);
         },
         
         getAdminAbout: function (sessionToken, successCallback) {

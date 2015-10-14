@@ -4,16 +4,18 @@
             if (!window.app.views.AdminAlbum) {
                 window.app.views.AdminAlbum = Backbone.View.extend({
                     initialize: function(options) {
-                        this.bouquets_data = options.bouquets_data;
+                        this.album_data = options.album_data;
+                        this.title = options.title;
+                        this.selected_page = options.selected_page;
                     },
                     render: function() {
-                        document.title = $.i18n.t("admin.bouquets-page.page-title");
+                        document.title = this.title;
                         this.$el.html(this.MainContainerTemplate({
                             all_pages: constants.LEFT_PANELS,
-                            selected_page: constants.LEFT_PANELS.bouquets
+                            selected_page: this.selected_page
                         }));
                         $(this.$el).find(".main").html(this.template({
-                            data: this.bouquets_data
+                            data: this.album_data
 
                         }));
                         $(this.$el).find("textarea#album-description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
@@ -30,7 +32,7 @@
                     },
                     updateAlbumData: function() {
                         var file = null;
-                        if (!this.bouquets_data.album_is_expaned) {
+                        if (!this.album_data.album_is_expaned) {
                             file = $("#album-image")[0].files[0];
                             if (!file) {
                                 alert($.i18n.t("select-image-message"));
@@ -46,10 +48,16 @@
                                 alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
                             }
                         }
-                        server.editAdminAlbum(localStorage.getSession().session.token, file, $("#album-description").val(), $("#album-name").val(), this.bouquets_data.id, function(response) {
-                            alert($.i18n.t("saved-message"));
-                            window.location.reload();
-                        });
+                        server.editAdminAlbum(
+                            localStorage.getSession().session.token,
+                            file,
+                            $("#album-description").val(),
+                            $("#album-name").val(),
+                            this.album_data.id,
+                            function(response) {
+                                alert($.i18n.t("saved-message"));
+                                window.location.reload();
+                            });
                         return false;
                     },
 
@@ -136,34 +144,51 @@
                             alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
                         }
 
-                        server.addAdminBouquetsImage(localStorage.getSession().session.token, file, $("#image-description").val(), function(response) {
-                            alert($.i18n.t("image-added-message"));
-                            window.location.reload();
-                        });
+                        server.addAdminAlbumImage(
+                            localStorage.getSession().session.token,
+                            file,
+                            $("#image-description").val(),
+                            this.album_data.id,
+                            function(response) {
+                                alert($.i18n.t("image-added-message"));
+                                window.location.reload();
+                            });
                         return false;
                     },
                     deletePhoto: function(ev) {
+                        var self = this;
                         $('#confirm-modal').unbind().modal({ backdrop: 'static', keyboard: false })
                             .one('click', '#confirm-delete-btn', function(e) {
-                                server.deleteAdminBouquetsImage(localStorage.getSession().session.token, $(ev.currentTarget).data('photo-number'), function() {
-                                    $('#confirm-modal').modal('hide');
-                                    window.location.reload();
-                                });
-                        });
+                                server.deleteAdminAlbumImage(
+                                    localStorage.getSession().session.token,
+                                    $(ev.currentTarget).data('photo-number'),
+                                    self.album_data.id,
+                                    function() {
+                                        $('#confirm-modal').modal('hide');
+                                        window.location.reload();
+                                    });
+                            });
                     },
                     editPhoto: function(ev) {
+                        var self = this;
                         var photoId = $(ev.currentTarget).data('photo-number');
-                        var photo = _.find(this.bouquets_data.images, function(image) {
+                        var photo = _.find(this.album_data.images, function(image) {
                             return image.id == photoId;
                         });
                         $("#edit-image").attr("src", photo.image_url);
                         $("#edit-image-description").val(photo.description);
                         $('#edit-photo-modal').unbind().modal({ backdrop: 'static', keyboard: false })
                             .one('click', '#save-changes-btn', function(e) {
-                                server.editAdminBouquetsImage(localStorage.getSession().session.token, $("#edit-avatar-image")[0].files[0], $('#edit-image-description').val(), photoId, function() {
-                                    $('#edit-photo-modal').modal('hide');
-                                    window.location.reload();
-                                });
+                                server.editAdminAlbumImage(
+                                    localStorage.getSession().session.token,
+                                    $("#edit-avatar-image")[0].files[0],
+                                    $('#edit-image-description').val(),
+                                    photoId,
+                                    self.album_data.id,
+                                    function() {
+                                        $('#edit-photo-modal').modal('hide');
+                                        window.location.reload();
+                                    });
                             });
                     }
                 });

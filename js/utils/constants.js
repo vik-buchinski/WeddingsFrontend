@@ -29,26 +29,29 @@
                 }
             },
             bouquets: {
-                add: {
-                    url: "admin/bouquets/images",
-                    type: "POST"
-                },
-                edit: {
-                    url: "admin/bouquets/images/",
-                    type: "PUT"
-                },
                 getAll: {
                     url: "admin/bouquets",
                     type: "GET"
-                },
-                delete: {
-                    url: "admin/bouquets/images/",
-                    type: "DELETE"
                 }
             },
             album: {
                 edit: {
                     url: "admin/album/",
+                    type: "PUT"
+                },
+                add_image: {
+                    url: "admin/album/",
+                    url_2: "/image",
+                    type: "POST"
+                },
+                delete_image: {
+                    url: "admin/album/",
+                    url_2: "/image/",
+                    type: "DELETE"
+                },
+                edit_image: {
+                    url: "admin/album/",
+                    url_2: "/image/",
                     type: "PUT"
                 }
             }

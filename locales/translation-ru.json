@@ -29,13 +29,13 @@
             "description-title": "Desciption text:",
             "save-btn": "Save"
         },
-        "bouquets-page": {
-            "page-title": "Bouquets filling",
+        "album-page": {
+            "page-title": "Album filling",
             "choose-title": "Add new photo:",
             "add-btn": "Add",
             "save-btn": "Save",
             "description": "Short description",
-            "list-title": "Bouquets Images:",
+            "list-title": "Images:",
             "delete": "Delete",
             "edit": "Edit",
             "confirm-title": "Confirmation",

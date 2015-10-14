@@ -1,8 +1,8 @@
-﻿<h3 class="page-header"><%=$.i18n.t("admin.bouquets-page.page-title")%></h3>
+﻿<h3 class="page-header"><%=$.i18n.t("admin.album-page.page-title")%></h3>
 <div class="breadcrumb">
     <% if(!data.album_is_expaned) { %>
         <div class="form-group">
-            <label for="album-edit-photo-row"><%=$.i18n.t("admin.bouquets-page.album-image")%></label>
+            <label for="album-edit-photo-row"><%=$.i18n.t("admin.album-page.album-image")%></label>
             <div class="row" id="album-edit-photo-row">
                 <div class="col-sm-offset-0 col-sm-3">
                     <img id="album-image-preview" src="<% if(data && data.album_main_image) { %><%=data.album_main_image%><% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
@@ -14,24 +14,24 @@
 
         <div class="form-group row">
             <div class="col-xs-3">
-                <label for="album-name"><%=$.i18n.t("admin.bouquets-page.album-name")%></label>
-                <input type="text" class="form-control" id="album-name" placeholder="<%=$.i18n.t('admin.bouquets-page.album-name')%>" <% if(data && data.album_name) { %><%=data.album_name%><% } %>/>
+                <label for="album-name"><%=$.i18n.t("admin.album-page.album-name")%></label>
+                <input type="text" class="form-control" id="album-name" placeholder="<%=$.i18n.t('admin.album-page.album-name')%>" <% if(data && data.album_name) { %><%=data.album_name%><% } %>/>
             </div>
         </div>
     <% } %>
 
     <div class="form-group">
-        <label for="album-description"><%=$.i18n.t("admin.bouquets-page.album-description")%></label>
+        <label for="album-description"><%=$.i18n.t("admin.album-page.album-description")%></label>
         <textarea cols="80" id="album-description" rows="8"><% if(data && data.album_description) {%> <%=data.album_description%> <% } %></textarea>
     </div>
 
-    <button id="save-album-btn" class="btn btn-success"><%=$.i18n.t("admin.bouquets-page.save-btn")%></button>
+    <button id="save-album-btn" class="btn btn-success"><%=$.i18n.t("admin.album-page.save-btn")%></button>
 </div>
 
 <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
 <div class="breadcrumb">
     <div class="form-group">
-        <label for="add-photo-row"><%=$.i18n.t("admin.bouquets-page.choose-title")%></label>
+        <label for="add-photo-row"><%=$.i18n.t("admin.album-page.choose-title")%></label>
         <div class="row" id="add-photo-row">
             <div class="col-sm-offset-0 col-sm-3">
                 <img id="adding-image-preview" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
@@ -42,17 +42,17 @@
     </div>
     <div class="form-group row">
         <div class="col-xs-3">
-            <label for="image-description"><%=$.i18n.t("admin.bouquets-page.description")%></label>
+            <label for="image-description"><%=$.i18n.t("admin.album-page.description")%></label>
             <input type="text" class="form-control" id="image-description" placeholder="description">
         </div>
     </div>
-    <button id="submit-btn" class="btn btn-success"><%=$.i18n.t("admin.bouquets-page.add-btn")%></button>
+    <button id="submit-btn" class="btn btn-success"><%=$.i18n.t("admin.album-page.add-btn")%></button>
 </div>
 
 <br/>
 
 <div class="panel panel-default">
-    <div class="panel-heading"><%=$.i18n.t("admin.bouquets-page.list-title")%></div>
+    <div class="panel-heading"><%=$.i18n.t("admin.album-page.list-title")%></div>
     <div class="panel-body">
         <% if(data.images && data.images.length > 0) { %>
             <% _.each(data.images, function(photo) { %>
@@ -63,8 +63,8 @@
                     <div class="media-body">
                         <h4 class="media-heading"><%=photo.description%></h4>
                         <div class="media-actonbar">
-                            <button id="delete-btn" class="btn btn-danger" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
-                            <button id="edit-btn" class="btn btn-primary" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.bouquets-page.edit")%></button>
+                            <button id="delete-btn" class="btn btn-danger" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.album-page.delete")%></button>
+                            <button id="edit-btn" class="btn btn-primary" data-photo-number="<%=photo.id%>"><%=$.i18n.t("admin.album-page.edit")%></button>
                         </div>
                     </div>
                 </div>
@@ -80,14 +80,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><%=$.i18n.t("admin.bouquets-page.confirm-title")%></h4>
+                <h4 class="modal-title"><%=$.i18n.t("admin.album-page.confirm-title")%></h4>
             </div>
             <div class="modal-body">
-                <p><%=$.i18n.t("admin.bouquets-page.confirmation-text")%></p>
+                <p><%=$.i18n.t("admin.album-page.confirmation-text")%></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.bouquets-page.modal-cancel")%></button>
-                <button type="button" class="btn btn-primary" id="confirm-delete-btn"><%=$.i18n.t("admin.bouquets-page.delete")%></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.album-page.modal-cancel")%></button>
+                <button type="button" class="btn btn-primary" id="confirm-delete-btn"><%=$.i18n.t("admin.album-page.delete")%></button>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="edit-photo-name"><%=$.i18n.t("admin.bouquets-page.edit-modal-title")%></h4>
+                <h4 class="modal-title" id="edit-photo-name"><%=$.i18n.t("admin.album-page.edit-modal-title")%></h4>
             </div>
             <div class="modal-body">
                 <div>
@@ -114,15 +114,15 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-6">
-                            <label for="edit-image-description"><%=$.i18n.t("admin.bouquets-page.description")%></label>
+                            <label for="edit-image-description"><%=$.i18n.t("admin.album-page.description")%></label>
                             <input type="text" class="form-control" id="edit-image-description" placeholder="description">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.bouquets-page.modal-cancel")%></button>
-                <button type="button" class="btn btn-primary" id="save-changes-btn"><%=$.i18n.t("admin.bouquets-page.modal-save-changes")%></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.album-page.modal-cancel")%></button>
+                <button type="button" class="btn btn-primary" id="save-changes-btn"><%=$.i18n.t("admin.album-page.modal-save-changes")%></button>
             </div>
         </div>
     </div>

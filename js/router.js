@@ -60,7 +60,11 @@
                             adminAlbumView,
                             "AdminAlbum",
                             constants.PAGE_TEMPLATES_DATA.ADMIN.ALBUM,
-                            { bouquets_data: data },
+                            {
+                                album_data: data,
+                                title: $.i18n.t("admin.bouquets-page.page-title"),
+                                selected_page: constants.LEFT_PANELS.bouquets
+                            },
                             false,
                             true);
                     });
