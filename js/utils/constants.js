@@ -84,7 +84,8 @@
     
     USER_TABS: {
         about: "about",
-        bouquets: "bouquets"
+        bouquets: "bouquets",
+        decorations: "decorations"
     },
 
     LEFT_PANELS: {
@@ -144,6 +145,11 @@
             ALBUM_IMAGES: {
                 view_name: "AlbumImages",
                 template_name: "album_images",
+                path: "user_part/"
+            },
+            ALBUMS_LIST: {
+                view_name: "AlbumsList",
+                template_name: "albums_list",
                 path: "user_part/"
             }
         }

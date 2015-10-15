@@ -122,3 +122,70 @@ form .form-group .img-responsive {
         margin-right: 5%;
     }
 }
+
+ul.albums-list {
+	list-style: none;
+	font-size: 0px;
+	margin-left: -15px;
+    padding: 0;
+}
+ul.albums-list li {
+	display: inline-block;
+	margin: 0 0 15px 15px;
+    font-size: 11px;
+	vertical-align: top;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+    color: #969393;
+}
+ul.albums-list li img {
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+}
+ul.albums-list li > div {
+    padding: 12px 0 15px 0;
+}
+/* class for 4 columns */
+ul.albums-list li {
+	width: 22.5%;
+}
+ul.albums-list {
+    padding-left: 5%;
+}
+@media (max-width: 1000px) {
+    /* class for 3 columns */
+    ul.albums-list li {
+        width: 30.83%;
+    }
+    ul.albums-list {
+        padding-left: 3%;
+    }
+}
+@media (max-width: 800px) {
+    /* class for 2 columns */
+    ul.albums-list li {
+        width: 45.5%;
+    }
+    ul.albums-list {
+        padding-left: 2%;
+    }
+}
+@media (max-width: 480px) {
+	ul.grid-nav li {
+		display: block;
+		margin: 0 0 5px;
+	}
+	ul.grid-nav li a {
+		display: block;
+	}
+    ul.albums-list {
+        margin-left: 0;
+        padding-left: 0%;
+    }
+	ul.albums-list li {
+		width: 100%;
+		margin: 0 0 20px;
+	}
+}

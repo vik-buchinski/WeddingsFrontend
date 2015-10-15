@@ -7,7 +7,7 @@
     "image-added-message": "Image added",
     "saved-message": "Saved",
     "mb-prefix": "Mb",
-	"image-not-found-error":"Image with such id is not found.",
+    "image-not-found-error": "Image with such id is not found.",
     "admin": {
         "header": {
             "panel-name": "Administration panel"
@@ -44,8 +44,8 @@
             "edit-modal-title": "Photo Editting",
             "modal-save-changes": "Save changes",
             "album-description": "Album description",
-            "album-name":  "Album name",
-            "album-image":  "Album image"
+            "album-name": "Album name",
+            "album-image": "Album image"
         }
     },
     "user": {
@@ -64,6 +64,9 @@
         },
         "bouquets": {
             "title": "Bukiety"
+        },
+        "decorations": {
+            "title": "Dekoracje"
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿define(
     [
-        'fullscreenImageView',
+        'user-albums-list', 'fullscreenImageView',
         'user-title', 'user-album-images',
         'admin-album', 'user-header',
         'user-about', 'admin-header',
@@ -10,7 +10,7 @@
         'backbone'
     ],
     function(
-        fullscreenImageView,
+        albumsListView, fullscreenImageView,
         Title, albumImagesView,
         adminAlbumView, userHeader,
         userAbout, adminHeader,
@@ -25,7 +25,8 @@
                 "bouquets": "userBouquets",
                 "admin": "adminHome",
                 "admin/signIn": "signIn",
-                "admin/bouquets": "adminBouquets"
+                "admin/bouquets": "adminBouquets",
+                "decorations": "albumsList"
             },
 
             home: function() {
@@ -104,6 +105,20 @@
                         false,
                         $.i18n.t("user.bouquets.title"),
                         constants.USER_TABS.bouquets);
+                });
+            },
+            albumsList: function() {
+                var self = this;
+                server.getBouquetsAlbum(function(data) {
+                    self.buildView(
+                        albumsListView,
+                        "AlbumsList",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUMS_LIST,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user.decorations.title"),
+                        constants.USER_TABS.decorations);
                 });
             },
 

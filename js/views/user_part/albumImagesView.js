@@ -11,7 +11,9 @@
                     render: function() {
                         var self = this;
                         $(window).on('resize', function() {
-                            self.buildView();
+                            if ($("section.page div.container > div").hasClass("images-grid")) {
+                                self.buildView();
+                            }
                         });
 
                         setTimeout(function() {
@@ -40,10 +42,10 @@
                     buildImagesGrid: function() {
                         var width = $(window).width();
                         var columnsCount;
-                        var dividerHeight = 10;
+                        var dividerHeight = 15;
                         var paddingRight = $("section.page .container").css('padding-right').replace("px", ""),
                             paddingLeft = $("section.page .container").css('padding-left').replace("px", "");
-                        if (width < 400) {
+                        if (width < 480) {
                             columnsCount = 1;
                         } else if (width < 800) {
                             columnsCount = 2;

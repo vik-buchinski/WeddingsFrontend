@@ -19,6 +19,7 @@ require.config({
         'sub-menu': "./views/user_part/common/subMenuView",
         'user-about': "./views/user_part/userAboutView",
         'user-album-images': "./views/user_part/albumImagesView",
+        'user-albums-list': "./views/user_part/albumsListView",
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
         'admin-album': "./views/admin/albumView",
