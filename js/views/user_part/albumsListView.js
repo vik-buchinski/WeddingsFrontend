@@ -8,7 +8,10 @@
                     },
 
                     render: function() {
-                        this.setElement(this.template());
+                        this.setElement(this.template({ data: this.data }));
+                        $(this.$el).find("img.lazy").lazyload({
+                            threshold: 200
+                        });
                         $(".container").addClass("fullscreen-content");
                         return this;
                     },

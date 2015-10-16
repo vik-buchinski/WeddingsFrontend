@@ -127,6 +127,8 @@
             }
             params.append("album_description", desc);
             params.append("album_name", name);
+            //TODO: change it is to real value
+            //params.append("is_visible", true);
             params.append("Session-Token", token);
             commonFileSubmitUrl(constants.API_METHODS.admin.album.edit.url + albumId, constants.API_METHODS.admin.album.edit.type, params, successCallback);
         },

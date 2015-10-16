@@ -36,7 +36,7 @@
             },
             album: {
                 edit: {
-                    url: "admin/album/",
+                    url: "admin/albums/",
                     type: "PUT"
                 },
                 add_image: {
