@@ -1,6 +1,6 @@
 ﻿<h3 class="page-header"><%=$.i18n.t("admin.album-page.page-title")%></h3>
 <div class="breadcrumb">
-    <% if(!data.album_is_expaned) { %>
+    <% if(!data.is_expaned) { %>
         <div class="form-group">
             <label for="album-edit-photo-row"><%=$.i18n.t("admin.album-page.album-image")%></label>
             <div class="row" id="album-edit-photo-row">
@@ -15,7 +15,7 @@
         <div class="form-group row">
             <div class="col-xs-3">
                 <label for="album-name"><%=$.i18n.t("admin.album-page.album-name")%></label>
-                <input type="text" class="form-control" id="album-name" placeholder="<%=$.i18n.t('admin.album-page.album-name')%>" <% if(data && data.album_name) { %><%=data.album_name%><% } %>/>
+                <input type="text" class="form-control" id="album-name" placeholder="<%=$.i18n.t('admin.album-page.album-name')%>" <% if(data && data.album_name) { %>value="<%=data.album_name%>"<% } %>/>
             </div>
         </div>
     <% } %>
@@ -24,6 +24,14 @@
         <label for="album-description"><%=$.i18n.t("admin.album-page.album-description")%></label>
         <textarea cols="80" id="album-description" rows="8"><% if(data && data.album_description) {%> <%=data.album_description%> <% } %></textarea>
     </div>
+    
+    <% if(!data.is_expaned) { %>
+        <div class="checkbox">
+            <label>
+                <input id="is-album-visible" type="checkbox" <% if(data && data.is_visible){ %>checked<% } %>> <b>Is Album visible</b>
+            </label>
+        </div>
+    <% } %>
 
     <button id="save-album-btn" class="btn btn-success"><%=$.i18n.t("admin.album-page.save-btn")%></button>
 </div>
@@ -70,7 +78,7 @@
                 </div>
             <% }); %>
         <% } else { %>
-            <span>No data</span>
+            <span><%=$.i18n.t("admin.album-page.no-images")%></span>
         <% } %>
     </div>
 </div>
@@ -103,7 +111,7 @@
             <div class="modal-body">
                 <div>
                     <div class="form-group">
-                        <label for="edit-photo-row">Photo description</label>
+                        <label for="edit-photo-row"><%=$.i18n.t("admin.album-page.photo-description")%></label>
                         <div class="row" id="edit-photo-row">
                             <div class="col-sm-offset-0 col-sm-3">
                                 <img id="edit-image" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">

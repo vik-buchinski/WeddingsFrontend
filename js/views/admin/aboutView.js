@@ -10,6 +10,7 @@
                         document.title = $.i18n.t("admin.about-page.page-title");
                         this.$el.html(this.MainContainerTemplate({
                             all_pages: constants.LEFT_PANELS,
+                            album_types: constants.ALBUM_TYPES,
                             selected_page: constants.LEFT_PANELS.about
                         }));
                         $(this.$el).find(".main").html(this.template({

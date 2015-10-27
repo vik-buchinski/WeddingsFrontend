@@ -23,6 +23,7 @@ require.config({
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
         'admin-album': "./views/admin/albumView",
+        'admin-albums-list': "./views/admin/albumsListView",
         'sign-in-view': "./views/admin/signInView",
         server: "./utils/server",
         constants: "./utils/constants",

@@ -9,7 +9,20 @@
     CKEDITOR_LANGUAGE: "ru",
 
     ALBUM_TYPES: {
-        bouquets: "bouquets"
+        bouquets: "bouquets",
+        decorations: "decorations"
+    },
+
+    LEFT_PANELS: {
+        about: "about",
+        bouquets: "bouquets",
+        decorations: "decorations"
+    },
+
+    USER_TABS: {
+        about: "about",
+        bouquets: "bouquets",
+        decorations: "decorations"
     },
 
     API_METHODS: {
@@ -53,6 +66,24 @@
                     url: "admin/album/",
                     url_2: "/image/",
                     type: "PUT"
+                },
+                get: {
+                    url: "admin/album/",
+                    type: "GET"
+                }
+            },
+            albums_list: {
+                get: {
+                    url: "admin/albums/",
+                    type: "GET"
+                },
+                add: {
+                    url: "admin/albums",
+                    type: "POST"
+                },
+                delete: {
+                    url: "admin/albums/",
+                    type: "DELETE"
                 }
             }
         },
@@ -81,17 +112,6 @@
             }
         }
     },
-    
-    USER_TABS: {
-        about: "about",
-        bouquets: "bouquets",
-        decorations: "decorations"
-    },
-
-    LEFT_PANELS: {
-        about: "about",
-        bouquets: "bouquets"
-    },
 
     PAGE_TEMPLATES_DATA: {
         ADMIN: {
@@ -118,6 +138,16 @@
             ALBUM: {
                 view_name: "AdminAlbum",
                 template_name: "album",
+                path: "admin/",
+                other_templates: {
+                    path: "admin/common/",
+                    access_point: "MainContainerTemplate",
+                    template_name: "main_container"
+                }
+            },
+            ALBUMS_LIST: {
+                view_name: "AdminAlbumsList",
+                template_name: "albums_list",
                 path: "admin/",
                 other_templates: {
                     path: "admin/common/",

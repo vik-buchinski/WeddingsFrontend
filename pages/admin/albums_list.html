@@ -1,0 +1,72 @@
+﻿<h3 class="page-header"><%=$.i18n.t("admin." + album_type + ".page-header")%></h3>
+<div class="breadcrumb">
+        <div class="form-group">
+            <label for="album-edit-photo-row"><%=$.i18n.t("admin.album-page.add-new-album")%></label>
+            <div class="row" id="album-edit-photo-row">
+                <div class="col-sm-offset-0 col-sm-3">
+                    <img id="album-image-preview" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                </div>
+            </div>
+            <br />
+            <input id="album-image" name="album-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+        </div>
+
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <label for="album-name"><%=$.i18n.t("admin.album-page.album-name")%></label>
+            <input type="text" class="form-control" id="album-name" placeholder="<%=$.i18n.t('admin.album-page.album-name')%>"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="album-description"><%=$.i18n.t("admin.album-page.album-description")%></label>
+        <textarea cols="80" id="album-description" rows="8"></textarea>
+    </div>
+
+    <button id="save-album-btn" class="btn btn-success"><%=$.i18n.t("admin.album-page.add-new-album-btn")%></button>
+</div>
+
+<br/>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><%=$.i18n.t("admin.album-page.albums-list-title")%></div>
+    <div class="panel-body">
+        <% if(albums && albums.length > 0) { %>
+            <% _.each(albums, function(album) { %>
+                <div class="media preview-obj img-thumbnail">
+                    <div class="media-left">
+                        <img class="media-object" src="<%=album.album_main_image%>">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%=album.album_name%></h4>
+                        <p class="media-heading"><%=$.i18n.t("admin.album-page.is-visible-text")%><%=album.is_visible%></p>
+                        <div class="media-actonbar">
+                            <a href="#admin/album/<%=album.id%>" class="btn btn-primary"><%=$.i18n.t("admin.album-page.edit")%></a>
+                            <button id="delete-btn" class="btn btn-danger" data-album-number="<%=album.id%>"><%=$.i18n.t("admin.album-page.delete")%></button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <span><%=$.i18n.t("admin.album-page.no-albums")%></span>
+        <% } %>
+    </div>
+</div>
+
+<div id="confirm-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><%=$.i18n.t("admin.album-page.confirm-title")%></h4>
+            </div>
+            <div class="modal-body">
+                <p><%=$.i18n.t("admin.album-page.confirmation-album-text")%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=$.i18n.t("admin.album-page.modal-cancel")%></button>
+                <button type="button" class="btn btn-primary" id="confirm-delete-btn"><%=$.i18n.t("admin.album-page.delete")%></button>
+            </div>
+        </div>
+    </div>
+</div>

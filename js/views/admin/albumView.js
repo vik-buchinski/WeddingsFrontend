@@ -12,11 +12,11 @@
                         document.title = this.title;
                         this.$el.html(this.MainContainerTemplate({
                             all_pages: constants.LEFT_PANELS,
+                            album_types: constants.ALBUM_TYPES,
                             selected_page: this.selected_page
                         }));
                         $(this.$el).find(".main").html(this.template({
                             data: this.album_data
-
                         }));
                         $(this.$el).find("textarea#album-description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
                         return this;
@@ -32,21 +32,26 @@
                     },
                     updateAlbumData: function() {
                         var file = null;
-                        if (!this.album_data.album_is_expaned) {
+                        if (!this.album_data.is_expaned) {
                             file = $("#album-image")[0].files[0];
-                            if (!file) {
-                                alert($.i18n.t("select-image-message"));
-                                return false;
+                            if (file) {
+                                if (!common.isImage(file)) {
+                                    alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
+                                    return false;
+                                }
+                                var fileSize = $("#album-image")[0].files[0].size;
+                                if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
+                                    $("#album-image").val('');
+                                    alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                    return false;
+                                }
                             }
-                            if (!common.isImage(file)) {
-                                alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
-                                return false;
-                            }
-                            var fileSize = $("#album-image")[0].files[0].size;
-                            if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
-                                $("#album-image").val('');
-                                alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
-                            }
+                        }
+                        var isVisible = false;
+                        if ($("#is-album-visible").is(':checked')) {
+                            isVisible = true;
+                        } else {
+                            isVisible = false;
                         }
                         server.editAdminAlbum(
                             localStorage.getSession().session.token,
@@ -54,6 +59,7 @@
                             $("#album-description").val(),
                             $("#album-name").val(),
                             this.album_data.id,
+                            isVisible,
                             function(response) {
                                 alert($.i18n.t("saved-message"));
                                 window.location.reload();
@@ -68,6 +74,7 @@
                             if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
                                 $("#album-image").val('');
                                 alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                return false;
                             } else {
                                 var reader = new FileReader();
 
@@ -91,6 +98,7 @@
                             if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
                                 $("#adding-image").val('');
                                 alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                return false;
                             } else {
                                 var reader = new FileReader();
 
@@ -113,6 +121,7 @@
                             if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
                                 $("#edit-avatar-image").val('');
                                 alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                return false;
                             } else {
                                 var reader = new FileReader();
 
@@ -142,6 +151,7 @@
                         if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
                             $("#adding-image").val('');
                             alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                            return false;
                         }
 
                         server.addAdminAlbumImage(
@@ -170,6 +180,22 @@
                             });
                     },
                     editPhoto: function(ev) {
+                        var file = $("#edit-avatar-image")[0].files[0];
+                        if (!file) {
+                            alert($.i18n.t("select-image-message"));
+                            return false;
+                        }
+                        if (!common.isImage(file)) {
+                            alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
+                            return false;
+                        }
+                        var fileSize = $("#edit-avatar-image")[0].files[0].size;
+                        if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
+                            $("#edit-avatar-image").val('');
+                            alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                            return false;
+                        }
+
                         var self = this;
                         var photoId = $(ev.currentTarget).data('photo-number');
                         var photo = _.find(this.album_data.images, function(image) {

@@ -3,9 +3,13 @@
     "server-error-message": "Server unavailable",
     "supported-format-message": "Supported image formats: ",
     "select-image-message": "Image is required",
+    "select-album-image-message": "Album image is required",
+    "album-name-missing-message": "Album name is required",
+    "album-type-missing-message": "Such album type is not exist",
     "max-file-size-message": "Max file size: ",
     "image-added-message": "Image added",
     "saved-message": "Saved",
+    "added-message": "Added",
     "mb-prefix": "Mb",
     "image-not-found-error": "Image with such id is not found.",
     "admin": {
@@ -14,7 +18,8 @@
         },
         "left-panel": {
             "about": "About",
-            "bouquets": "Bukiety"
+            "bouquets": "Bukiety",
+            "decorations": "Dekoracje"
         },
         "sign-in-page": {
             "form-header": "Please sign in",
@@ -40,12 +45,24 @@
             "edit": "Edit",
             "confirm-title": "Confirmation",
             "confirmation-text": "Are you really want delete this photo?",
+            "confirmation-album-text": "Are you really want delete this album?",
             "modal-cancel": "Cancel",
             "edit-modal-title": "Photo Editting",
             "modal-save-changes": "Save changes",
             "album-description": "Album description",
             "album-name": "Album name",
-            "album-image": "Album image"
+            "album-image": "Album image",
+            "add-new-album-btn": "Add album",
+            "add-new-album": "Add new album:",
+            "albums-list-title": "Albums:",
+            "no-albums": "No albums",
+            "no-images": "No images",
+            "is-visible-text": "Is visible: ",
+            "photo-description": "Photo description"
+        },
+        "decorations": {
+            "page-title": "DEKORACJE",
+            "page-header": "Decorations albums:"
         }
     },
     "user": {
