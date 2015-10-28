@@ -99,12 +99,12 @@
             album: {
                 //for receiveing album info: album/{type}
                 url: "album/",
-                type: "GET",
-                images: {
-                    //for receiveing album photos: album/{type}/images
-                    url: "/images",
-                    type: "GET",
-                }
+                type: "GET"
+            },
+            albums: {
+                //for receiveing album info: album/{type}
+                url: "albums/",
+                type: "GET"
             },
             album_by_type: {
                 url: "album_images/",

@@ -8,7 +8,7 @@
                     },
 
                     render: function() {
-                        this.setElement(this.template({ data: this.data }));
+                        this.setElement(this.template({ albums: this.data }));
                         $(this.$el).find("img.lazy").lazyload({
                             threshold: 200
                         });

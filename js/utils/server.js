@@ -14,12 +14,12 @@
                     request.setRequestHeader("Session-Token", sessionToken);
                 }
                 requestsLaunched++;
-                $("#loader").show();
+                $("#spinner").show();
             },
             complete: function () {
                 requestsLaunched--;
                 if (requestsLaunched === 0) {
-                    $("#loader").hide();
+                    $("#spinner").hide();
                 }
             },
             crossDomain: true,
@@ -49,12 +49,12 @@
             url: constants.BASE_API_URL + url,
             beforeSend: function() {
                 requestsLaunched++;
-                $("#loader").show();
+                $("#spinner").show();
             },
             complete: function() {
                 requestsLaunched--;
                 if (requestsLaunched === 0) {
-                    $("#loader").hide();
+                    $("#spinner").hide();
                 }
             },
             crossDomain: true,
@@ -175,6 +175,16 @@
             commonServerRequest(constants.API_METHODS.admin.about.get.url, constants.API_METHODS.admin.about.get.type, null, successCallback, sessionToken);
         },
 
+        getAdminAlbumById: function(token, albumId, successCallback) {
+            commonServerRequest(
+                constants.API_METHODS.admin.album.get.url + albumId,
+                constants.API_METHODS.admin.album.get.type,
+                null,
+                successCallback,
+                token);
+        },
+
+
         getUserAbout: function(successCallback) {
             commonServerRequest(constants.API_METHODS.user.about.url, constants.API_METHODS.user.about.type, null, successCallback);
         },
@@ -187,21 +197,20 @@
                 successCallback);
         },
 
-        getAlbumById: function(successCallback, albumId) {
+        getAlbumById: function(albumId, successCallback) {
             commonServerRequest(
-                constants.API_METHODS.user.album.url + albumId + constants.API_METHODS.user.album.images.url,
-                constants.API_METHODS.user.album.images.type,
+                constants.API_METHODS.user.album.url + albumId,
+                constants.API_METHODS.user.album.type,
                 null,
                 successCallback);
         },
 
-        getAdminAlbumById: function(token, albumId, successCallback) {
+        getAlbumByType: function(albumType, successCallback) {
             commonServerRequest(
-                constants.API_METHODS.admin.album.get.url + albumId,
-                constants.API_METHODS.admin.album.get.type,
+                constants.API_METHODS.user.albums.url + albumType,
+                constants.API_METHODS.user.albums.type,
                 null,
-                successCallback,
-                token);
+                successCallback);
         }
     };
 

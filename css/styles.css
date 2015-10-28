@@ -33,16 +33,10 @@
   border-top-right-radius: 0;
 }
 
-.loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 100px;
-    height: 100px;
-    display: none;
+.spinner {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
 }
 .about-text-template {
     width: 100%;
@@ -137,6 +131,8 @@ ul.albums-list li {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
+}
+ul.albums-list li a {
     color: #969393;
 }
 ul.albums-list li img {
@@ -144,7 +140,7 @@ ul.albums-list li img {
 	height: auto;
 	margin: 0;
 }
-ul.albums-list li > div {
+ul.albums-list li div {
     padding: 12px 0 15px 0;
 }
 /* class for 4 columns */

@@ -21,20 +21,90 @@
         viewLoader, constants) {
         var router = Backbone.Router.extend({
             routes: {
-                "": "home",
-                "home": "home",
+                "": "userHome",
+                "home": "userHome",
                 "about": "userAbout",
                 "bouquets": "userBouquets",
+                "albums/:albumType": "userAlbumsList",
+                "album/:albumId": "userAlbum",
+
                 "admin": "adminHome",
                 "admin/signIn": "signIn",
                 "admin/bouquets": "adminBouquets",
                 "admin/albums/:albumType": "adminAlbumsList",
-                "admin/album/:albumId": "viewAdminAlbum",
-                "decorations": "albumsList"
+                "admin/album/:albumId": "adminAlbum"
             },
 
-            home: function() {
+            userHome: function() {
                 this.userAbout();
+            },
+            userAbout: function() {
+                var self = this;
+                server.getUserAbout(function(data) {
+                    self.buildView(
+                        userAbout,
+                        "UserAbout",
+                        constants.PAGE_TEMPLATES_DATA.USER.ABOUT,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user.about.title"),
+                        constants.USER_TABS.about);
+                });
+            },
+            userBouquets: function() {
+                var self = this;
+                server.getBouquetsAlbum(function(data) {
+                    self.buildView(
+                        albumImagesView,
+                        "AlbumImages",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user.bouquets.title"),
+                        constants.USER_TABS.bouquets);
+                });
+            },
+            userAlbum: function(albumId) {
+                var self = this;
+                server.getAlbumById(albumId, function(data) {
+                    self.buildView(
+                        albumImagesView,
+                        "AlbumImages",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user." + constants.USER_TABS[data.album_type.toLowerCase()] + ".title"),
+                        constants.USER_TABS[data.album_type.toLowerCase()]);
+                });
+            },
+            userAlbumsList: function(albumType) {
+                if (!constants.ALBUM_TYPES[albumType.toLowerCase()]) {
+                    alert($.i18n.t("album-type-missing-message"));
+                    return false;
+                }
+
+                var self = this;
+                server.getAlbumByType(albumType, function(data) {
+                    self.buildView(
+                        albumsListView,
+                        "AlbumsList",
+                        constants.PAGE_TEMPLATES_DATA.USER.ALBUMS_LIST,
+                        { data: data },
+                        true,
+                        false,
+                        $.i18n.t("user." + constants.USER_TABS[albumType.toLowerCase()] + ".title"),
+                        constants.USER_TABS[albumType.toLowerCase()]);
+                });
+            },
+
+            signIn: function() {
+                signInView.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.SIGN_IN, function() {
+                    $('#pages-container').html(new app.views.SignIn().render().$el.i18n());
+                });
             },
             adminHome: function() {
                 this.adminAbout();
@@ -77,54 +147,6 @@
                     window.app.router.navigate("admin/signIn", true);
                 }
             },
-            signIn: function() {
-                signInView.init();
-                viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.SIGN_IN, function() {
-                    $('#pages-container').html(new app.views.SignIn().render().$el.i18n());
-                });
-            },
-            userAbout: function() {
-                var self = this;
-                server.getUserAbout(function(data) {
-                    self.buildView(
-                        userAbout,
-                        "UserAbout",
-                        constants.PAGE_TEMPLATES_DATA.USER.ABOUT,
-                        { data: data },
-                        true,
-                        false,
-                        $.i18n.t("user.about.title"),
-                        constants.USER_TABS.about);
-                });
-            },
-            userBouquets: function() {
-                var self = this;
-                server.getBouquetsAlbum(function(data) {
-                    self.buildView(
-                        albumImagesView,
-                        "AlbumImages",
-                        constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
-                        { data: data },
-                        true,
-                        false,
-                        $.i18n.t("user.bouquets.title"),
-                        constants.USER_TABS.bouquets);
-                });
-            },
-            albumsList: function() {
-                var self = this;
-                server.getBouquetsAlbum(function(data) {
-                    self.buildView(
-                        albumsListView,
-                        "AlbumsList",
-                        constants.PAGE_TEMPLATES_DATA.USER.ALBUMS_LIST,
-                        { data: data },
-                        true,
-                        false,
-                        $.i18n.t("user.decorations.title"),
-                        constants.USER_TABS.decorations);
-                });
-            },
             adminAlbumsList: function(albumType) {
                 var sessionModel = localStorage.getSession();
                 if (null != sessionModel) {
@@ -152,7 +174,7 @@
                     window.app.router.navigate("admin/signIn", true);
                 }
             },
-            viewAdminAlbum: function(albumId) {
+            adminAlbum: function(albumId) {
                 var sessionModel = localStorage.getSession();
                 if (null != sessionModel) {
                     var self = this;

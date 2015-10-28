@@ -12,6 +12,7 @@ require.config({
         'bootstrap': "../lib/bootstrap.min",
         'lazy-load': "../node_modules/jquery-lazyload/jquery.lazyload",
         'raphael': "../lib/raphael-min",
+        'spinners': '../lib/spinners.min',
 
         'fullscreenImageView': './views/user_part/common/fullscreenImageView',
         'user-title': "./views/user_part/common/titleView",
@@ -55,12 +56,28 @@ require.config({
         },
         'lazy-load': {
             'deps': ['jquery']
+        },
+        'spinners': {
+            deps: ['jquery'],
+            exports: 'Spinners'
         }
     },
     waitSeconds: 0
 });
 
-require(['app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function (app) {
+require(['spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function(Spinners, app) {
+    var spinner = Spinners.create($('div.spinner'), {
+        radius: 7,
+        height: 10,
+        width: 1.5,
+        dashes: 20,
+        opacity: 0.85,
+        rotation: 800,
+        color: '#000000'
+    });
+
+    spinner.center().play();
+
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,

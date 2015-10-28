@@ -52,6 +52,7 @@
             "album-description": "Album description",
             "album-name": "Album name",
             "album-image": "Album image",
+            "album-image-alert": "Only: width:500px height:750px !!!!!",
             "add-new-album-btn": "Add album",
             "add-new-album": "Add new album:",
             "albums-list-title": "Albums:",
