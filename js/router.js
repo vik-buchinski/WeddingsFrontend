@@ -1,6 +1,7 @@
 ﻿define(
     [
-        'admin-albums-list',
+        'server-error', 'user-contacts',
+        'not-found', 'admin-albums-list',
         'user-albums-list', 'fullscreenImageView',
         'user-title', 'user-album-images',
         'admin-album', 'user-header',
@@ -11,7 +12,8 @@
         'backbone'
     ],
     function(
-        adminAlbumsListView,
+        serverErrorView, userContactsView,
+        notFoundView, adminAlbumsListView,
         albumsListView, fullscreenImageView,
         Title, albumImagesView,
         adminAlbumView, userHeader,
@@ -27,14 +29,36 @@
                 "bouquets": "userBouquets",
                 "albums/:albumType": "userAlbumsList",
                 "album/:albumId": "userAlbum",
+                "contacts": "userContacts",
 
                 "admin": "adminHome",
                 "admin/signIn": "signIn",
                 "admin/bouquets": "adminBouquets",
                 "admin/albums/:albumType": "adminAlbumsList",
-                "admin/album/:albumId": "adminAlbum"
+                "admin/album/:albumId": "adminAlbum",
+                
+                "serverError": "serverError",
+                "*notFound": "notFound",
+                "notFound": "notFound"
             },
-
+            
+            notFound: function () {
+                window.isAdminPart = false;
+                window.isUserPart = false;
+                notFoundView.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.NOT_FOUND, function () {
+                    $('#pages-container').html(new app.views.NotFound().render().$el.i18n());
+                });
+            },
+            serverError: function () {
+                window.isAdminPart = false;
+                window.isUserPart = false;
+                serverErrorView.init();
+                viewLoader(constants.PAGE_TEMPLATES_DATA.SERVER_ERROR, function () {
+                    $('#pages-container').html(new app.views.ServerError().render().$el.i18n());
+                });
+            },
+            
             userHome: function() {
                 this.userAbout();
             },
@@ -43,7 +67,6 @@
                 server.getUserAbout(function(data) {
                     self.buildView(
                         userAbout,
-                        "UserAbout",
                         constants.PAGE_TEMPLATES_DATA.USER.ABOUT,
                         { data: data },
                         true,
@@ -57,7 +80,6 @@
                 server.getBouquetsAlbum(function(data) {
                     self.buildView(
                         albumImagesView,
-                        "AlbumImages",
                         constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
                         { data: data },
                         true,
@@ -71,7 +93,6 @@
                 server.getAlbumById(albumId, function(data) {
                     self.buildView(
                         albumImagesView,
-                        "AlbumImages",
                         constants.PAGE_TEMPLATES_DATA.USER.ALBUM_IMAGES,
                         { data: data },
                         true,
@@ -90,7 +111,6 @@
                 server.getAlbumByType(albumType, function(data) {
                     self.buildView(
                         albumsListView,
-                        "AlbumsList",
                         constants.PAGE_TEMPLATES_DATA.USER.ALBUMS_LIST,
                         { data: data },
                         true,
@@ -98,6 +118,20 @@
                         $.i18n.t("user." + constants.USER_TABS[albumType.toLowerCase()] + ".title"),
                         constants.USER_TABS[albumType.toLowerCase()]);
                 });
+            },
+            
+            userContacts: function() {
+                var self = this;
+                //server.getAlbumByType(albumType, function (data) {
+                    self.buildView(
+                        userContactsView,
+                        constants.PAGE_TEMPLATES_DATA.USER.CONTACTS,
+                        { data: null },
+                        true,
+                        false,
+                        $.i18n.t("user.contacts.title"),
+                        constants.USER_TABS.CONTACTS);
+                //});
             },
 
             signIn: function() {
@@ -116,7 +150,6 @@
                     server.getAdminAbout(sessionModel.session.token, function(data) {
                         self.buildView(
                             adminAbouView,
-                            "AdminAbout",
                             constants.PAGE_TEMPLATES_DATA.ADMIN.ABOUT,
                             { about_data: data },
                             false,
@@ -133,7 +166,6 @@
                     server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
                         self.buildView(
                             adminAlbumView,
-                            "AdminAlbum",
                             constants.PAGE_TEMPLATES_DATA.ADMIN.ALBUM,
                             {
                                 album_data: data,
@@ -160,7 +192,6 @@
                     server.getAdminAlbumsList(sessionModel.session.token, albumType, function(data) {
                         self.buildView(
                             adminAlbumsListView,
-                            "AdminAlbumsList",
                             constants.PAGE_TEMPLATES_DATA.ADMIN.ALBUMS_LIST,
                             {
                                 album_data: data,
@@ -187,7 +218,6 @@
                         }
                         self.buildView(
                             adminAlbumView,
-                            "AdminAlbum",
                             constants.PAGE_TEMPLATES_DATA.ADMIN.ALBUM,
                             {
                                 album_data: data,
@@ -202,7 +232,7 @@
                 }
             },
 
-            buildView: function(view, viewName, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {
+            buildView: function(view, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {
 
                 if (window.isUserPart != isUserPart && isUserPart) {
                     userHeader.init();
@@ -223,7 +253,7 @@
                         //setTimeout(function() {
                             view.init();
                             viewLoader(viewLoadData, function() {
-                                $('section.page .container').html(new app.views[viewName](jsonData).render().$el.i18n());
+                                $('section.page .container').html(new app.views[viewLoadData.view_name](jsonData).render().$el.i18n());
                             });
                         //}, 100);
                     });
@@ -245,7 +275,7 @@
                             });
                             t.render(true);
                         }
-                        $('section.page .container').html(new app.views[viewName](jsonData).render().$el.i18n());
+                        $('section.page .container').html(new app.views[viewLoadData.view_name](jsonData).render().$el.i18n());
                     });
                 }
 
@@ -255,7 +285,7 @@
                     viewLoader(viewLoadData, function() {
                         adminHeader.init();
                         viewLoader(constants.PAGE_TEMPLATES_DATA.ADMIN.HEADER, function() {
-                            var viewObject = new app.views[viewName](jsonData).render().$el.i18n();
+                            var viewObject = new app.views[viewLoadData.view_name](jsonData).render().$el.i18n();
                             viewObject.prepend(new app.views.AdminHeader().render().$el.i18n());
                             $('#pages-container').html(viewObject);
                         });

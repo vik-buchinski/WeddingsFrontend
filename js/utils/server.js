@@ -30,14 +30,26 @@
                 console.log('Success!' + '. URL: ' + url + ' METHOD: ' + method);
                 successCallback(data);
             })
-            .fail(function(jqXhr) {
+            .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
                     window.app.router.navigate("admin/signIn", true);
-                } else {
+                } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
+                    window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
                         alert(JSON.parse(jqXhr.responseText).Message);
                     } else {
                         alert($.i18n.t("server-error-message"));
+                    }
+                } else {
+                    window.app.router.navigate('/serverError', { trigger: true });
+                    var errCode = "";
+                    if (0 != jqXhr.status) {
+                        errCode = "\nCode:" + jqXhr.status;
+                    }
+                    if (null != jqXhr.responseText && jqXhr.responseText !== "") {
+                        alert(JSON.parse(jqXhr.responseText).Message + errCode);
+                    } else {
+                        alert($.i18n.t("server-error-message") + errCode);
                     }
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);
@@ -69,14 +81,26 @@
                 console.log('Success!' + '. URL: ' + url + ' METHOD: ' + method);
                 successCallback(data);
             })
-            .fail(function(jqXhr) {
+            .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
                     window.app.router.navigate("admin/signIn", true);
-                } else {
+                } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
+                    window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
                         alert(JSON.parse(jqXhr.responseText).Message);
                     } else {
                         alert($.i18n.t("server-error-message"));
+                    }
+                } else {
+                    window.app.router.navigate('/serverError', { trigger: true });
+                    var errCode = "";
+                    if (0 != jqXhr.status) {
+                        errCode = "\nCode:" + jqXhr.status;
+                    }
+                    if (null != jqXhr.responseText && jqXhr.responseText !== "") {
+                        alert(JSON.parse(jqXhr.responseText).Message + errCode);
+                    } else {
+                        alert($.i18n.t("server-error-message") + errCode);
                     }
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);

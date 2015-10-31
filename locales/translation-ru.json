@@ -19,7 +19,9 @@
         "left-panel": {
             "about": "About",
             "bouquets": "Bukiety",
-            "decorations": "Dekoracje"
+            "decorations": "Dekoracje",
+			"invitations": "Zaproszenia Ślubne",
+			"graphic": "Grafika uzytkowa"
         },
         "sign-in-page": {
             "form-header": "Please sign in",
@@ -64,6 +66,14 @@
         "decorations": {
             "page-title": "DEKORACJE",
             "page-header": "Decorations albums:"
+        },
+        "invitations": {
+            "page-title": "ZAPROSZENIA ŚLUBNE",
+            "page-header": "Zaproszenia Ślubne albums:"
+        },
+        "graphic": {
+            "page-title": "GRAFIKA UŻYTKOWA",
+            "page-header": "Grafika uzytkowa albums:"
         }
     },
     "user": {
@@ -85,6 +95,20 @@
         },
         "decorations": {
             "title": "Dekoracje"
+        },
+        "invitations": {
+            "title": "Zaproszenia Ślubne"
+        },
+        "graphic": {
+            "title": "Grafika uzytkowa"
+        },
+        "contacts": {
+            "title": "Contacts",
+			"no_email":"Enter email",
+			"no_message":"Enter message text",
+			"no_name":"Enter name",
+			"wrong_email":"Wrong email format",
+			"mesage_sent":"Message sent."
         }
     }
 }

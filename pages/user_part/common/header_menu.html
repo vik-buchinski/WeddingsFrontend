@@ -5,13 +5,13 @@
     <li class="menu-item separator">|</li>
     <li class="menu-item <% if(tab_name == all_tabs.decorations) { %>active<% } %>"><a href="#albums/<%=all_tabs.decorations%>"><%=$.i18n.t("user.header.decorations")%></a></li>
     <li class="menu-item separator">|</li>
-    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.invitations")%></a></li>
+    <li class="menu-item <% if(tab_name == all_tabs.invitations) { %>active<% } %>"><a href="#albums/<%=all_tabs.invitations%>"><%=$.i18n.t("user.header.invitations")%></a></li>
     <li class="menu-item separator">|</li>
-    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.graphics")%></a></li>
+    <li class="menu-item <% if(tab_name == all_tabs.graphic) { %>active<% } %>"><a href="#albums/<%=all_tabs.graphic%>"><%=$.i18n.t("user.header.graphics")%></a></li>
+    <!--<li class="menu-item separator">|</li>
+    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.blog")%></a></li>-->
     <li class="menu-item separator">|</li>
-    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.blog")%></a></li>
-    <li class="menu-item separator">|</li>
-    <li class="menu-item"><a href="#home"><%=$.i18n.t("user.header.contacts")%></a></li>
+    <li class="menu-item <% if(tab_name == all_tabs.contacts) { %>active<% } %>"><a href="#contacts"><%=$.i18n.t("user.header.contacts")%></a></li>
     <!--<li class="menu-item active">
             <a href=""  >ANASTASIA VOLKOVA</a>
             <ul class="sub-menu">

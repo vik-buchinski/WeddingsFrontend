@@ -2,6 +2,7 @@
     BASE_API_URL: "http://localhost:47503/api/",
     
     UNAUTHORIZED_REQUEST_CODE: 401,
+    NOT_FOUND_REQUEST_CODE: 404,
 
     MAX_UPLOADS_FILE_SIZE: 10485760,
     SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
@@ -10,19 +11,27 @@
 
     ALBUM_TYPES: {
         bouquets: "bouquets",
-        decorations: "decorations"
+        decorations: "decorations",
+        invitations: "invitations",
+        graphic: "graphic"
     },
 
     LEFT_PANELS: {
         about: "about",
         bouquets: "bouquets",
-        decorations: "decorations"
+        decorations: "decorations",
+        invitations: "invitations",
+        graphic: "graphic",
+        contacts: "contacts"
     },
 
     USER_TABS: {
         about: "about",
         bouquets: "bouquets",
-        decorations: "decorations"
+        decorations: "decorations",
+        invitations: "invitations",
+        graphic: "graphic",
+        contacts: "contacts"
     },
 
     API_METHODS: {
@@ -114,6 +123,14 @@
     },
 
     PAGE_TEMPLATES_DATA: {
+        NOT_FOUND: {
+            view_name: "NotFound",
+            template_name: "not_found"
+        },
+        SERVER_ERROR: {
+            view_name: "ServerError",
+            template_name: "server_error"
+        },
         ADMIN: {
             HEADER: {
                 view_name: "AdminHeader",
@@ -180,6 +197,11 @@
             ALBUMS_LIST: {
                 view_name: "AlbumsList",
                 template_name: "albums_list",
+                path: "user_part/"
+            },
+            CONTACTS: {
+                view_name: "Contacts",
+                template_name: "contacts",
                 path: "user_part/"
             }
         }

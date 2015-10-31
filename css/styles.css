@@ -1,3 +1,9 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -37,6 +43,8 @@
     position: fixed !important;
     top: 50% !important;
     left: 50% !important;
+    z-index: 1;
+    display: none;
 }
 .about-text-template {
     width: 100%;
@@ -82,6 +90,7 @@ form .form-group .img-responsive {
 }
 .images-grid img {
     position: absolute;
+    cursor: pointer;
 }
 
 .disabled {

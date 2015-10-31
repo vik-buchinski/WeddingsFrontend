@@ -988,6 +988,121 @@ body > .content.private .thumbnail {
 #gphw-fd {
     position: fixed !important;
 }
+/*pages*/
+/* Contact Page */
+form.contact .text {
+	margin-bottom: 20px;
+}
+
+form.contact .columns {
+	display: table;
+	width: 100%;
+}
+
+form.contact .columns .first-column {
+	width: 50%;
+	display: table-cell;
+	padding-right: 35px;
+	vertical-align: top;
+}
+
+form.contact .columns .second-column {
+	width: 50%;
+	display: table-cell;
+	padding-left: 35px;
+	vertical-align: top;
+}
+
+@media (max-width: 480px) {
+    form.contact .columns .first-column {
+        width: 100%;
+        padding-right: 0;
+        float: left;
+    }
+
+    form.contact .columns .second-column {
+        width: 100%;
+        padding-left: 0;
+        float: left;
+    }
+}
+
+form.contact .layout-without-calendar .first-column {
+	padding-right: 10px;
+}
+
+section .form.contact .spinner, .testimonials-form .spinner {
+	display: none;
+}
+
+section .form.loading.contact .spinner, .testimonials-form.loading .spinner {
+	display: block;
+}
+
+section .form.loading.contact .button, .testimonials-form.loading .button {
+	visibility: hidden;
+}
+
+section .form.contact textarea, .container.contact .form textarea, .testimonials-form  textarea {
+    font-size: 16px;
+}
+
+section .form.contact textarea, .testimonials-form textarea {
+	height: 198px;
+    margin-bottom: 10px;
+}
+
+section .form.layout-without-calendar.contact textarea {
+	height: 202px;
+}
+
+section .form.contact .message, .testimonials-form .message {
+    padding-bottom: 10px;
+    display: none;
+}
+
+section form.contact {
+    padding-top: 20px;
+}
+
+section form.contact:only-child {
+    padding-top: 0px;
+}
+
+section form.contact .button.large, .testimonials-form  .button.large {
+	width: 100%;
+	text-transform: uppercase;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	font: normal 20px Arial;
+	letter-spacing: 5px;
+	color: #474747;
+}
+
+body.locale_he form.contact .message,
+body.locale_he form.contact input,
+body.locale_he form.contact textarea { direction: rtl; }
+body.locale_he form.contact .button { text-align: left !important; }
+
+body.locale_gr section form.contact .button.large,
+body.locale_gr section.testimonials .button.large { text-transform: capitalize; }
+
+/* START: task [#79270984] */
+.f-text, .f-textarea { font-size: 14px; }
+
+section .form.contact textarea, 
+.container.contact .form textarea, 
+.testimonials-form textarea { font-size: 14px; }
+
+section form.contact .button.large, 
+section.testimonials .button.large  { 
+	font-size: 16px; 
+	letter-spacing: normal; 
+	text-align: right; 
+	padding-right: 0px;
+	outline:none; 
+}
 /*social-icons*/
 @font-face {
   font-family: 'social-icons-v2';
@@ -1145,7 +1260,7 @@ body {
 			font-family: Verdana !important;
 	}
 
-.f-text, .f-textarea, section.contact, section.contact input, section.contact textarea, section.contact form .button.large, .testimonials-form .button.large {
+.f-text, .f-textarea, section.contact, section.contact input, section.contact textarea, section.contact form .button.large, .testimonials-form .button.large, section form.contact, section form.contact, section form.contact input, section form.contact textarea, section form.contact form .button.large {
 			font-family: Verdana;
 	}
 
@@ -1272,14 +1387,14 @@ header nav.menu .sub-menu .menu-item {
 .static-grid .static-grid-item.no-image .static-grid-cell .image{
 	background: #ebebeb;
 }
-section.contact .columns input, section.contact .columns textarea, section.restrict input, .testimonials-form input[type=text], .testimonials-form textarea {
+form.contact .columns input, form.contact .columns textarea, section.restrict input, .testimonials-form input[type=text], .testimonials-form textarea {
 	color: #a3a3a3;
 	background: #ebebeb;
 }
-section.contact form .button.large, .testimonials-form .button.large {
+section form.contact .button.large, .testimonials-form .button.large, section form.contact .button.large {
 	color: #525252;
 }
-section.contact form .button.large:hover, .testimonials-form .button.large:hover {
+section form.contact .button.large:hover, .testimonials-form .button.large:hover {
 	color: #808080;
 }
 
@@ -1407,10 +1522,10 @@ section.testimonials a.testimonials-form-link:hover {
   /*default*/
   .static-grid .static-grid-item .static-grid-cell .description .cell .middle { font-size: 11px; padding-top: 12px; }
 .f-text, .f-textarea { font-size: 11px; letter-spacing: 0; }
-section.contact .form textarea, .container.contact .form textarea, .testimonials-form textarea { font-size: 11px; }
+section .form.contact textarea, .container.contact .form textarea, .testimonials-form textarea { font-size: 11px; }
 body > div.page.desktop > section > div > form > div.buttons {  margin-top: -9px; }
 body > div.page.desktop > section > div > form > div.buttons input { padding-right: 0px; }
-section.contact form .button.large, .testimonials-form .button.large { letter-spacing: 0em; font-size: 15px; text-align: right; }
+section form.contact .button.large, .testimonials-form .button.large { letter-spacing: 0em; font-size: 15px; text-align: right; }
 body > div.page.desktop > section > div > form > div.columns > div.second-column > textarea.f-textarea.empty { letter-spacing: 0.02em; }
 header nav.menu .menu-item { padding: 0 4px; margin: 0 5px; }
 
