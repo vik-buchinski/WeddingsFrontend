@@ -20,7 +20,7 @@
                         var self = this;
                         setTimeout(function() {
                             self.initSectionPadding();
-                        }, 120);
+                        }, 180);
                         $(window).resize(function () {
                             self.initSectionPadding();
                         });

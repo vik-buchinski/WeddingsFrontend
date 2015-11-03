@@ -47,10 +47,11 @@
                         errCode = "\nCode:" + jqXhr.status;
                     }
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
-                        alert(JSON.parse(jqXhr.responseText).Message + errCode);
+                        alert(JSON.parse(jqXhr.responseText).Message);
                     } else {
-                        alert($.i18n.t("server-error-message") + errCode);
+                        alert($.i18n.t("server-error-message"));
                     }
+                    console.log(errCode);
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);
             });
@@ -98,10 +99,11 @@
                         errCode = "\nCode:" + jqXhr.status;
                     }
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
-                        alert(JSON.parse(jqXhr.responseText).Message + errCode);
+                        alert(JSON.parse(jqXhr.responseText).Message);
                     } else {
-                        alert($.i18n.t("server-error-message") + errCode);
+                        alert($.i18n.t("server-error-message"));
                     }
+                    console.log(errCode);
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);
             });

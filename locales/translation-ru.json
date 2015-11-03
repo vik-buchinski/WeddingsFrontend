@@ -21,7 +21,8 @@
             "bouquets": "Bukiety",
             "decorations": "Dekoracje",
 			"invitations": "Zaproszenia Ślubne",
-			"graphic": "Grafika uzytkowa"
+			"graphic": "Grafika uzytkowa",
+			"contacts": "Contacts"
         },
         "sign-in-page": {
             "form-header": "Please sign in",
@@ -74,7 +75,13 @@
         "graphic": {
             "page-title": "GRAFIKA UŻYTKOWA",
             "page-header": "Grafika uzytkowa albums:"
-        }
+        },
+		"contacts-page":{
+			"page-title": "CONTACTS",
+			"page-header": "Contacts filling",
+			"text-title": "Type info how to contact with you:",
+			"save-btn": "Save"
+		}
     },
     "user": {
         "header": {

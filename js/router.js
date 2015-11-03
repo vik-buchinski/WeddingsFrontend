@@ -1,5 +1,6 @@
 ﻿define(
     [
+        'admin-contacts',
         'server-error', 'user-contacts',
         'not-found', 'admin-albums-list',
         'user-albums-list', 'fullscreenImageView',
@@ -12,6 +13,7 @@
         'backbone'
     ],
     function(
+        adminContactsView,
         serverErrorView, userContactsView,
         notFoundView, adminAlbumsListView,
         albumsListView, fullscreenImageView,
@@ -36,6 +38,7 @@
                 "admin/bouquets": "adminBouquets",
                 "admin/albums/:albumType": "adminAlbumsList",
                 "admin/album/:albumId": "adminAlbum",
+                "admin/contacts": "adminContacts",
                 
                 "serverError": "serverError",
                 "*notFound": "notFound",
@@ -227,6 +230,26 @@
                             false,
                             true);
                     });
+                } else {
+                    window.app.router.navigate("admin/signIn", true);
+                }
+            },
+            adminContacts: function() {
+                var sessionModel = localStorage.getSession();
+                if (null != sessionModel) {
+                    var self = this;
+                    //server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
+                        self.buildView(
+                            adminContactsView,
+                            constants.PAGE_TEMPLATES_DATA.ADMIN.CONTACTS,
+                            {
+                                contacts_data: null,
+                                title: $.i18n.t("admin.contacts-page.page-title"),
+                                selected_page: constants.LEFT_PANELS.contacts
+                            },
+                            false,
+                            true);
+                    //});
                 } else {
                     window.app.router.navigate("admin/signIn", true);
                 }

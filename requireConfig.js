@@ -26,6 +26,7 @@ require.config({
         'admin-about': "./views/admin/aboutView",
         'admin-album': "./views/admin/albumView",
         'admin-albums-list': "./views/admin/albumsListView",
+        'admin-contacts': "./views/admin/contactsView",
         'sign-in-view': "./views/admin/signInView",
         'not-found': "./views/notFoundView",
         'server-error': "./views/serverErrorView",

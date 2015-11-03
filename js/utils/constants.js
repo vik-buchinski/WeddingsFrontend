@@ -1,6 +1,6 @@
 ﻿define({
     BASE_API_URL: "http://localhost:47503/api/",
-    
+
     UNAUTHORIZED_REQUEST_CODE: 401,
     NOT_FOUND_REQUEST_CODE: 404,
 
@@ -165,6 +165,16 @@
             ALBUMS_LIST: {
                 view_name: "AdminAlbumsList",
                 template_name: "albums_list",
+                path: "admin/",
+                other_templates: {
+                    path: "admin/common/",
+                    access_point: "MainContainerTemplate",
+                    template_name: "main_container"
+                }
+            },
+            CONTACTS: {
+                view_name: "AdminContacts",
+                template_name: "contacts",
                 path: "admin/",
                 other_templates: {
                     path: "admin/common/",
