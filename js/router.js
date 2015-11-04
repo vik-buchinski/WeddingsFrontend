@@ -125,16 +125,17 @@
             
             userContacts: function() {
                 var self = this;
-                //server.getAlbumByType(albumType, function (data) {
+                var callback = function(data) {
                     self.buildView(
                         userContactsView,
                         constants.PAGE_TEMPLATES_DATA.USER.CONTACTS,
-                        { data: null },
+                        { data: data },
                         true,
                         false,
                         $.i18n.t("user.contacts.title"),
                         constants.USER_TABS.CONTACTS);
-                //});
+                };
+                server.getContactsDescription(callback, callback);
             },
 
             signIn: function() {
@@ -238,18 +239,18 @@
                 var sessionModel = localStorage.getSession();
                 if (null != sessionModel) {
                     var self = this;
-                    //server.getAdminBouquetsImages(sessionModel.session.token, function(data) {
+                    server.getContactsDescription(function (data) {
                         self.buildView(
                             adminContactsView,
                             constants.PAGE_TEMPLATES_DATA.ADMIN.CONTACTS,
                             {
-                                contacts_data: null,
+                                data: data,
                                 title: $.i18n.t("admin.contacts-page.page-title"),
                                 selected_page: constants.LEFT_PANELS.contacts
                             },
                             false,
                             true);
-                    //});
+                    });
                 } else {
                     window.app.router.navigate("admin/signIn", true);
                 }

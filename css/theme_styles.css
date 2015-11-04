@@ -1263,6 +1263,9 @@ body {
 .f-text, .f-textarea, section.contact, section.contact input, section.contact textarea, section.contact form .button.large, .testimonials-form .button.large, section form.contact, section form.contact, section form.contact input, section form.contact textarea, section form.contact form .button.large {
 			font-family: Verdana;
 	}
+section form.contact, section form.contact {
+    color: red;
+}
 
 header, .mobile #sidebar {
 			background: #ffffff;

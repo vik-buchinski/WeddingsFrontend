@@ -1,9 +1,9 @@
 ﻿<h3 class="page-header"><%=$.i18n.t("admin.contacts-page.page-header")%></h3>
 <div class="breadcrumb">
     <div class="form-group">
-        <label for="contacts-text"><%=$.i18n.t("admin.contacts-page.text-title")%></label>
-        <textarea cols="80" id="contacts-text" rows="8"></textarea>
+        <label for="description"><%=$.i18n.t("admin.contacts-page.text-title")%></label>
+        <textarea cols="80" id="description" rows="8"><% if(data && data.description) { %> <%=data.description%> <% } %></textarea>
     </div>
     
-    <button id="save-btn" class="btn btn-success"><%=$.i18n.t("admin.contacts-page.save-btn")%></button>
+    <button id="update-btn" class="btn btn-success"><%=$.i18n.t("admin.contacts-page.save-btn")%></button>
 </div>

@@ -2,7 +2,7 @@
 
     var requestsLaunched = 0;
     
-    function commonServerRequest(url, method, params, successCallback, sessionToken) {
+    function commonServerRequest(url, method, params, successCallback, sessionToken, errorCallback) {
         if (!params) {
             params = "";
         }
@@ -40,8 +40,14 @@
                     } else {
                         alert($.i18n.t("server-error-message"));
                     }
-                } else {
+                } else if (jqXhr.status == constants.INTERNAL_ERROR_REQUEST_CODE) {
                     window.app.router.navigate('/serverError', { trigger: true });
+                    if (null != jqXhr.responseText && jqXhr.responseText !== "") {
+                        alert(JSON.parse(jqXhr.responseText).Message);
+                    } else {
+                        alert($.i18n.t("server-error-message"));
+                    }
+                } else {
                     var errCode = "";
                     if (0 != jqXhr.status) {
                         errCode = "\nCode:" + jqXhr.status;
@@ -52,6 +58,9 @@
                         alert($.i18n.t("server-error-message"));
                     }
                     console.log(errCode);
+                }
+                if (errorCallback) {
+                    errorCallback();
                 }
                 console.log('Failed!!' + '. URL: ' + url + ' METHOD: ' + method);
             });
@@ -92,8 +101,14 @@
                     } else {
                         alert($.i18n.t("server-error-message"));
                     }
-                } else {
+                } else if (jqXhr.status == constants.INTERNAL_ERROR_REQUEST_CODE) {
                     window.app.router.navigate('/serverError', { trigger: true });
+                    if (null != jqXhr.responseText && jqXhr.responseText !== "") {
+                        alert(JSON.parse(jqXhr.responseText).Message);
+                    } else {
+                        alert($.i18n.t("server-error-message"));
+                    }
+                } else {
                     var errCode = "";
                     if (0 != jqXhr.status) {
                         errCode = "\nCode:" + jqXhr.status;
@@ -179,6 +194,18 @@
                 successCallback,
                 token);
         },
+        
+        editAdminContactsDescription: function (token, description, successCallback) {
+            var params = {
+                'description': description
+            };
+            commonServerRequest(
+                constants.API_METHODS.admin.contacts_description.edit.url,
+                constants.API_METHODS.admin.contacts_description.edit.type,
+                params,
+                successCallback,
+                token);
+        },
 
         getAdminBouquetsImages: function(token, successCallback) {
             commonServerRequest(constants.API_METHODS.admin.bouquets.getAll.url, constants.API_METHODS.admin.bouquets.getAll.type, null, successCallback, token);
@@ -210,7 +237,6 @@
                 token);
         },
 
-
         getUserAbout: function(successCallback) {
             commonServerRequest(constants.API_METHODS.user.about.url, constants.API_METHODS.user.about.type, null, successCallback);
         },
@@ -237,6 +263,26 @@
                 constants.API_METHODS.user.albums.type,
                 null,
                 successCallback);
+        },
+
+        sendMessage: function(name, phone, email, message, successCallback, errorCallback) {
+            var params = {
+                'name': name,
+                'phone': phone,
+                'email': email,
+                'message': message
+            };
+            commonServerRequest(constants.API_METHODS.user.message.url, constants.API_METHODS.user.message.type, params, successCallback, null, errorCallback);
+        },
+
+        getContactsDescription: function(successCallback, errorCallback) {
+            commonServerRequest(
+                constants.API_METHODS.user.contacts_description.url,
+                constants.API_METHODS.user.contacts_description.type,
+                null,
+                successCallback,
+                null,
+                errorCallback);
         }
     };
 

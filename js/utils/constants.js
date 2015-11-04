@@ -3,6 +3,7 @@
 
     UNAUTHORIZED_REQUEST_CODE: 401,
     NOT_FOUND_REQUEST_CODE: 404,
+    INTERNAL_ERROR_REQUEST_CODE: 503,
 
     MAX_UPLOADS_FILE_SIZE: 10485760,
     SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
@@ -94,6 +95,12 @@
                     url: "admin/albums/",
                     type: "DELETE"
                 }
+            },
+            contacts_description: {
+                edit: {
+                    url: "admin/contacts/description",
+                    type: "PUT"
+                }
             }
         },
         user: {
@@ -117,6 +124,14 @@
             },
             album_by_type: {
                 url: "album_images/",
+                type: "GET"
+            },
+            message: {
+                url: "contacts/message",
+                type: "POST"
+            },
+            contacts_description: {
+                url: "contacts",
                 type: "GET"
             }
         }

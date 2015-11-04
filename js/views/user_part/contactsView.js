@@ -1,27 +1,28 @@
-﻿define([], function () {
+﻿define(['server'], function (server) {
     return {
         init: function () {
             if (!window.app.views.Contacts) {
                 window.app.views.Contacts = Backbone.View.extend({
+                    initialize: function (options) {
+                        this.data = options.data;
+                    },
+                    
                     render: function() {
-                        this.setElement(this.template());
+                        this.setElement(this.template({ data: this.data }));
                         return this;
                     },
                     events: {
                         "click #send-message": "submit"
                     },
                     
-                    validate: function() {
+                    validate: function(name, email, message) {
 
                         var errors = new Array();
-
-                        var name = $("#input-name");
-
+                        
                         if (name.val() == '') {
                             errors.push($.i18n.t("user.contacts.no_name"));
                         }
 
-                        var email = $("#input-email");
                         var emailrule = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9_-]+[\.][a-zA-Z0-9._-]+$');
 
                         if (email.val() == '') {
@@ -30,8 +31,6 @@
                         } else if (!emailrule.test(email.val())) {
                             errors.push($.i18n.t("user.contacts.wrong_email"));
                         }
-
-                        var message = $("#input-message");
 
                         if (message.val() == '') {
                             errors.push($.i18n.t("user.contacts.no_message"));
@@ -55,8 +54,11 @@
 
                         if (this.$el.hasClass('loading'))
                             return false;
-
-                        var errors = this.validate();
+                        var name = $("#input-name"),
+                            email = $("#input-email"),
+                            message = $("#input-message"),
+                            phone = $("#input-phone");
+                        var errors = this.validate(name, email, message);
 
                         if (errors) {
 
@@ -69,33 +71,22 @@
 
                         this.$el.addClass('loading');
                         this.$el.find('.message').hide();
-                        alert("send message");
-                        
+                        server.sendMessage(name.val(), phone.val(), email.val(), message.val(), function() {
                             self.$el.find('.message')
                                 .html('<span class="success">' + $.i18n.t("user.contacts.mesage_sent") + '</span>')
                                 .show();
-                        /*
-                        } else {
-
-                            self.$el.find('.message')
-                                .html('<span class="failure">' + json.error + '</span>')
-                                .show();
-
-                        }*/
-
-                        self.reset();
+                            self.reset();
+                        }, function() {
+                            self.$el.removeClass('loading');
+                        });
                     },
 
                     reset: function() {
-
-                        $("#input-name").val('').focus();
-                        $("#input-phone").val('').focus();
-                        $("#input-email").val('').focus();
-                        $("#input-message").val('').focus();
-
-                        /* Fix: We have to make focus for each element on 
-                         * the form to fix default value plugin*/
-                        this.field('message').blur();
+                        $("#input-name").val('');
+                        $("#input-phone").val('');
+                        $("#input-email").val('');
+                        $("#input-message").val('');
+                        this.$el.removeClass('loading');
                     }
                 });
             }
