@@ -10,7 +10,7 @@ require.config({
         'ckjquery': "../lib/ckeditor/adapters/jquery",
         'jquery.form': "../lib/jquery.form",
         'bootstrap': "../lib/bootstrap.min",
-        'lazy-load': "../node_modules/jquery-lazyload/jquery.lazyload",
+        'lazy-load': "../lib/jquery.lazyload",
         'raphael': "../lib/raphael-min",
         'spinners': '../lib/spinners.min',
 
@@ -69,8 +69,8 @@ require.config({
     waitSeconds: 0
 });
 
-require(['spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function(Spinners, app) {
-    var spinner = Spinners.create($('div.spinner'), {
+require(['constants', 'spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function (constants, Spinners, app) {
+	var spinner = Spinners.create($('div.spinner'), {
         radius: 7,
         height: 10,
         width: 1.5,
@@ -85,7 +85,7 @@ require(['spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-loa
     $(function () {
         $.i18n.init({
             detectFromHeaders: false,
-            lng: 'ru',
+            lng: constants.APP_LANGUAGE,
             debug: false,
             fallbackLng: false,
             load: 'unspecific',

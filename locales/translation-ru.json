@@ -116,7 +116,12 @@
 			"no_message":"Enter message text",
 			"no_name":"Enter name",
 			"wrong_email":"Wrong email format",
-			"mesage_sent":"Message sent."
+			"mesage_sent":"Message sent.",
+			"name": "Name",
+			"phone": "Phone",
+			"email": "Email",
+			"message": "Message",
+			"send_btn": "Send"
         }
     }
 }

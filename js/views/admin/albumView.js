@@ -18,7 +18,7 @@
                         $(this.$el).find(".main").html(this.template({
                             data: this.album_data
                         }));
-                        $(this.$el).find("textarea#album-description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
+                        $(this.$el).find("textarea#album-description").ckeditor({ language: constants.APP_LANGUAGE });
                         return this;
                     },
                     events: {
@@ -180,22 +180,6 @@
                             });
                     },
                     editPhoto: function(ev) {
-                        var file = $("#edit-avatar-image")[0].files[0];
-                        if (!file) {
-                            alert($.i18n.t("select-image-message"));
-                            return false;
-                        }
-                        if (!common.isImage(file)) {
-                            alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
-                            return false;
-                        }
-                        var fileSize = $("#edit-avatar-image")[0].files[0].size;
-                        if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
-                            $("#edit-avatar-image").val('');
-                            alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
-                            return false;
-                        }
-
                         var self = this;
                         var photoId = $(ev.currentTarget).data('photo-number');
                         var photo = _.find(this.album_data.images, function(image) {
@@ -204,7 +188,22 @@
                         $("#edit-image").attr("src", photo.image_url);
                         $("#edit-image-description").val(photo.description);
                         $('#edit-photo-modal').unbind().modal({ backdrop: 'static', keyboard: false })
-                            .one('click', '#save-changes-btn', function(e) {
+                            .one('click', '#save-changes-btn', function (e) {
+                                var file = $("#edit-avatar-image")[0].files[0];
+                                if (!file) {
+                                    alert($.i18n.t("select-image-message"));
+                                    return false;
+                                }
+                                if (!common.isImage(file)) {
+                                    alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
+                                    return false;
+                                }
+                                var fileSize = $("#edit-avatar-image")[0].files[0].size;
+                                if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
+                                    $("#edit-avatar-image").val('');
+                                    alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                    return false;
+                                }
                                 server.editAdminAlbumImage(
                                     localStorage.getSession().session.token,
                                     $("#edit-avatar-image")[0].files[0],

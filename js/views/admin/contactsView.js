@@ -16,7 +16,7 @@
                             selected_page: this.album_type
                         }));
                         $(this.$el).find(".main").html(this.template({ data: this.data }));
-                        $(this.$el).find("textarea#description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
+                        $(this.$el).find("textarea#description").ckeditor({ language: constants.APP_LANGUAGE });
                         return this;
                     },
                     

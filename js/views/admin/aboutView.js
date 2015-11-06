@@ -17,7 +17,7 @@
                             save_url: constants.BASE_API_URL + constants.API_METHODS.admin.about.url,
                             data: this.about_data
                         }));
-                        $(this.$el).find("textarea#description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
+                        $(this.$el).find("textarea#description").ckeditor({ language: constants.APP_LANGUAGE });
                         return this;
                     },
                     events: {

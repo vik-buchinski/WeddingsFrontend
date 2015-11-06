@@ -19,7 +19,7 @@
                             albums: this.album_data,
                             album_type: this.album_type
                         }));
-                        $(this.$el).find("textarea#album-description").ckeditor({ language: constants.CKEDITOR_LANGUAGE });
+                        $(this.$el).find("textarea#album-description").ckeditor({ language: constants.APP_LANGUAGE });
                         return this;
                     },
                     events: {

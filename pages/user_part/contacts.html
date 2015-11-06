@@ -16,18 +16,18 @@
 		
     <div class="columns">
         <div class="first-column">
-            <input id="input-name" type="text" placeholder="Name" value="" class="f-text" />
-            <input id="input-phone" type="text" placeholder="Phone" value="" class="f-text" />				
-            <input id="input-email" type="text" placeholder="Email" value="" class="f-text" />
+            <input id="input-name" type="text" placeholder="<%=$.i18n.t('user.contacts.name')%>" value="" class="f-text" />
+            <input id="input-phone" type="text" placeholder="<%=$.i18n.t('user.contacts.phone')%>" value="" class="f-text" />				
+            <input id="input-email" type="text" placeholder="<%=$.i18n.t('user.contacts.email')%>" value="" class="f-text" />
         </div>                              
 			
         <div class="second-column">
-            <textarea id="input-message" placeholder="Message" class="f-textarea"></textarea>
+            <textarea id="input-message" placeholder="<%=$.i18n.t('user.contacts.message')%>" class="f-textarea"></textarea>
         </div>
     </div>
 		
     <div class="buttons">
-        <input id="send-message" type="button" name="submit" class="button large" value="Send" />
+        <input id="send-message" type="button" name="submit" class="button large" value="<%=$.i18n.t('user.contacts.send_btn')%>" />
     </div>
 	
 </form>

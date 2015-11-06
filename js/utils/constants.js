@@ -8,7 +8,7 @@
     MAX_UPLOADS_FILE_SIZE: 10485760,
     SUPPORTED_IMAGES_FORMAT: ".gif .png .jpg .tif .jpeg",
 
-    CKEDITOR_LANGUAGE: "ru",
+    APP_LANGUAGE: "pl",
 
     ALBUM_TYPES: {
         bouquets: "bouquets",
