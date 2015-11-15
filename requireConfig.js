@@ -90,7 +90,7 @@ require(['constants', 'spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstra
             fallbackLng: false,
             load: 'unspecific',
             ns: 'translation',
-            resGetPath: 'locales/__ns__-__lng__.json',
+            resGetPath: './locales/__ns__-__lng__.json',
             useCookie: false,
             getAsync: false
         });
