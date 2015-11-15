@@ -53,7 +53,7 @@
             if (!isWithoutTimeout) {
                 setTimeout(function() {
                     self.resize();
-                }, 120);
+                }, 300);
             } else {
                 this.resize();
             }

@@ -70,7 +70,8 @@ module.exports = function (grunt) {
                           'locales/translation-pl.json',
                           'index.html',
                           'requireConfig.js',
-                          'lib/**/*'
+                          'lib/**/*',
+                          'Web.config'
                       ],
                       dest: releaseFolder
                   }

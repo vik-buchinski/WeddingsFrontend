@@ -17,13 +17,6 @@
                             page_name: this.page_name
                         };
                         this.setElement(this.template(data));
-                        var self = this;
-                        setTimeout(function() {
-                            self.initSectionPadding();
-                        }, 180);
-                        $(window).resize(function () {
-                            self.initSectionPadding();
-                        });
                         this.renderMenu();
                         return this;
                     },
@@ -75,24 +68,8 @@
                         });
 
                         this.sub.show();
-                    },
-
-                    initSectionPadding: function() {
-                        if (window.ifpluso) {
-                            var sec = 0;
-                            var inteval = setInterval(function() {
-                                $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
-
-                                if (++sec >= 30) clearInterval(inteval);
-                            }, 1000);
-                        } else {
-                            $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
-                        }
-
-                        $(window).on('resize', function() {
-                            $('section.page').css({ 'padding-bottom': $('footer').outerHeight() + 50 });
-                        });
                     }
+
                 });
             }
         }

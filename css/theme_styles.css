@@ -146,6 +146,8 @@ p {
 }
 /*elements*/
 body > .page {
+    display: inline-block;
+    width: 100%;
 	position: relative;
 	opacity: 1;
 	filter: alpha(opacity = 100);
@@ -176,7 +178,7 @@ body > .page {
 }
 
 body > .page > section {
-	padding-bottom: 264px;
+	padding-bottom: 50px;
 }
 
 h1.title {
@@ -222,7 +224,7 @@ h1.title span {
 	padding: 40px 0;
 	border-top-width: 1px;
     border-top-style: solid;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: 100%;
 	text-align: center
