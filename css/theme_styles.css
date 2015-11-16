@@ -178,17 +178,17 @@ body > .page {
 }
 
 body > .page > section {
-	padding-bottom: 50px;
+    padding-top: 10px;
+	padding-bottom: 200px;
 }
 
 h1.title {
 	text-align: center;
 	color: #ebebeb;	
 	font-size: 12px;
-	padding: 0;
+    padding: 0;
 	margin: 0 0 40px 0;
 	position: relative;
-    padding-top: 20px;
 }
 
 h1.title hr {
@@ -208,7 +208,11 @@ h1.title hr:nth-child(3) {
     right: 0;
 }
 
-h1.title hr.left-hr {left: 0;}
+h1.title hr.left-hr {
+    left: 0;
+    width: 100%;
+    top: -50%;
+}
 h1.title hr:nth-child(1) {
 	left: 0;
 }
@@ -224,7 +228,7 @@ h1.title span {
 	padding: 40px 0;
 	border-top-width: 1px;
     border-top-style: solid;
-	position: relative;
+	position: absolute;
 	bottom: 0;
 	width: 100%;
 	text-align: center
@@ -1251,7 +1255,8 @@ body.polina.desktop .social-icons .social-icons-wrapper { flex-direction: column
 body {
 		background-color: #ffffff;			font-family: Verdana;
 	}
-.mobile #layout {
+.mobile #layout,
+h1.title span {
 		background-color: #ffffff;}
 
 .gphw-calendar-tooltip, .gphw-calendar-tooltip .date,
@@ -1294,6 +1299,7 @@ section, section a {
 
 h1.title span  {
 			color: #bdbdbd;
+            top: 2px;
 	}
 
 h1.title hr {

@@ -4,7 +4,7 @@
         'server-error', 'user-contacts',
         'not-found', 'admin-albums-list',
         'user-albums-list', 'fullscreenImageView',
-        'user-title', 'user-album-images',
+        'user-album-images',
         'admin-album', 'user-header',
         'user-about', 'admin-header',
         'server', 'admin-about',
@@ -17,7 +17,7 @@
         serverErrorView, userContactsView,
         notFoundView, adminAlbumsListView,
         albumsListView, fullscreenImageView,
-        Title, albumImagesView,
+        albumImagesView,
         adminAlbumView, userHeader,
         userAbout, adminHeader,
         server, adminAbouView,
@@ -262,12 +262,6 @@
                     userHeader.init();
                     viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
                         $('#pages-container').html(new app.views.UserHeader({ page_name: pageName, tab_name: tabName }).render().$el.i18n());
-                        if ($('section.page h1.title').length) {
-                            var t = new Title({
-                                el: $('section.page h1.title')
-                            });
-                            t.render(false);
-                        }
 
                         fullscreenImageView.init();
                         new app.views.FullscreenImageView({
@@ -293,12 +287,6 @@
                     view.init();
                     viewLoader(viewLoadData, function() {
                         $('section.page h1.title span').html(pageName);
-                        if ($('section.page h1.title').length) {
-                            var t = new Title({
-                                el: $('section.page h1.title')
-                            });
-                            t.render(true);
-                        }
                         $('section.page .container').html(new app.views[viewLoadData.view_name](jsonData).render().$el.i18n());
                     });
                 }

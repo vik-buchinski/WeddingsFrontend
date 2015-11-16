@@ -15,7 +15,6 @@ require.config({
         'spinners': '../lib/spinners.min',
 
         'fullscreenImageView': './views/user_part/common/fullscreenImageView',
-        'user-title': "./views/user_part/common/titleView",
         'user-header': "./views/user_part/common/headerView",
         'sub-menu': "./views/user_part/common/subMenuView",
         'user-about': "./views/user_part/userAboutView",
