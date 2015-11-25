@@ -8,13 +8,15 @@
                     initialize: function(options) {
                         this.page_name = options.page_name;
                         this.tab_name = options.tab_name;
+                        this.title_img_url = options.title_img_url;
                         this.listenTo(window.Vent, "changeHeaderActiveTab", this.renderMenu);
                         _.bindAll(this);
                     },
 
                     render: function() {
                         var data = {
-                            page_name: this.page_name
+                            page_name: this.page_name,
+                            title_img_url: this.title_img_url
                         };
                         this.setElement(this.template(data));
                         this.renderMenu();

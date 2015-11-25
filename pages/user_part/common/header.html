@@ -4,9 +4,10 @@
     <div class="container">
         <div class="inner">
             <div class="logo logo-text">
-                <a href="#home">
-                    <%=$.i18n.t("user.header.title")%>
-                </a>
+                <!--<a href="#home">
+                        <%=$.i18n.t("user.header.title")%>
+                    </a>-->
+                <img src="./img/app_logo.png"/>
             </div>
             <nav class="menu">
                 <!-- Dynamic content -->
@@ -14,6 +15,9 @@
         </div>
     </div>
 </header>
+<div class="parallax-banner loading" 
+	style="background-image: url(<% if(title_img_url) { %><%=title_img_url%><% } %>); <% if(!title_img_url) { %> display: none;<% } %>">
+</div>
 <section class="page" data-hash="faq" data-structure="page">
     <h1 class="title">
         <hr class="left-hr"/><span><%=page_name%></span>

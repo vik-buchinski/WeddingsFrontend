@@ -77,6 +77,10 @@
             "page-title": "GRAFIKA UŻYTKOWA",
             "page-header": "Grafika użytkowa albumy:"
         },
+        "bouquets": {
+            "page-title": "KWIATOWO",
+            "page-header": "Kwiatowo albumy:"
+        },
 		"contacts-page":{
 			"page-title": "KONTAKT",
 			"page-header": "Kontakty uzupełnij",

@@ -618,17 +618,6 @@ body section > .slider > .spinner {
 	opacity: 1;
 }
 
-.desktop .parallax-banner.loading {
-	opacity: 0;
-	transition: opacity .3s ease-in-out;
-   	-moz-transition: opacity .3s ease-in-out;
-   	-webkit-transition: opacity .3s ease-in-out;
-}
-
-.desktop .parallax-banner {
-    background-attachment: fixed;
-}
-
 .tablet .parallax-banner {
     background-size: cover;
     background-position: 50% 50%;
@@ -943,6 +932,9 @@ header.layout-logo-center .logo {
 	display: block;
 	padding: 0;
 	margin: 0;
+}
+header.layout-logo-center .logo > img {
+    height: 100px;
 }
 
 header.layout-logo-center .logo {
@@ -1359,7 +1351,7 @@ header nav.menu .menu-item a {
     }
 
 header nav.menu .menu-item a {
-	font-size: 10px;	color: #949494;}
+	font-size: 11px;	color: #949494;}
 
 .mobile ul.menu li a {
     color: #949494;

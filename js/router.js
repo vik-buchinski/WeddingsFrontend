@@ -75,7 +75,8 @@
                         true,
                         false,
                         $.i18n.t("user.about.title"),
-                        constants.USER_TABS.about);
+                        constants.USER_TABS.about,
+                        "http://anastasiavolkova.com/storage/parallax-banner/340212/o-fcb8f9dada98683ef15e1847be6fa34e.jpg");
                 });
             },
             userBouquets: function() {
@@ -133,7 +134,8 @@
                         true,
                         false,
                         $.i18n.t("user.contacts.title"),
-                        constants.USER_TABS.CONTACTS);
+                        constants.USER_TABS.contacts,
+                        "http://anastasiavolkova.com/storage/parallax-banner/340212/o-fcb8f9dada98683ef15e1847be6fa34e.jpg");
                 };
                 server.getContactsDescription(callback, callback);
             },
@@ -256,24 +258,22 @@
                 }
             },
 
-            buildView: function(view, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName) {
+            buildView: function(view, viewLoadData, jsonData, isUserPart, isAdminPart, pageName, tabName, titleImageUrl) {
 
                 if (window.isUserPart != isUserPart && isUserPart) {
                     userHeader.init();
                     viewLoader(constants.PAGE_TEMPLATES_DATA.USER.HEADER, function() {
-                        $('#pages-container').html(new app.views.UserHeader({ page_name: pageName, tab_name: tabName }).render().$el.i18n());
+                        $('#pages-container').html(new app.views.UserHeader({ page_name: pageName, tab_name: tabName, title_img_url: titleImageUrl }).render().$el.i18n());
 
                         fullscreenImageView.init();
                         new app.views.FullscreenImageView({
                             el: $('.fsbox')
                         }).render();
 
-                        //setTimeout(function() {
-                            view.init();
-                            viewLoader(viewLoadData, function() {
-                                $('section.page .container').html(new app.views[viewLoadData.view_name](jsonData).render().$el.i18n());
-                            });
-                        //}, 100);
+                        view.init();
+                        viewLoader(viewLoadData, function() {
+                            $('section.page .container').html(new app.views[viewLoadData.view_name](jsonData).render().$el.i18n());
+                        });
                     });
                 } else if (window.isUserPart == isUserPart && isUserPart) {
                     $(".fsbox").hide();
@@ -283,6 +283,13 @@
                     
                     //TODO: call this function only when back button clicked!
                     window.Vent.trigger("changeHeaderActiveTab", { tab_name: tabName });
+
+                    if (titleImageUrl) {
+                        $("div.parallax-banner").show();
+                        $("div.parallax-banner").css("background-image", "url(" + titleImageUrl + ")");
+                    } else {
+                        $("div.parallax-banner").hide();
+                    }
 
                     view.init();
                     viewLoader(viewLoadData, function() {

@@ -1,7 +1,7 @@
 ﻿<ul>
     <li class="menu-item <% if(tab_name == all_tabs.about) { %>active<% } %>"><a href="#home"><%=$.i18n.t("user.header.about")%></a></li>
     <li class="menu-item separator">|</li>
-    <li class="menu-item <% if(tab_name == all_tabs.bouquets) { %>active<% } %>"><a href="#bouquets"><%=$.i18n.t("user.header.bukiety")%></a></li>
+    <li class="menu-item <% if(tab_name == all_tabs.bouquets) { %>active<% } %>"><a href="#albums/<%=all_tabs.bouquets%>"><%=$.i18n.t("user.header.bukiety")%></a></li>
     <li class="menu-item separator">|</li>
     <li class="menu-item <% if(tab_name == all_tabs.decorations) { %>active<% } %>"><a href="#albums/<%=all_tabs.decorations%>"><%=$.i18n.t("user.header.decorations")%></a></li>
     <li class="menu-item separator">|</li>

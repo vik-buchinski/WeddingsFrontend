@@ -109,8 +109,6 @@ form .form-group .img-responsive {
 }
 
 .description {
-    margin-left: 22%;
-    margin-right: 22%;
     margin-bottom: 40px;
 }
 @media (max-width: 1000px) {
