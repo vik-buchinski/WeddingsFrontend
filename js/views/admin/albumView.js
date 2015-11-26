@@ -47,7 +47,7 @@
                                 }
                             }
                         }
-                        var isVisible = false;
+                        var isVisible;
                         if ($("#is-album-visible").is(':checked')) {
                             isVisible = true;
                         } else {
@@ -190,19 +190,17 @@
                         $('#edit-photo-modal').unbind().modal({ backdrop: 'static', keyboard: false })
                             .one('click', '#save-changes-btn', function (e) {
                                 var file = $("#edit-avatar-image")[0].files[0];
-                                if (!file) {
-                                    alert($.i18n.t("select-image-message"));
-                                    return false;
-                                }
-                                if (!common.isImage(file)) {
-                                    alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
-                                    return false;
-                                }
-                                var fileSize = $("#edit-avatar-image")[0].files[0].size;
-                                if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
-                                    $("#edit-avatar-image").val('');
-                                    alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
-                                    return false;
+                                if (file) {
+                                    if (!common.isImage(file)) {
+                                        alert($.i18n.t("supported-format-message") + constants.SUPPORTED_IMAGES_FORMAT);
+                                        return false;
+                                    }
+                                    var fileSize = $("#edit-avatar-image")[0].files[0].size;
+                                    if (fileSize > constants.MAX_UPLOADS_FILE_SIZE) {
+                                        $("#edit-avatar-image").val('');
+                                        alert($.i18n.t("max-file-size-message") + (constants.MAX_UPLOADS_FILE_SIZE / 1024 / 1024) + $.i18n.t("mb-prefix"));
+                                        return false;
+                                    }
                                 }
                                 server.editAdminAlbumImage(
                                     localStorage.getSession().session.token,

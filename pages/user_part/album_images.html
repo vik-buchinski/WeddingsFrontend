@@ -7,12 +7,15 @@
 
 <div class="images-grid" style="height: <%= data.totalHeight %>px;">
     <% if(data && data.images && data.images.length > 0) { %>
-        <% _.each(data.images, function(image) { %>
-            <img class="lazy" data-original="<%=image.url%>" data-id="<%=image.id%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style="width: <%=image.styles.width%>px;
+        <% _.each(data.images, function(image) { %>    
+            <div style="width: <%=image.styles.width%>px;
                         height: <%=image.styles.height%>px;
                         left: <%=image.styles.left%>px;
-                        top: <%=image.styles.top%>px;" <% if(image.description){ %>alt="<%=image.description%>" <% } %>/>
+                        top: <%=image.styles.top%>px;">
+                <img class="lazy" data-original="<%=image.url%>" data-id="<%=image.id%>" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                         <% if(image.description){ %>alt="<%=image.description%>" <% } %>/>
+                <% if(image.description){ %><div class="description"><%=image.description%></div><% } %>
+            </div>
         <% }); %>
     <% } %>
 </div>

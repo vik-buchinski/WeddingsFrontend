@@ -136,6 +136,19 @@
         submitAdminAbout: function(params, successCallback) {
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save.url, constants.API_METHODS.admin.about.save.type, params, successCallback);
         },
+        
+        submitAdminAboutTitleImage: function (params, successCallback) {
+            commonFileSubmitUrl(constants.API_METHODS.admin.about.save_title_image.url, constants.API_METHODS.admin.about.save_title_image.type, params, successCallback);
+        },
+
+        deleteAdminAboutTitleImage: function (token, successCallback) {
+            commonServerRequest(
+                constants.API_METHODS.admin.about.delete_title_image.url,
+                constants.API_METHODS.admin.about.delete_title_image.type,
+                null,
+                successCallback,
+                token);
+        },
 
         addAdminAlbumImage: function(token, image, desc, albumId, successCallback) {
             var params = new FormData();

@@ -51,6 +51,14 @@
                 get: {
                     url: "admin/about/get",
                     type: "GET"
+                },
+                save_title_image: {
+                    url: "admin/about/title_image",
+                    type: "POST"
+                },
+                delete_title_image: {
+                    url: "admin/about/title_image",
+                    type: "DELETE"
                 }
             },
             bouquets: {

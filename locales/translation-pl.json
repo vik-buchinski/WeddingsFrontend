@@ -3,6 +3,7 @@
     "server-error-message": "Serwer niedostępny",
     "supported-format-message": "Obsługiwane formaty plików graficznych: ",
     "select-image-message": "Zdjęcie jest wymagane",
+    "no-image-message": "Załaduj zdjęcie przed kasowaniem",
     "select-album-image-message": "Album zdjęć jest wymagany",
     "album-name-missing-message": "Nazwa albumu jest wymagana",
     "album-type-missing-message": "Ten album nie istnieje",
@@ -11,6 +12,7 @@
     "saved-message": "Zapisano",
     "added-message": "Dodano",
     "updated-message": "Zaktualizowano",
+	"deleted-message": "Usunięto",
     "mb-prefix": "Mb",
     "image-not-found-error": "Obraz z takim id nie istnieje.",
     "admin": {
@@ -36,7 +38,10 @@
             "page-title": "Admin wypełnia",
             "choose-photo-title": "Wybierz zdjęcie:",
             "description-title": "Opisz zdjęcie",
-            "save-btn": "Zapisz"
+            "save-btn": "Zapisz",
+			"delete-btn": "Usuń",
+			"choose_title_image": "Wybierz zdjecie tytulowe:",
+            "title-image-alert": "Tylko: szerokość:1200px wysokość:499px !!!!!"
         },
         "album-page": {
             "page-title": "Wypełnienie albumu",

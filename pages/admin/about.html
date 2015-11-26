@@ -1,15 +1,33 @@
 <h3 class="page-header"><%=$.i18n.t("admin.about-page.page-title")%></h3>
-<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
+
+<form class="breadcrumb">
+    <div class="form-group">
+        <label><%=$.i18n.t("admin.about-page.choose_title_image")%></label>
+        <div class="row">
+            <div class="col-sm-offset-0 col-sm-3">
+                <img id="title_image" src="<% if(data && data.title_image_url) {%> <%=data.title_image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
+            </div>
+        </div>
+        <br />
+        <span class="alert-danger"><b><%=$.i18n.t("admin.about-page.title-image-alert")%></b></span>
+        <input id="title_image_input" name="title_image_input" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+    </div>
+    <button id="save_title_image_btn" class="btn btn-default"><%=$.i18n.t("admin.about-page.save-btn")%></button>
+    <button id="delete_title_image_btn" class="btn btn-danger"><%=$.i18n.t("admin.about-page.delete-btn")%></button>
+</form>
+
+<br/>
+
 <form class="breadcrumb">
     <div class="form-group">
         <label for="image-row"><%=$.i18n.t("admin.about-page.choose-photo-title")%></label>
         <div class="row" id="image-row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img id="image" src="<% if(data && data.image_url) {%> <%=data.image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
+                <img id="content_image" src="<% if(data && data.image_url) {%> <%=data.image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
-        <input id="avatar-image" name="avatar-image" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
+        <input id="content_image_input" name="content_image_input" class="btn btn-default" type="file" accept=".gif,.png,.jpg,.tif,.jpeg">
     </div>
     <div class="form-group">
         <label for="description"><%=$.i18n.t("admin.about-page.description-title")%></label>

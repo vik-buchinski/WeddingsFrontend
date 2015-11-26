@@ -76,7 +76,7 @@
                         false,
                         $.i18n.t("user.about.title"),
                         constants.USER_TABS.about,
-                        "http://anastasiavolkova.com/storage/parallax-banner/340212/o-fcb8f9dada98683ef15e1847be6fa34e.jpg");
+                        data.title_image_url);
                 });
             },
             userBouquets: function() {
@@ -134,8 +134,7 @@
                         true,
                         false,
                         $.i18n.t("user.contacts.title"),
-                        constants.USER_TABS.contacts,
-                        "http://anastasiavolkova.com/storage/parallax-banner/340212/o-fcb8f9dada98683ef15e1847be6fa34e.jpg");
+                        constants.USER_TABS.contacts);
                 };
                 server.getContactsDescription(callback, callback);
             },
