@@ -17,7 +17,6 @@
     "grunt-contrib-imagemin": "^0.9.4",
     "grunt-contrib-jst": "^0.6.0",
     "grunt-contrib-uglify": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "jquery-lazyload": "^1.9.7"
+    "grunt-contrib-watch": "^0.6.1"
   }
 }

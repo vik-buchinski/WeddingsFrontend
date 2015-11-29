@@ -933,7 +933,7 @@ header.layout-logo-center .logo {
 	padding: 0;
 	margin: 0;
 }
-header.layout-logo-center .logo > img {
+header.layout-logo-center .logo > a > img {
     height: 100px;
 }
 
