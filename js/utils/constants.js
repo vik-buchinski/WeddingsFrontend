@@ -1,5 +1,6 @@
-﻿define({
-    BASE_API_URL: "http://weddingsapi.azurewebsites.net/api/",
+﻿define({	
+	//production site url
+    BASE_API_URL: "http://designforlifeapi.azurewebsites.net/api/",
     //BASE_API_URL: "http://localhost:47503/api/",
     
 
