@@ -5,7 +5,7 @@
             <label for="album-edit-photo-row"><%=$.i18n.t("admin.album-page.album-image")%></label>
             <div class="row" id="album-edit-photo-row">
                 <div class="col-sm-offset-0 col-sm-3">
-                    <img id="album-image-preview" src="<% if(data && data.album_main_image) { %><%=data.album_main_image%><% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
+                    <img id="album-image-preview" src="<% if(data && data.album_main_image) { %><%=data.album_main_image%><% } else { %>../../img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
                 </div>
             </div>
             <br />
@@ -25,7 +25,7 @@
         <label for="album-description"><%=$.i18n.t("admin.album-page.album-description")%></label>
         <textarea cols="80" id="album-description" rows="8"><% if(data && data.album_description) {%> <%=data.album_description%> <% } %></textarea>
     </div>
-    
+
     <% if(!data.is_expaned) { %>
         <div class="checkbox">
             <label>
@@ -43,7 +43,7 @@
         <label for="add-photo-row"><%=$.i18n.t("admin.album-page.choose-title")%></label>
         <div class="row" id="add-photo-row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img id="adding-image-preview" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                <img id="adding-image-preview" src="../../img/placeholder_300x300.png" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
@@ -115,7 +115,7 @@
                         <label for="edit-photo-row"><%=$.i18n.t("admin.album-page.photo-description")%></label>
                         <div class="row" id="edit-photo-row">
                             <div class="col-sm-offset-0 col-sm-3">
-                                <img id="edit-image" src="./img/placeholder_300x300.png" class="img-responsive img-thumbnail">
+                                <img id="edit-image" src="../../img/placeholder_300x300.png" class="img-responsive img-thumbnail">
                             </div>
                         </div>
                         <br />

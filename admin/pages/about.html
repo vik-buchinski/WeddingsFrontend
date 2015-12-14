@@ -5,7 +5,7 @@
         <label><%=$.i18n.t("admin.about-page.choose_title_image")%></label>
         <div class="row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img id="title_image" src="<% if(data && data.title_image_url) {%> <%=data.title_image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
+                <img id="title_image" src="<% if(data && data.title_image_url) {%> <%=data.title_image_url%> <% } else { %>../../img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
@@ -23,7 +23,7 @@
         <label for="image-row"><%=$.i18n.t("admin.about-page.choose-photo-title")%></label>
         <div class="row" id="image-row">
             <div class="col-sm-offset-0 col-sm-3">
-                <img id="content_image" src="<% if(data && data.image_url) {%> <%=data.image_url%> <% } else { %>./img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
+                <img id="content_image" src="<% if(data && data.image_url) {%> <%=data.image_url%> <% } else { %>../../img/placeholder_300x300.png<% } %>" class="img-responsive img-thumbnail">
             </div>
         </div>
         <br />
