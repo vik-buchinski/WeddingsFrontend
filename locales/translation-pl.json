@@ -1,136 +1,136 @@
-﻿{
-    "default-title": "Design for life",
-    "server-error-message": "Serwer niedostępny",
-    "supported-format-message": "Obsługiwane formaty plików graficznych: ",
-    "select-image-message": "Zdjęcie jest wymagane",
-    "no-image-message": "Załaduj zdjęcie przed kasowaniem",
-    "select-album-image-message": "Album zdjęć jest wymagany",
-    "album-name-missing-message": "Nazwa albumu jest wymagana",
-    "album-type-missing-message": "Ten album nie istnieje",
-    "max-file-size-message": "Maksymalny rozmiar pliku: ",
-    "image-added-message": "Zdjęcie dodano",
-    "saved-message": "Zapisano",
-    "added-message": "Dodano",
-    "updated-message": "Zaktualizowano",
-	"deleted-message": "Usunięto",
-    "mb-prefix": "Mb",
-    "image-not-found-error": "Obraz z takim id nie istnieje.",
-    "admin": {
-        "header": {
-            "panel-name": "Panel administracyjny"
-        },
-        "left-panel": {
-            "about": "O mnie",
-            "bouquets": "Kwiatowo",
-            "decorations": "Dekoracje",
-			"invitations": "Papeteria",
-			"graphic": "Grafika użytkowa",
-			"contacts": "Kontakt"
-        },
-        "sign-in-page": {
-            "form-header": "Zaloguj się",
-            "email": "Email",
-            "password": "Hasło",
-            "sign-in-btn": "Logowanie",
-            "remember-me": "Zapamiętaj"
-        },
-        "about-page": {
-            "page-title": "Admin wypełnia",
-            "choose-photo-title": "Wybierz zdjęcie:",
-            "description-title": "Opisz zdjęcie",
-            "save-btn": "Zapisz",
-			"delete-btn": "Usuń",
-			"choose_title_image": "Wybierz zdjecie tytulowe:",
-            "title-image-alert": "Tylko: szerokość:1200px wysokość:499px !!!!!"
-        },
-        "album-page": {
-            "page-title": "Wypełnienie albumu",
-            "choose-title": "Dodaj nowe zdjęcie:",
-            "add-btn": "Dodaj",
-            "save-btn": "Zapisz",
-            "description": "Krótki opis",
-            "list-title": "Zdjęcia:",
-            "delete": "Usuń",
-            "edit": "Edytuj",
-            "confirm-title": "Potwierdzenie",
-            "confirmation-text": "Czy na pewno chcesz usunąć to zdjęcie?",
-            "confirmation-album-text": "Czy na pewno chcesz usunąć ten album?",
-            "modal-cancel": "Cancel",
-            "edit-modal-title": "Zdjęcie edytuje się",
-            "modal-save-changes": "Zapisz zmiany",
-            "album-description": "Opis albumu",
-            "album-name": "Nazwa albumu",
-            "album-image": "Zdjęcie albumu",
-            "album-image-alert": "Tylko: szerokość:500px wysokość:750px !!!!!",
-            "add-new-album-btn": "Dodaj album",
-            "add-new-album": "Dodaj nowy album:",
-            "albums-list-title": "Albumy:",
-            "no-albums": "Brak albumów",
-            "no-images": "Brak obrazów",
-            "is-visible-text": "Jest widoczne: ",
-            "photo-description": "Opis zdjęcia"
-        },
-        "decorations": {
-            "page-title": "DEKORACJE",
-            "page-header": "Decoracje albumy:"
-        },
-        "invitations": {
-            "page-title": "PAPETERIA",
-            "page-header": "Papeteria albumy"
-        },
-        "graphic": {
-            "page-title": "GRAFIKA UŻYTKOWA",
-            "page-header": "Grafika użytkowa albumy:"
-        },
-        "bouquets": {
-            "page-title": "KWIATOWO",
-            "page-header": "Kwiatowo albumy:"
-        },
-		"contacts-page":{
-			"page-title": "KONTAKT",
-			"page-header": "Kontakty uzupełnij",
-			"text-title": "Wpisz informacje, jak się skontaktować:",
-			"save-btn": "Zapisz"
-		}
+{
+  "default-title": "Design for life",
+  "server-error-message": "Serwer niedostępny",
+  "supported-format-message": "Obsługiwane formaty plików graficznych: ",
+  "select-image-message": "Zdjęcie jest wymagane",
+  "no-image-message": "Załaduj zdjęcie przed kasowaniem",
+  "select-album-image-message": "Album zdjęć jest wymagany",
+  "album-name-missing-message": "Nazwa albumu jest wymagana",
+  "album-type-missing-message": "Ten album nie istnieje",
+  "max-file-size-message": "Maksymalny rozmiar pliku: ",
+  "image-added-message": "Zdjęcie dodano",
+  "saved-message": "Zapisano",
+  "added-message": "Dodano",
+  "updated-message": "Zaktualizowano",
+  "deleted-message": "Usunięto",
+  "mb-prefix": "Mb",
+  "image-not-found-error": "Obraz z takim id nie istnieje.",
+  "admin": {
+    "header": {
+      "panel-name": "Panel administracyjny"
     },
-    "user": {
-        "header": {
-            "title": "DESIGN FOR LIFE",
-            "about": "O MNIE",
-            "bukiety": "KWIATOWO",
-            "decorations": "DEKORACJE",
-            "invitations": "PAPETERIA",
-            "graphics": "GRAFIKA UŻYTKOWA",
-            "blog": "BLOG",
-            "contacts": "KONTAKT"
-        },
-        "about": {
-            "title": "O mnie"
-        },
-        "bouquets": {
-            "title": "Kwiatowo"
-        },
-        "decorations": {
-            "title": "Dekoracje"
-        },
-        "invitations": {
-            "title": "Papeteria"
-        },
-        "graphic": {
-            "title": "Grafika użytkowa"
-        },
-        "contacts": {
-            "title": "Kontakt",
-			"no_email":"Wprowadź e-mail",
-			"no_message":"Wprowadź wiadomość tekstową",
-			"no_name":"Wprowadź imię",
-			"wrong_email":"Zły format e-mail",
-			"mesage_sent":"Wiadomość wysłana.",
-			"name": "Imię",
-			"phone": "Telefon",
-			"email": "Email",
-			"message": "Wiadomość",
-			"send_btn": "Wysłać"
-        }
+    "left-panel": {
+      "about": "O mnie",
+      "bouquets": "Kwiatowo",
+      "decorations": "Dekoracje",
+      "invitations": "Papeteria",
+      "graphic": "Grafika użytkowa",
+      "contacts": "Kontakt"
+    },
+    "sign-in-page": {
+      "form-header": "Zaloguj się",
+      "email": "Email",
+      "password": "Hasło",
+      "sign-in-btn": "Logowanie",
+      "remember-me": "Zapamiętaj"
+    },
+    "about-page": {
+      "page-title": "Admin wypełnia",
+      "choose-photo-title": "Wybierz zdjęcie:",
+      "description-title": "Opisz zdjęcie",
+      "save-btn": "Zapisz",
+      "delete-btn": "Usuń",
+      "choose_title_image": "Wybierz zdjecie tytulowe:",
+      "title-image-alert": "Tylko: szerokość:1200px wysokość:499px !!!!!"
+    },
+    "album-page": {
+      "page-title": "Wypełnienie albumu",
+      "choose-title": "Dodaj nowe zdjęcie:",
+      "add-btn": "Dodaj",
+      "save-btn": "Zapisz",
+      "description": "Krótki opis",
+      "list-title": "Zdjęcia:",
+      "delete": "Usuń",
+      "edit": "Edytuj",
+      "confirm-title": "Potwierdzenie",
+      "confirmation-text": "Czy na pewno chcesz usunąć to zdjęcie?",
+      "confirmation-album-text": "Czy na pewno chcesz usunąć ten album?",
+      "modal-cancel": "Cancel",
+      "edit-modal-title": "Zdjęcie edytuje się",
+      "modal-save-changes": "Zapisz zmiany",
+      "album-description": "Opis albumu",
+      "album-name": "Nazwa albumu",
+      "album-image": "Zdjęcie albumu",
+      "album-image-alert": "Tylko: szerokość:500px wysokość:750px !!!!!",
+      "add-new-album-btn": "Dodaj album",
+      "add-new-album": "Dodaj nowy album:",
+      "albums-list-title": "Albumy:",
+      "no-albums": "Brak albumów",
+      "no-images": "Brak obrazów",
+      "is-visible-text": "Jest widoczne: ",
+      "photo-description": "Opis zdjęcia"
+    },
+    "decorations": {
+      "page-title": "DEKORACJE",
+      "page-header": "Decoracje albumy:"
+    },
+    "invitations": {
+      "page-title": "PAPETERIA",
+      "page-header": "Papeteria albumy"
+    },
+    "graphic": {
+      "page-title": "GRAFIKA UŻYTKOWA",
+      "page-header": "Grafika użytkowa albumy:"
+    },
+    "bouquets": {
+      "page-title": "KWIATOWO",
+      "page-header": "Kwiatowo albumy:"
+    },
+    "contacts-page":{
+      "page-title": "KONTAKT",
+      "page-header": "Kontakty uzupełnij",
+      "text-title": "Wpisz informacje, jak się skontaktować:",
+      "save-btn": "Zapisz"
     }
+  },
+  "user": {
+    "header": {
+      "title": "DESIGN FOR LIFE",
+      "about": "O MNIE",
+      "bukiety": "KWIATOWO",
+      "decorations": "DEKORACJE",
+      "invitations": "PAPETERIA",
+      "graphics": "GRAFIKA UŻYTKOWA",
+      "blog": "BLOG",
+      "contacts": "KONTAKT"
+    },
+    "about": {
+      "title": "O mnie"
+    },
+    "bouquets": {
+      "title": "Kwiatowo"
+    },
+    "decorations": {
+      "title": "Dekoracje"
+    },
+    "invitations": {
+      "title": "Papeteria"
+    },
+    "graphic": {
+      "title": "Grafika użytkowa"
+    },
+    "contacts": {
+      "title": "Kontakt",
+      "no_email":"Wprowadź e-mail",
+      "no_message":"Wprowadź wiadomość tekstową",
+      "no_name":"Wprowadź imię",
+      "wrong_email":"Zły format e-mail",
+      "mesage_sent":"Wiadomość wysłana.",
+      "name": "Imię",
+      "phone": "Telefon",
+      "email": "Email",
+      "message": "Wiadomość",
+      "send_btn": "Wysłać"
+    }
+  }
 }

@@ -6,10 +6,6 @@ require.config({
         backbone: "../lib/backbone-min",
         i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
-        'ckeditor': "../lib/ckeditor/ckeditor",
-        'ckjquery': "../lib/ckeditor/adapters/jquery",
-        'jquery.form': "../lib/jquery.form",
-        'bootstrap': "../lib/bootstrap.min",
         'lazy-load': "../lib/jquery.lazyload",
         'raphael': "../lib/raphael-min",
         'spinners': '../lib/spinners.min',
@@ -21,21 +17,14 @@ require.config({
         'user-album-images': "./views/user_part/albumImagesView",
         'user-albums-list': "./views/user_part/albumsListView",
         'user-contacts': "./views/user_part/contactsView",
-        'admin-header': "./views/admin/headerView",
-        'admin-about': "./views/admin/aboutView",
-        'admin-album': "./views/admin/albumView",
-        'admin-albums-list': "./views/admin/albumsListView",
-        'admin-contacts': "./views/admin/contactsView",
-        'sign-in-view': "./views/admin/signInView",
-        'not-found': "./views/notFoundView",
-        'server-error': "./views/serverErrorView",
-        server: "./utils/server",
-        constants: "./utils/constants",
-        common: "./utils/common",
-        'local-storage': "./utils/localStorage",
-        app: "./app",
+
+        'not-found': "../common_js/notFoundView",
+        'server-error': "../common_js/serverErrorView",
+        server: "../common_js/utils/server",
+        constants: "../common_js/utils/constants",
+        app: "../common_js/app",
         router: "./router",
-        'view-loader': "./utils/viewLoader"
+        'view-loader': "../common_js/utils/viewLoader"
     },
     map: {
         "*": {
@@ -51,12 +40,6 @@ require.config({
             //module value.
             exports: 'Backbone'
         },
-        'ckjquery': {
-            deps: ['jquery', 'ckeditor']
-        },
-        'bootstrap': {
-            'deps': ['jquery']
-        },
         'lazy-load': {
             'deps': ['jquery']
         },
@@ -68,7 +51,7 @@ require.config({
     waitSeconds: 0
 });
 
-require(['constants', 'spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstrap', 'lazy-load'], function (constants, Spinners, app) {
+require(['constants', 'spinners', 'app', 'router', 'i18n', 'JST', 'lazy-load'], function (constants, Spinners, app, router) {
 	var spinner = Spinners.create($('div.spinner'), {
         radius: 7,
         height: 10,

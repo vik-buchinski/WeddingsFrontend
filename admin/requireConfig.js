@@ -1,16 +1,16 @@
 require.config({
     baseUrl: './js',
     paths: {
-        jquery: "../lib/jquery-2.1.1.min",
-        lodash: "../lib/lodash.min",
-        backbone: "../lib/backbone-min",
-        i18n: "../lib/i18next.amd.withJQuery-1.8.1.min",
+        jquery: "../../lib/jquery-2.1.1.min",
+        lodash: "../../lib/lodash.min",
+        backbone: "../../lib/backbone-min",
+        i18n: "../../lib/i18next.amd.withJQuery-1.8.1.min",
         JST: "../compiled-templates",
-        'ckeditor': "../lib/ckeditor/ckeditor",
-        'ckjquery': "../lib/ckeditor/adapters/jquery",
-        'jquery.form': "../lib/jquery.form",
-        'bootstrap': "../lib/bootstrap.min",
-        'spinners': '../lib/spinners.min',
+        'ckeditor': "../../lib/ckeditor/ckeditor",
+        'ckjquery': "../../lib/ckeditor/adapters/jquery",
+        'jquery.form': "../../lib/jquery.form",
+        'bootstrap': "../../lib/bootstrap.min",
+        'spinners': '../../lib/spinners.min',
 
         'admin-header': "./views/admin/headerView",
         'admin-about': "./views/admin/aboutView",
@@ -18,15 +18,15 @@ require.config({
         'admin-albums-list': "./views/admin/albumsListView",
         'admin-contacts': "./views/admin/contactsView",
         'sign-in-view': "./views/admin/signInView",
-        'not-found': "./views/notFoundView",
-        'server-error': "./views/serverErrorView",
-        server: "./utils/server",
-        constants: "./utils/constants",
-        common: "./utils/common",
-        'local-storage': "./utils/localStorage",
-        app: "./app",
+        'not-found': "../../common_js/notFoundView",
+        'server-error': "../../common_js/serverErrorView",
+        server: "../../common_js/utils/server",
+        constants: "../../common_js/utils/constants",
+        common: "../../common_js/utils/common",
+        'local-storage': "../../common_js/utils/localStorage",
+        app: "../../common_js/app",
         router: "./router",
-        'view-loader': "./utils/viewLoader"
+        'view-loader': "../../common_js/utils/viewLoader"
     },
     map: {
         "*": {
@@ -77,7 +77,7 @@ require(['constants', 'spinners', 'app', 'i18n', 'JST', 'jquery.form', 'bootstra
             fallbackLng: false,
             load: 'unspecific',
             ns: 'translation',
-            resGetPath: './locales/__ns__-__lng__.json',
+            resGetPath: '../locales/__ns__-__lng__.json',
             useCookie: false,
             getAsync: false
         });

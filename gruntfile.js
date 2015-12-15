@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                     prettify: false,                        //Default: false|true
                     amdWrapper: false,                      //Default: false|true
                     templateSettings: {
-                        
+
                     },
                 },
                 files: {
