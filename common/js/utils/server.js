@@ -1,7 +1,7 @@
 ﻿define(['constants'], function(constants) {
 
     var requestsLaunched = 0;
-    
+
     function commonServerRequest(url, method, params, successCallback, sessionToken, errorCallback) {
         if (!params) {
             params = "";
@@ -32,7 +32,7 @@
             })
             .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
                     window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
@@ -93,7 +93,7 @@
             })
             .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
                     window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
@@ -136,7 +136,7 @@
         submitAdminAbout: function(params, successCallback) {
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save.url, constants.API_METHODS.admin.about.save.type, params, successCallback);
         },
-        
+
         submitAdminAboutTitleImage: function (params, successCallback) {
             commonFileSubmitUrl(constants.API_METHODS.admin.about.save_title_image.url, constants.API_METHODS.admin.about.save_title_image.type, params, successCallback);
         },
@@ -207,7 +207,7 @@
                 successCallback,
                 token);
         },
-        
+
         editAdminContactsDescription: function (token, description, successCallback) {
             var params = {
                 'description': description

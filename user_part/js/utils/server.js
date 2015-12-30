@@ -32,7 +32,7 @@
             })
             .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
                     window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {
@@ -93,7 +93,7 @@
             })
             .fail(function (jqXhr) {
                 if (jqXhr.status == constants.UNAUTHORIZED_REQUEST_CODE) {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 } else if (jqXhr.status == constants.NOT_FOUND_REQUEST_CODE) {
                     window.app.router.navigate('/notFound', { trigger: true, replace: true });
                     if (null != jqXhr.responseText && jqXhr.responseText !== "") {

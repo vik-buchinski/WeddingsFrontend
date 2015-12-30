@@ -1,3 +1,4 @@
-compiled-templates.js
+user_part/compiled-templates.js
+admin/compiled-templates.js
 node_modules/
 release/

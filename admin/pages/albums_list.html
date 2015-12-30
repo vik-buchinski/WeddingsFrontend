@@ -42,7 +42,7 @@
                         <h4 class="media-heading"><%=album.album_name%></h4>
                         <p class="media-heading"><%=$.i18n.t("admin.album-page.is-visible-text")%><%=album.is_visible%></p>
                         <div class="media-actonbar">
-                            <a href="#admin/album/<%=album.id%>" class="btn btn-primary"><%=$.i18n.t("admin.album-page.edit")%></a>
+                            <a href="#album/<%=album.id%>" class="btn btn-primary"><%=$.i18n.t("admin.album-page.edit")%></a>
                             <button id="delete-btn" class="btn btn-danger" data-album-number="<%=album.id%>"><%=$.i18n.t("admin.album-page.delete")%></button>
                         </div>
                     </div>

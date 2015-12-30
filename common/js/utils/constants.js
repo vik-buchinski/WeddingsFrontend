@@ -151,29 +151,31 @@
     PAGE_TEMPLATES_DATA: {
         NOT_FOUND: {
             view_name: "NotFound",
-            template_name: "not_found"
+            template_name: "not_found",
+            path: "common/pages/"
         },
         SERVER_ERROR: {
             view_name: "ServerError",
-            template_name: "server_error"
+            template_name: "server_error",
+            path: "common/pages/"
         },
         ADMIN: {
             HEADER: {
                 view_name: "AdminHeader",
                 template_name: "header",
-                path: "admin/common/"
+                path: "admin/pages/common/"
             },
             SIGN_IN: {
                 view_name: "SignIn",
                 template_name: "sign_in",
-                path: "admin/"
+                path: "admin/pages/"
             },
             ABOUT: {
                 view_name: "AdminAbout",
                 template_name: "about",
-                path: "admin/",
+                path: "admin/pages/",
                 other_templates: {
-                    path: "admin/common/",
+                    path: "admin/pages/common/",
                     access_point: "MainContainerTemplate",
                     template_name: "main_container"
                 }
@@ -181,9 +183,9 @@
             ALBUM: {
                 view_name: "AdminAlbum",
                 template_name: "album",
-                path: "admin/",
+                path: "admin/pages/",
                 other_templates: {
-                    path: "admin/common/",
+                    path: "admin/pages/common/",
                     access_point: "MainContainerTemplate",
                     template_name: "main_container"
                 }
@@ -191,9 +193,9 @@
             ALBUMS_LIST: {
                 view_name: "AdminAlbumsList",
                 template_name: "albums_list",
-                path: "admin/",
+                path: "admin/pages/",
                 other_templates: {
-                    path: "admin/common/",
+                    path: "admin/pages/common/",
                     access_point: "MainContainerTemplate",
                     template_name: "main_container"
                 }
@@ -201,9 +203,9 @@
             CONTACTS: {
                 view_name: "AdminContacts",
                 template_name: "contacts",
-                path: "admin/",
+                path: "admin/pages/",
                 other_templates: {
-                    path: "admin/common/",
+                    path: "admin/pages/common/",
                     access_point: "MainContainerTemplate",
                     template_name: "main_container"
                 }
@@ -213,9 +215,9 @@
             HEADER: {
                 view_name: "UserHeader",
                 template_name: "header",
-                path: "user_part/common/",
+                path: "user_part/pages/common/",
                 other_templates: {
-                    path: "user_part/common/",
+                    path: "user_part/pages/common/",
                     access_point: "HeaderMenu",
                     template_name: "header_menu"
                 }
@@ -223,22 +225,22 @@
             ABOUT: {
                 view_name: "UserAbout",
                 template_name: "about",
-                path: "user_part/"
+                path: "user_part/pages/"
             },
             ALBUM_IMAGES: {
                 view_name: "AlbumImages",
                 template_name: "album_images",
-                path: "user_part/"
+                path: "user_part/pages/"
             },
             ALBUMS_LIST: {
                 view_name: "AlbumsList",
                 template_name: "albums_list",
-                path: "user_part/"
+                path: "user_part/pages/"
             },
             CONTACTS: {
                 view_name: "Contacts",
                 template_name: "contacts",
-                path: "user_part/"
+                path: "user_part/pages/"
             }
         }
     }

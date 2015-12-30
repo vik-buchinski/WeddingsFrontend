@@ -14,7 +14,7 @@
                     signInSubmit: function () {
                         server.login($("#input-email").val(), $("#input-password").val(), function(data) {
                             localStorage.saveSession(data);
-                            window.app.router.navigate("admin", true);
+                            window.app.router.navigate("#", true);
                         });
                         return false;
                     }

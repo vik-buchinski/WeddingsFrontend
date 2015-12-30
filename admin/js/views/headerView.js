@@ -12,7 +12,7 @@
                     },
                     logOut: function() {
                         localStorage.saveSession(null);
-                        window.app.router.navigate("admin/signIn", true);
+                        window.app.router.navigate("signIn", true);
                     }
                 });
             }

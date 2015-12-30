@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li <% if(selected_page && all_pages.about === selected_page) { %>class="active"<% } %>><a href="#admin"><%=$.i18n.t("admin.left-panel.about")%></a></li>
+                <li <% if(selected_page && all_pages.about === selected_page) { %>class="active"<% } %>><a href="#/"><%=$.i18n.t("admin.left-panel.about")%></a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li <% if(selected_page && all_pages.bouquets === selected_page) { %>class="active"<% } %>><a href="#admin/albums/<%=album_types.bouquets%>"><%=$.i18n.t("admin.left-panel.bouquets")%></a></li>
-                <li <% if(selected_page && all_pages.decorations === selected_page) { %>class="active"<% } %>><a href="#admin/albums/<%=album_types.decorations%>"><%=$.i18n.t("admin.left-panel.decorations")%></a></li>
-                <li <% if(selected_page && all_pages.invitations === selected_page) { %>class="active"<% } %>><a href="#admin/albums/<%=album_types.invitations%>"><%=$.i18n.t("admin.left-panel.invitations")%></a></li>
-                <li <% if(selected_page && all_pages.graphic === selected_page) { %>class="active"<% } %>><a href="#admin/albums/<%=album_types.graphic%>"><%=$.i18n.t("admin.left-panel.graphic")%></a></li>
+                <li <% if(selected_page && all_pages.bouquets === selected_page) { %>class="active"<% } %>><a href="#albums/<%=album_types.bouquets%>"><%=$.i18n.t("admin.left-panel.bouquets")%></a></li>
+                <li <% if(selected_page && all_pages.decorations === selected_page) { %>class="active"<% } %>><a href="#albums/<%=album_types.decorations%>"><%=$.i18n.t("admin.left-panel.decorations")%></a></li>
+                <li <% if(selected_page && all_pages.invitations === selected_page) { %>class="active"<% } %>><a href="#albums/<%=album_types.invitations%>"><%=$.i18n.t("admin.left-panel.invitations")%></a></li>
+                <li <% if(selected_page && all_pages.graphic === selected_page) { %>class="active"<% } %>><a href="#albums/<%=album_types.graphic%>"><%=$.i18n.t("admin.left-panel.graphic")%></a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li <% if(selected_page && all_pages.contacts === selected_page) { %>class="active"<% } %>><a href="#admin/contacts"><%=$.i18n.t("admin.left-panel.contacts")%></a></li>
+                <li <% if(selected_page && all_pages.contacts === selected_page) { %>class="active"<% } %>><a href="#contacts"><%=$.i18n.t("admin.left-panel.contacts")%></a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

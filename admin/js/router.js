@@ -63,7 +63,7 @@
                             { about_data: data });
                     });
                 } else {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 }
             },
             adminBouquets: function() {
@@ -81,7 +81,7 @@
                             });
                     });
                 } else {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 }
             },
             adminAlbumsList: function(albumType) {
@@ -105,7 +105,7 @@
                             });
                     });
                 } else {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 }
             },
             adminAlbum: function(albumId) {
@@ -129,7 +129,7 @@
                             });
                     });
                 } else {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 }
             },
             adminContacts: function() {
@@ -147,7 +147,7 @@
                             });
                     });
                 } else {
-                    window.app.router.navigate("admin/signIn", true);
+                    window.app.router.navigate("signIn", true);
                 }
             },
 

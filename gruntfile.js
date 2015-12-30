@@ -13,7 +13,8 @@ module.exports = function (grunt) {
                     },
                 },
                 files: {
-                    "compiled-templates.js": ["pages/**/*.html"]
+                    "user_part/compiled-templates.js": ["user_part/pages/**/*.html", "common/pages/**/*.html"],
+                    "admin/compiled-templates.js": ["admin/pages/**/*.html", "common/pages/**/*.html"]
                 }
             },
             release: {
@@ -26,12 +27,13 @@ module.exports = function (grunt) {
                     },
                 },
                 files: {
-                    "release/compiled-templates.js": ["pages/**/*.html"]
+                    "release/user_part/compiled-templates.js": ["user_part/pages/**/*.html", "common/pages/**/*.html"],
+                    "release/admin/compiled-templates.js": ["admin/pages/**/*.html", "common/pages/**/*.html"]
                 }
             }
         },
         watch: {
-            files: ['pages/**/*'],
+            files: ['user_part/pages/**/*', 'admin/pages/**/*', "common/pages/**/*"],
             tasks: ['devel'],
         },
         connect: {
@@ -56,33 +58,42 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                  {
-                      expand: true,
-                      src: [
-                          'css/*.min.css',
-                          'css/*.map',
-                          'css/*.eot',
-                          'css/*.svg',
-                          'css/*.ttf',
-                          'css/*.woff',
-                          'css/*.woff2',
-                          'img/**/*',
-                          'locales/translation-pl.json',
-                          'index.html',
-                          'requireConfig.js',
-                          'lib/**/*',
-                          'Web.config'
-                      ],
-                      dest: releaseFolder
-                  }
+                    {
+                        expand: true,
+                        src: [
+                            'css/*.min.css',
+                            'css/*.map',
+                            'css/*.eot',
+                            'css/*.svg',
+                            'css/*.ttf',
+                            'css/*.woff',
+                            'css/*.woff2',
+                            'img/**/*',
+                            'locales/translation-pl.json',
+                            'index.html',
+                            'lib/**/*',
+                            'Web.config',
+                            'user_part/requireConfig.js',
+                            'admin/requireConfig.js',
+                            'admin/index.html'
+                        ],
+                        dest: releaseFolder
+                    }
                 ]
             }
         },
         uglify: {
-            my_target: {
+            user_part: {
                 files: [{
                     expand: true,
-                    src: 'js/**/*.js',
+                    src: ['user_part/js/**/*.js', 'common/js/**/*.js'],
+                    dest: releaseFolder
+                }]
+            },
+            admin: {
+                files: [{
+                    expand: true,
+                    src: ['admin/js/**/*.js'],
                     dest: releaseFolder
                 }]
             }
@@ -102,5 +113,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('devel', ['jst:dev']);
     grunt.registerTask('default', ['devel', 'connect', 'watch']);
-    grunt.registerTask('release', ['clean:release', 'cssmin', 'uglify', 'copy', 'jst:release']);
+    grunt.registerTask('release', ['clean:release', 'cssmin', 'uglify:user_part','uglify:admin', 'copy', 'jst:release']);
 };

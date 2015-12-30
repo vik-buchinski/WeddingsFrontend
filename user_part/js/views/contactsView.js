@@ -6,19 +6,22 @@
                     initialize: function (options) {
                         this.data = options.data;
                     },
-                    
+
                     render: function() {
                         this.setElement(this.template({ data: this.data }));
+                        if ($(".container").hasClass("fullscreen-content")) {
+                            $(".container").removeClass("fullscreen-content");
+                        }
                         return this;
                     },
                     events: {
                         "click #send-message": "submit"
                     },
-                    
+
                     validate: function(name, email, message) {
 
                         var errors = new Array();
-                        
+
                         if (name.val() == '') {
                             errors.push($.i18n.t("user.contacts.no_name"));
                         }
