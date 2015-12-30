@@ -27,14 +27,24 @@ module.exports = function (grunt) {
                     },
                 },
                 files: {
-                    "release/user_part/compiled-templates.js": ["user_part/pages/**/*.html", "common/pages/**/*.html"],
                     "release/admin/compiled-templates.js": ["admin/pages/**/*.html", "common/pages/**/*.html"]
                 }
             }
         },
         watch: {
-            files: ['user_part/pages/**/*', 'admin/pages/**/*', "common/pages/**/*"],
-            tasks: ['devel'],
+            pages: {
+                files: ['user_part/pages/**/*', 'admin/pages/**/*', "common/pages/**/*"],
+                tasks: ['devel'],
+            },
+            js: {
+                files: [
+                    'user_part/js/**/*.js',
+                    'user_part/requireConfig.js',
+                    'common/js/**/*.js',
+                    'user_part/compiled-templates.js'
+                ],
+                tasks: ['requirejs:dev'],
+            }
         },
         connect: {
             server: {
@@ -73,7 +83,6 @@ module.exports = function (grunt) {
                             'index.html',
                             'lib/**/*',
                             'Web.config',
-                            'user_part/requireConfig.js',
                             'admin/requireConfig.js',
                             'admin/index.html'
                         ],
@@ -83,13 +92,6 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            user_part: {
-                files: [{
-                    expand: true,
-                    src: ['user_part/js/**/*.js', 'common/js/**/*.js'],
-                    dest: releaseFolder
-                }]
-            },
             admin: {
                 files: [{
                     expand: true,
@@ -101,6 +103,28 @@ module.exports = function (grunt) {
         clean: {
             release: [releaseFolder]
         },
+        requirejs: {
+            release: {
+                options: {
+                    name : '../requireConfig',
+                    baseUrl: './user_part/js',
+                    mainConfigFile: './user_part/requireConfig.js',
+                    out: releaseFolder + 'user_part/app.js',
+                    generateSourceMaps: false,
+                }
+            },
+            dev: {
+                options: {
+                    name : '../requireConfig',
+                    baseUrl: './user_part/js',
+                    mainConfigFile: './user_part/requireConfig.js',
+                    out: 'user_part/app.js',
+                    generateSourceMaps: true,
+                    preserveLicenseComments: false,
+                    optimize: "none",
+                }
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -110,8 +134,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-    grunt.registerTask('devel', ['jst:dev']);
-    grunt.registerTask('default', ['devel', 'connect', 'watch']);
-    grunt.registerTask('release', ['clean:release', 'cssmin', 'uglify:user_part','uglify:admin', 'copy', 'jst:release']);
+    grunt.registerTask('devel', ['jst:dev', 'requirejs:dev']);
+    grunt.registerTask('default', ['devel', 'connect', 'watch:pages', 'watch:js']);
+    grunt.registerTask('release', [
+        'clean:release',
+        'cssmin',
+        'jst:dev',
+        'requirejs:release',
+        'uglify:admin',
+        'copy',
+        'jst:release'
+    ]);
 };

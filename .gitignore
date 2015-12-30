@@ -1,4 +1,6 @@
 user_part/compiled-templates.js
 admin/compiled-templates.js
+user_part/app.js
+*.map
 node_modules/
 release/
