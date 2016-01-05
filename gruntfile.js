@@ -84,7 +84,8 @@ module.exports = function (grunt) {
                             'lib/**/*',
                             'Web.config',
                             'admin/requireConfig.js',
-                            'admin/index.html'
+                            'admin/index.html',
+                            'common/js/**/*',
                         ],
                         dest: releaseFolder
                     }
@@ -111,6 +112,8 @@ module.exports = function (grunt) {
                     mainConfigFile: './user_part/requireConfig.js',
                     out: releaseFolder + 'user_part/app.js',
                     generateSourceMaps: false,
+                    optimize: 'uglify2',
+                    preserveLicenseComments: false,
                 }
             },
             dev: {
