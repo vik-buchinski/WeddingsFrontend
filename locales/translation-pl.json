@@ -23,7 +23,7 @@
       "about": "O mnie",
       "bouquets": "Kwiatowo",
       "decorations": "Dekoracje",
-      "invitations": "Papeteria",
+      "invitations": "Zaproszenia",
       "graphic": "Grafika użytkowa",
       "contacts": "Kontakt"
     },
@@ -75,8 +75,8 @@
       "page-header": "Decoracje albumy:"
     },
     "invitations": {
-      "page-title": "PAPETERIA",
-      "page-header": "Papeteria albumy"
+      "page-title": "ZAPROSZENIA",
+      "page-header": "Zaproszenia albumy"
     },
     "graphic": {
       "page-title": "GRAFIKA UŻYTKOWA",
@@ -99,7 +99,7 @@
       "about": "O MNIE",
       "bukiety": "KWIATOWO",
       "decorations": "DEKORACJE",
-      "invitations": "PAPETERIA",
+      "invitations": "ZAPROSZENIA",
       "graphics": "GRAFIKA UŻYTKOWA",
       "blog": "BLOG",
       "contacts": "KONTAKT"
@@ -114,7 +114,7 @@
       "title": "Dekoracje"
     },
     "invitations": {
-      "title": "Papeteria"
+      "title": "Zaproszenia"
     },
     "graphic": {
       "title": "Grafika użytkowa"
