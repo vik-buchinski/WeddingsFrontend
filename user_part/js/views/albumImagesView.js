@@ -27,14 +27,14 @@
                         this.setElement(this.template({ data: this.buildImagesGrid(), description: this.data.album_description }));
                         $("section.page .container").html(this.$el);
                         $(this.$el).find("img.lazy").lazyload({
-                            threshold: 200
+                            threshold: 50
                         });
                     },
 
                     events: {
                         "click img.lazy": "openFSImage"
                     },
-                    
+
                     openFSImage: function (ev) {
                         window.Vent.trigger("openFSImage", { image_id: $(ev.currentTarget).data("id") });
                     },

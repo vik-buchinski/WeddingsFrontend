@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="x-dns-prefetch-control" content="on">
+        <link rel="dns-prefetch" href="http://designforlifeapi.azurewebsites.net">
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -39,12 +41,12 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/styles.css?v=1.1"/>
     </head>
     <body>
         <div id="spinner" class="spinner"></div>
         <!-- content dynamic load from template ./pages/*.html -->
         <div id="pages-container" class="page desktop"></div>
-        <script data-main="./user_part/app" src="lib/require.js"></script>
+        <script async data-main="./user_part/app.min.js?v=1.1" src="lib/require.min.js"></script>
     </body>
 </html>

@@ -1,6 +1,8 @@
 user_part/compiled-templates.js
 admin/compiled-templates.js
 user_part/app.js
+user_part/app.min.js
 *.map
 node_modules/
 release/
+.idea/
