@@ -41,12 +41,32 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <link rel="stylesheet" href="css/styles.css?v=1.1"/>
+        <link rel="stylesheet" href="css/styles.css?v=1.2"/>
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+                n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+                document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '101905487040593'); // Insert your pixel ID here.
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img
+                height="1"
+                width="1"
+                style="display:none"
+                src="https://www.facebook.com/tr?id=101905487040593&ev=PageView&noscript=1"
+            />
+        </noscript>
+        <!-- DO NOT MODIFY -->
+        <!-- End Facebook Pixel Code -->
     </head>
     <body>
         <div id="spinner" class="spinner"></div>
         <!-- content dynamic load from template ./pages/*.html -->
         <div id="pages-container" class="page desktop"></div>
-        <script async data-main="./user_part/app.min.js?v=1.1" src="lib/require.min.js"></script>
+        <script async data-main="./user_part/app.min.js?v=1.2" src="lib/require.min.js"></script>
     </body>
 </html>
